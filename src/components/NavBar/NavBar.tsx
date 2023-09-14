@@ -6,7 +6,9 @@ import Logo from "@/components/Logo/Logo";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import theme from "@/components/ThemeRegistry/theme";
 
-const navItems = ["Home", "Services", "Careers", "Articles"];
+const navItems = ["Home", "Services", "Careers", "Insights"];
+
+// TODO: Change color of nav bar on scroll
 
 const NavBar = () => {
   return (

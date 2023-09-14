@@ -1,7 +1,15 @@
 import React from "react";
-import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 
-const HeroSection: React.FC = () => {
+const TrendingInsights: React.FC = () => {
   return (
     <Box
       sx={{
@@ -13,6 +21,7 @@ const HeroSection: React.FC = () => {
       }}
     >
       <Card
+        elevation={0}
         sx={{
           // backgroundColor: "white",
           // borderRadius: 4,
@@ -22,7 +31,6 @@ const HeroSection: React.FC = () => {
           position: "absolute",
           top: 650,
           width: "90%",
-          height: "100%",
           gap: "20px",
         }}
       >
@@ -34,20 +42,24 @@ const HeroSection: React.FC = () => {
           sx={{
             alignItems: "center",
             justifyContent: "space-between",
-            height: "90%",
           }}
         >
           {/* Card 1 */}
-          <Card sx={{ maxWidth: "30%", height: "100%" }}>
+          <Card sx={{ maxWidth: "30%" }}>
             <CardMedia sx={{ height: 140 }} image="card1.png" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 Consolidation of the ophthalmology sector
               </Typography>
             </CardContent>
+            <CardActions>
+              <Button size="small" color="primary">
+                Learn More
+              </Button>
+            </CardActions>
           </Card>
           {/* Card 2 */}
-          <Card sx={{ maxWidth: "30%", height: "100%" }}>
+          <Card sx={{ maxWidth: "30%" }}>
             <CardMedia sx={{ height: 140 }} image="card2.png" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -56,15 +68,25 @@ const HeroSection: React.FC = () => {
                 practice sector
               </Typography>
             </CardContent>
+            <CardActions>
+              <Button size="small" color="primary">
+                Learn More
+              </Button>
+            </CardActions>
           </Card>
           {/* Card 3 */}
-          <Card sx={{ maxWidth: "30%", height: "100%" }}>
+          <Card sx={{ maxWidth: "30%" }}>
             <CardMedia sx={{ height: 140 }} image="card3.png" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 Consolidation of the ophthalmology sector
               </Typography>
             </CardContent>
+            <CardActions>
+              <Button size="small" color="primary">
+                Learn More
+              </Button>
+            </CardActions>
           </Card>
         </Box>
       </Card>
@@ -72,4 +94,4 @@ const HeroSection: React.FC = () => {
   );
 };
 
-export default HeroSection;
+export default TrendingInsights;

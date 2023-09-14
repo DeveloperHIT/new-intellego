@@ -13,8 +13,6 @@ export const metadata: Metadata = {
   description: "healthcare fair market value",
 };
 
-const navItems = ["Home", "Services", "Careers", "Articles"];
-
 export default function RootLayout({
   children,
 }: {
@@ -24,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeRegistry>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex", backgroundColor: "#f6f9fc" }}>
             <NavBar />
             <Box component="main"> {children}</Box>
           </Box>

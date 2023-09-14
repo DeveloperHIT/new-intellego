@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-import { AppBar, Box, Button, Toolbar, useTheme } from "@mui/material";
+import { AppBar, Box, Button, Toolbar } from "@mui/material";
 import Logo from "@/components/Logo/Logo";
-import SearchIconWrapper from "@/components/SearchBox/SearchIconWrapper";
-import SearchIcon from "@mui/icons-material/Search";
+
 import SearchBox from "@/components/SearchBox/SearchBox";
 import theme from "@/components/ThemeRegistry/theme";
 
@@ -12,7 +11,6 @@ const navItems = ["Home", "Services", "Careers", "Articles"];
 const NavBar = () => {
   return (
     <AppBar
-      // color="#5E5E5E"
       position="fixed"
       sx={{
         backgroundColor: "#5E5E5E99", // TODO: Fix this with RGBA and theme

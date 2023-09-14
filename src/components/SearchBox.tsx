@@ -1,8 +1,6 @@
 import React from "react";
 import { alpha, InputBase, styled } from "@mui/material";
-
 import SearchIcon from "@mui/icons-material/Search";
-import theme from "@/components/ThemeRegistry/theme";
 
 interface SearchProps {}
 

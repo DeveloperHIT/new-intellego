@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import InsightsCard from "@/components/InsightsCard/InsightsCard";
+import InsightsCard from "@/components/InsightsCard";
 
 // TODO: Add flexbox magic to make this look good
 

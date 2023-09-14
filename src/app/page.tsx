@@ -4,6 +4,7 @@ import TrendingInsights from "@/sections/TrendingInsights";
 import Services from "@/sections/Services";
 import Industry from "@/sections/Industry";
 import Insights from "@/sections/Insights";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Services />
       <Industry />
       <Insights />
+      <Footer />
     </Box>
   );
 }

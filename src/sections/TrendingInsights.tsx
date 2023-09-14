@@ -9,6 +9,8 @@ import {
   Typography,
 } from "@mui/material";
 
+// TODO: Refactor this component to be responsive
+
 const TrendingInsights: React.FC = () => {
   return (
     <Box
@@ -23,14 +25,13 @@ const TrendingInsights: React.FC = () => {
       <Card
         elevation={0}
         sx={{
-          // backgroundColor: "white",
-          // borderRadius: 4,
           display: "flex",
           flexDirection: "column",
           padding: 4,
           position: "absolute",
           top: 650,
           width: "90%",
+          height: "50%",
           gap: "20px",
         }}
       >
@@ -42,10 +43,11 @@ const TrendingInsights: React.FC = () => {
           sx={{
             alignItems: "center",
             justifyContent: "space-between",
+            height: "90%",
           }}
         >
           {/* Card 1 */}
-          <Card sx={{ maxWidth: "30%" }}>
+          <Card sx={{ maxWidth: "30%", height: "100%" }}>
             <CardMedia sx={{ height: 140 }} image="card1.png" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -59,7 +61,7 @@ const TrendingInsights: React.FC = () => {
             </CardActions>
           </Card>
           {/* Card 2 */}
-          <Card sx={{ maxWidth: "30%" }}>
+          <Card sx={{ maxWidth: "30%", height: "100%" }}>
             <CardMedia sx={{ height: 140 }} image="card2.png" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -75,7 +77,7 @@ const TrendingInsights: React.FC = () => {
             </CardActions>
           </Card>
           {/* Card 3 */}
-          <Card sx={{ maxWidth: "30%" }}>
+          <Card sx={{ maxWidth: "30%", height: "100%" }}>
             <CardMedia sx={{ height: 140 }} image="card3.png" />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { AppBar, Box, Button, Toolbar } from "@mui/material";
-import Logo from "@/components/Logo/Logo";
+import Logo from "@/components/Logo";
 
-import SearchBox from "@/components/SearchBox/SearchBox";
+import SearchBox from "@/components/SearchBox";
 import theme from "@/components/ThemeRegistry/theme";
 
 const navItems = ["Home", "Services", "Careers", "Insights"];
@@ -40,6 +40,7 @@ const NavBar = () => {
           ))}
         </Box>
         <SearchBox />
+        {/* TODO: Fix hover color */}
         <Button
           variant="contained"
           sx={{ backgroundColor: "white", color: theme.palette.primary.main }}

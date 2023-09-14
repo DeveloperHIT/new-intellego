@@ -4,7 +4,7 @@ import React from "react";
 import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
 import { Box } from "@mui/material";
 
-import NavBar from "@/components/NavBar/NavBar";
+import NavBar from "@/components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 

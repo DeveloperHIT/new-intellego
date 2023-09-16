@@ -20,8 +20,8 @@ const HeroSection: React.FC = () => {
             align="left"
             sx={{ fontWeight: 700 }}
           >
-            Industry leader in
-            <br /> healthcare fair market value
+            Industry Leader in
+            <br /> Healthcare Fair Market Value
           </Typography>
           <Typography
             variant="h6"
@@ -31,17 +31,6 @@ const HeroSection: React.FC = () => {
             align={"left"}
           >
             Navigating the complexities of healthcare compliance with expertise
-          </Typography>
-          <Typography
-            variant={"body1"}
-            color="white"
-            sx={{
-              marginTop: 4,
-            }}
-          >
-            Intellego’s fair market value axperts are moving the industry
-            forward through innovative thought and a keen focus on cost,
-            ti,eliness, and quality
           </Typography>
         </Box>
         <Grid container spacing={2}></Grid>

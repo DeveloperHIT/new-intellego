@@ -1,90 +1,81 @@
 import React from "react";
-import { Box, Card, CardMedia, Typography } from "@mui/material";
-
-// TODO: Add flexbox magic to make this look good
+import { Box, Card, Typography } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
+import Container from "@/components/Container";
+import CardContent from "@mui/material/CardContent";
 
 const Services: React.FC = () => {
   return (
-    <Box
-      sx={{
-        height: "500px",
-        width: "100vw",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          padding: 4,
-          width: "90%",
-          height: "100%",
-          gap: "20px",
-        }}
-      >
-        <Typography variant="h5" sx={{ color: "black", fontWeight: 500 }}>
-          Services
-        </Typography>
-        {/* Card Container */}
-        <Box
-          display="flex"
-          sx={{
-            flexDirection: "column",
-            gap: "20px",
-            width: "100%",
-          }}
-        >
-          {/* Top Row */}
-          <Box
-            display="flex"
-            sx={{
-              gap: "20px",
-              justifyContent: "space-between",
-            }}
-          >
-            <Card sx={{}}>
-              <CardMedia
-                sx={{ height: 200, width: 300 }}
-                // TODO: Replace cards with images that have no text
-                image="ServicesCard1.png"
-              />
+    <Container>
+      <Typography variant="h5" gutterBottom>
+        Services
+      </Typography>
+      {/* TODO: Place radial overlay that is unclickable and right zIndex that is above card but below text */}
+      <Box sx={{}}>
+        <Grid container spacing={2}>
+          <Grid xs={4} md={4}>
+            <Card
+              sx={{
+                backgroundColor: "#ECF4FE",
+              }}
+            >
+              <CardContent>
+                <Typography>01</Typography>
+                <Typography variant="h6">Service</Typography>
+              </CardContent>
             </Card>
-            <Card>
-              <CardMedia
-                sx={{ height: 200, width: 300 }}
-                image="ServicesCard2.png"
-              />
+          </Grid>
+          <Grid xs={4} md={4}>
+            <Card
+              sx={{
+                backgroundColor: "#ECF4FE",
+              }}
+            >
+              <CardContent>
+                <Typography>02</Typography>
+                <Typography variant="h6">Service</Typography>
+              </CardContent>
             </Card>
-            <Card>
-              <CardMedia
-                sx={{ height: 200, width: 300 }}
-                image="ServicesCard3.png"
-              />
+          </Grid>
+          <Grid xs={4} md={4}>
+            <Card
+              sx={{
+                backgroundColor: "#ECF4FE",
+              }}
+            >
+              <CardContent>
+                <Typography>03</Typography>
+                <Typography variant="h6">Service</Typography>
+              </CardContent>
             </Card>
-          </Box>
-          {/* Bottom Row */}
-          <Box
-            display="flex"
-            sx={{ gap: "20px", justifyContent: "space-between" }}
-          >
-            <Card>
-              <CardMedia
-                sx={{ height: 200, width: 600 }}
-                image="ServicesCard4.png"
-              />
+          </Grid>
+          <Grid xs={8} md={8}>
+            <Card
+              sx={{
+                backgroundColor: "#ECF4FE",
+              }}
+            >
+              <CardContent>
+                <Typography>04</Typography>
+                <Typography variant="h6">Service</Typography>
+              </CardContent>
             </Card>
-            <Card>
-              <CardMedia
-                sx={{ height: 200, width: 300 }}
-                image="ServicesCard5.png"
-              />
+          </Grid>
+          <Grid xs={4} md={4}>
+            <Card
+              sx={{
+                backgroundColor: "#ECF4FE",
+              }}
+            >
+              <CardContent>
+                <Typography>05</Typography>
+                <Typography variant="h6">Service</Typography>
+              </CardContent>
             </Card>
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
       </Box>
-    </Box>
+    </Container>
   );
 };
 

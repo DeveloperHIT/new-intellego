@@ -1,4 +1,5 @@
 /* Disable overscroll behavior */
 body {
+    background: #FBFDFF;
     overscroll-behavior: none;
 }

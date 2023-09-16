@@ -1,98 +1,49 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
-
-// TODO: Refactor this component to be responsive
+import { Card, Typography } from "@mui/material";
+import Container from "@/components/Container";
+import InsightsCard from "@/components/InsightsCard";
+import Grid from "@mui/material/Unstable_Grid2";
 
 const TrendingInsights: React.FC = () => {
   return (
-    <Box
-      sx={{
-        height: "500px",
-        width: "100vw",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <Container>
       <Card
         elevation={0}
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          padding: 4,
-          position: "absolute",
-          top: 650,
-          width: "90%",
-          height: "50%",
-          gap: "20px",
+          position: "relative",
+          backgroundColor: "#FFFFFF",
+          padding: "2rem",
+          marginTop: "-5rem",
         }}
       >
-        <Typography variant="h5" sx={{ color: "black", fontWeight: 500 }}>
+        <Typography variant="h5" gutterBottom>
           Trending Insights
         </Typography>
-        <Box
-          display="flex"
-          sx={{
-            alignItems: "center",
-            justifyContent: "space-between",
-            height: "90%",
-          }}
-        >
-          {/* Card 1 */}
-          <Card sx={{ maxWidth: "30%", height: "100%" }}>
-            <CardMedia sx={{ height: 140 }} image="card1.png" />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Consolidation of the ophthalmology sector
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" color="primary">
-                Learn More
-              </Button>
-            </CardActions>
-          </Card>
-          {/* Card 2 */}
-          <Card sx={{ maxWidth: "30%", height: "100%" }}>
-            <CardMedia sx={{ height: 140 }} image="card2.png" />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                Dealmaker's Corner: Acquisitions in the booming dermatology
-                practice sector
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" color="primary">
-                Learn More
-              </Button>
-            </CardActions>
-          </Card>
-          {/* Card 3 */}
-          <Card sx={{ maxWidth: "30%", height: "100%" }}>
-            <CardMedia sx={{ height: 140 }} image="card3.png" />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Consolidation of the ophthalmology sector
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small" color="primary">
-                Learn More
-              </Button>
-            </CardActions>
-          </Card>
-        </Box>
+        <Grid container spacing={2}>
+          <Grid xs={4}>
+            <InsightsCard
+              title={"Title"}
+              description={"Description"}
+              image="InsightsCard1.png"
+            />
+          </Grid>
+          <Grid xs={4}>
+            <InsightsCard
+              title={"Title"}
+              description={"Description"}
+              image="InsightsCard2.png"
+            />
+          </Grid>
+          <Grid xs={4}>
+            <InsightsCard
+              title={"Title"}
+              description={"Description"}
+              image="InsightsCard3.png"
+            />
+          </Grid>
+        </Grid>
       </Card>
-    </Box>
+    </Container>
   );
 };
 

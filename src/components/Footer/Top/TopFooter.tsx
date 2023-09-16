@@ -1,21 +1,30 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
-import TopFooterLinks from "@/components/Footer/Top/TopFooterLinks";
+import Box from "@mui/material/Box";
+import { Button } from "@mui/material";
+
+const navItems = ["Home", "Services", "Careers", "Insights"];
 
 const TopFooter = () => {
   return (
     <Box
       display="flex"
       sx={{
-        backgroundColor: "#FFFFFF",
-        height: "106px",
         justifyContent: "space-between",
-        alignItems: "center",
-        padding: "0 20px",
+        paddingBottom: 2,
+        paddingTop: 2,
       }}
     >
-      <TopFooterLinks />
-      <Button variant="contained">Contact Us</Button>
+      {/* TODO: Make buttons align left */}
+      <Box>
+        {navItems.map((item) => (
+          <Button key={item} sx={{ color: "primary" }}>
+            {item}
+          </Button>
+        ))}
+      </Box>
+      <Button variant="contained" color="primary">
+        Contact Us
+      </Button>
     </Box>
   );
 };

@@ -20,7 +20,7 @@ export default function InsightsCard({
   image,
 }: InsightsCardProps) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card>
       <CardMedia sx={{ height: 140 }} image={image} title={title} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">

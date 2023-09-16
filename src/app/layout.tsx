@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import React from "react";
 import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
-import { AppBar, Box, Divider } from "@mui/material";
+import { AppBar, Box } from "@mui/material";
 
 import Container from "@/components/Container";
 import TopBar from "@/components/TopBar";
-import Footer from "@/components/Footer/Footer";
+import TopFooter from "@/components/Footer/Top/TopFooter";
+import BottomFooter from "@/components/Footer/Bottom/BottomFooter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeRegistry>
-          <Box>
+          <Box
+            sx={{
+              backgroundColor: "#FBFDFF",
+            }}
+          >
             <AppBar
               position={"fixed"}
               sx={{
@@ -44,13 +49,29 @@ export default function RootLayout({
                 <TopBar />
               </Container>
             </AppBar>
-            <main>
-              {children}
-              <Divider />
-            </main>
-            <Container paddingY={4}>
-              <Footer />
-            </Container>
+            <main>{children}</main>
+            {/* Top Footer */}
+            <Box
+              sx={{
+                backgroundColor: "#FFFFFF",
+              }}
+            >
+              <Container paddingY={0}>
+                <TopFooter />
+              </Container>
+            </Box>
+            {/* Bottom Footer */}
+            <Box
+              sx={{
+                backgroundColor: "#1F1F1F",
+                color: "#FFFFFF",
+                height: "550px",
+              }}
+            >
+              <Container paddingY={0}>
+                <BottomFooter />
+              </Container>
+            </Box>
           </Box>
         </ThemeRegistry>
       </body>

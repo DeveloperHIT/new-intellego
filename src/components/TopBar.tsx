@@ -2,14 +2,13 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Link from "@mui/material/Link";
 import { alpha, useTheme } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import Logo from "@/components/Logo";
 
 interface Props {}
 
-const Topbar = ({}: Props) => {
+const TopBar = ({}: Props) => {
   const theme = useTheme();
 
   return (
@@ -30,24 +29,46 @@ const Topbar = ({}: Props) => {
       </Box>
       <Box sx={{ display: { xs: "none", md: "flex" } }} alignItems={"center"}>
         <Box marginLeft={3}>
-          <Link underline="none" component="a" href="/" color="white">
+          <Button
+            variant="text"
+            sx={{
+              color: "white",
+            }}
+          >
+            {/*<Link href={"/"}>Home</Link>*/}
             Home
-          </Link>
+          </Button>
         </Box>
         <Box marginLeft={3}>
-          <Link underline="none" component="a" href="/" color="white">
+          <Button
+            variant="text"
+            sx={{
+              color: "white",
+            }}
+          >
+            {/*<Link href={"/services"}>Services</Link>*/}
             Services
-          </Link>
+          </Button>
         </Box>
         <Box marginLeft={3}>
-          <Link underline="none" component="a" href="/" color="white">
+          <Button
+            variant="text"
+            sx={{
+              color: "white",
+            }}
+          >
             Careers
-          </Link>
+          </Button>
         </Box>
         <Box marginLeft={3}>
-          <Link underline="none" component="a" href="/" color="white">
+          <Button
+            variant="text"
+            sx={{
+              color: "white",
+            }}
+          >
             Insights
-          </Link>
+          </Button>
         </Box>
 
         <Box marginLeft={3}>
@@ -57,13 +78,13 @@ const Topbar = ({}: Props) => {
             component="a"
             target="blank"
             href="/"
-            size="large"
           >
             Contact Us
           </Button>
         </Box>
       </Box>
       <Box sx={{ display: { xs: "flex", md: "none" } }} alignItems={"center"}>
+        {/* TODO: Change hover color */}
         <Button
           aria-label="Menu"
           variant={"outlined"}
@@ -72,6 +93,7 @@ const Topbar = ({}: Props) => {
             minWidth: "auto",
             padding: 1,
             borderColor: alpha(theme.palette.divider, 0.2),
+            color: "white",
           }}
         >
           <MenuIcon />
@@ -81,4 +103,4 @@ const Topbar = ({}: Props) => {
   );
 };
 
-export default Topbar;
+export default TopBar;

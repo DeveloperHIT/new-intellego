@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { Paper, styled } from "@mui/material";
 import { Search } from "@mui/icons-material";

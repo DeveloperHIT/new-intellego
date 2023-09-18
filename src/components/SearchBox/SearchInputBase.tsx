@@ -1,3 +1,4 @@
+"use client";
 import { InputBase, styled } from "@mui/material";
 
 export const StyledSearchInputBase = styled(InputBase)({

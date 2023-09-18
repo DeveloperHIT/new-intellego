@@ -1,6 +1,5 @@
 import colors from "@/theme/base/colors";
 import pxToRem from "@/helpers/pxToRem";
-import { BorderRadiusType } from "@/theme/theme";
 
 const { grey } = colors;
 
@@ -16,7 +15,7 @@ export default {
     5: pxToRem(5),
   },
 
-  borderRadius: <BorderRadiusType>{
+  borderRadius: {
     xs: pxToRem(1.6),
     sm: pxToRem(2),
     md: pxToRem(6),

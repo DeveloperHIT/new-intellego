@@ -1,42 +1,71 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
-import Container from "@/components/Container";
+import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 
 // TODO: Fade the bottom of the hero image
 
-const HeroSection: React.FC = () => {
+const Hero: React.FC = () => {
   return (
-    <Container>
-      <Box
-        marginBottom={4}
+    <Box
+      minHeight="75vh"
+      width="100%"
+      sx={{
+        backgroundImage: ({
+          functions: { linearGradient, rgba },
+          palette: { gradients },
+        }) =>
+          `${linearGradient(
+            rgba(gradients.dark.main, 0.5),
+            rgba(gradients.dark.state, 0.5),
+          )}, url(/hero.png)})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "grid",
+        placeItems: "center",
+      }}
+    >
+      <Container
         sx={{
-          paddingTop: 10,
+          paddingTop: { xs: 12, sm: 16, md: 20, lg: 24, xl: 28 },
+          paddingBottom: { xs: 12, sm: 16, md: 20, lg: 24, xl: 28 },
         }}
       >
-        <Box marginBottom={2}>
+        <Grid
+          container
+          item
+          xs={12}
+          md={7}
+          justifyContent={{ xs: "center", md: "start" }}
+          sx={{
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
           <Typography
-            variant="h3"
-            color="white"
-            align="left"
-            sx={{ fontWeight: 700 }}
+            variant="h1"
+            color="white !important"
+            sx={{
+              fontSize: { sm: "3xl" },
+            }}
           >
-            Industry Leader in
-            <br /> Healthcare Fair Market Value
+            Industry leader in healthcare consulting
           </Typography>
           <Typography
-            variant="h6"
-            component="p"
-            color="white"
-            sx={{ fontWeight: 400 }}
-            align={"left"}
+            variant="body1"
+            color="white !important"
+            mt={1}
+            pr={{ md: 12, lg: 24, xl: 32 }}
+            sx={{ opacity: 0.8 }}
           >
-            Navigating the complexities of healthcare compliance with expertise
+            Navigating the complexities of healthcare with experience and
+            efficiency
           </Typography>
-        </Box>
-        <Grid container spacing={2}></Grid>
-      </Box>
-    </Container>
+          <Stack direction="row" spacing={1} mt={6} mb={3}>
+            {/* TODO: Create a button with gradient */}
+            <Button variant="contained">Contact us</Button>
+          </Stack>
+        </Grid>
+      </Container>
+    </Box>
   );
 };
 
-export default HeroSection;
+export default Hero;

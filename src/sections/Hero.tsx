@@ -8,15 +8,9 @@ const Hero: React.FC = () => {
     <Box
       minHeight="75vh"
       width="100%"
+      // TODO: Add linear gradient overlay
       sx={{
-        backgroundImage: ({
-          functions: { linearGradient, rgba },
-          palette: { gradients },
-        }) =>
-          `${linearGradient(
-            rgba(gradients.dark.main, 0.5),
-            rgba(gradients.dark.state, 0.5),
-          )}, url(/hero.png)})`,
+        backgroundImage: "url(/hero.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         display: "grid",

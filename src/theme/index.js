@@ -1,34 +1,49 @@
+"use client";
+import { useMemo } from "react";
+import merge from "lodash.merge";
 import { createTheme } from "@mui/material/styles";
+import { componentOverrides } from "./overrides";
+import { palette } from "@/theme/palette";
+import { customShadows } from "@/theme/customShadows";
+import { shadows } from "@/theme/shadows";
+import { typography } from "@/theme/typography";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material";
+import { darkMode } from "@/theme/options/darkMode";
+import { useSettingsContext } from "@/components/Settings";
+import { presets } from "@/theme/options/presets";
 
-// Import base
-import boxShadows from "@/theme/base/boxShadows";
-import breakpoints from "@/theme/base/breakpoints";
-import colors from "./base/colors";
-import globals from "@/theme/base/globals";
-import typography from "@/theme/base/typography";
+export default function CustomThemeProvider({ children }) {
+  const settings = useSettingsContext();
 
-// Import helper functions
-import linearGradient from "@/helpers/linearGradient";
-import rgba from "@/helpers/rgba";
+  const darkModeOption = darkMode(settings.themeMode);
 
-// Import components
-import container from "@/theme/components/container";
+  const presetsOption = presets(settings.themeColorPresets);
 
-export default createTheme({
-  boxShadows: { ...boxShadows },
-  breakpoints: { ...breakpoints },
-  functions: {
-    linearGradient,
-    rgba,
-  },
-  palette: { ...colors },
-  typography: { ...typography },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        ...container,
-        ...globals,
-      },
-    },
-  },
-});
+  const themeSettings = useMemo(
+    () => ({
+      palette: palette("light"),
+      shadows: shadows("light"),
+      customShadows: customShadows("light"),
+      typography,
+      shape: { borderRadius: 6 },
+    }),
+    [],
+  );
+
+  const memoizedValue = useMemo(
+    () => merge(themeSettings, darkModeOption, presetsOption),
+    [themeSettings, darkModeOption, presetsOption],
+  );
+
+  const theme = createTheme(memoizedValue);
+
+  theme.components = componentOverrides(theme);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
+}

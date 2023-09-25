@@ -1,3 +1,7 @@
+"use client";
+
+import ServicesView from "@/sections/view/servicesView";
+
 export default function Page() {
-  return <h1>Services</h1>;
+  return <ServicesView />;
 }

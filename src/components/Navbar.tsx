@@ -1,4 +1,11 @@
-import { AppBar, Box, Button, Container, IconButton } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import Logo from "@/components/Logo";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -29,9 +36,12 @@ const Navbar = () => {
           <Box
             sx={{
               display: "flex",
+              alignItems: "center",
             }}
           >
-            <Logo size="xl" color="white" />
+            <Typography component="a" href="/" sx={{ display: "flex" }}>
+              <Logo size="xl" color="white" />
+            </Typography>
           </Box>
 
           <Box
@@ -49,15 +59,36 @@ const Navbar = () => {
                 gap: 2,
               }}
             >
-              <Button variant="text" sx={{ color: "white !important" }}>
+              <Typography
+                component="a"
+                variant="button"
+                href="/services"
+                fontWeight="regular"
+                textTransform="capitalize"
+                sx={{ color: "white !important" }}
+              >
                 Services
-              </Button>
-              <Button variant="text" sx={{ color: "white !important" }}>
+              </Typography>
+              <Typography
+                component="a"
+                variant="button"
+                href="/insights"
+                fontWeight="regular"
+                textTransform="capitalize"
+                sx={{ color: "white !important" }}
+              >
                 Insights
-              </Button>
-              <Button variant="text" sx={{ color: "white !important" }}>
+              </Typography>
+              <Typography
+                component="a"
+                variant="button"
+                href="/careers"
+                fontWeight="regular"
+                textTransform="capitalize"
+                sx={{ color: "white !important" }}
+              >
                 Careers
-              </Button>
+              </Typography>
             </Box>
             {/* Search Box */}
             <Box

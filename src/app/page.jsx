@@ -1,12 +1,6 @@
 "use client";
-import Hero from "@/sections/Hero";
-import Trending from "@/sections/Trending";
+import LandingView from "@/sections/view/landingView";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <Trending />
-    </>
-  );
+  return <LandingView />;
 }

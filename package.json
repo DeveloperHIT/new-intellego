@@ -1,5 +1,5 @@
 {
-  "name": "new-intellego",
+  "title": "new-intellego",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,24 +11,39 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@iconify/react": "^4.1.1",
     "@mui/icons-material": "^5.14.9",
+    "@mui/lab": "^5.0.0-alpha.135",
     "@mui/material": "^5.14.9",
     "@mui/styled-engine-sc": "^5.14.9",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/chroma-js": "^2.4.1",
     "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "chroma-js": "^2.4.2",
     "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "framer-motion": "^10.16.4",
+    "lodash.isequal": "^4.5.0",
+    "lodash.merge": "^4.6.2",
     "next": "13.4.19",
+    "numeral": "^2.0.6",
     "prettier": "^3.0.3",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.5.2",
+    "react-lazy-load-image-component": "^1.6.0",
+    "simplebar-react": "^3.2.4",
     "styled-components": "^5.3.11",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.30",
+    "tailwindcss": "^3.3.3"
   }
 }

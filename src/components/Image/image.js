@@ -1,18 +1,31 @@
-"use client";
 import { forwardRef } from "react";
-import { useInView } from "react-intersection-observer";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 import Box from "@mui/material/Box";
 import { alpha, useTheme } from "@mui/material/styles";
+
+import { getRatio } from "./utils";
 
 const Image = forwardRef(
   (
     {
       ratio,
       overlay,
+      disabledEffect = false,
       alt,
       src,
-      blurOnHover = false, // default is false
-      hovered,
+      afterLoad,
+      delayTime,
+      threshold,
+      beforeLoad,
+      delayMethod,
+      placeholder,
+      wrapperProps,
+      scrollPosition,
+      effect = "blur",
+      visibleByDefault,
+      wrapperClassName,
+      useIntersectionObserver,
       sx,
       ...other
     },
@@ -20,12 +33,7 @@ const Image = forwardRef(
   ) => {
     const theme = useTheme();
 
-    const [refView, inView] = useInView({
-      triggerOnce: true,
-      rootMargin: "200px 0px",
-    });
-
-    const overlayStyles = overlay && {
+    const overlayStyles = !!overlay && {
       "&:before": {
         content: "''",
         top: 0,
@@ -38,7 +46,40 @@ const Image = forwardRef(
       },
     };
 
-    const blurEffect = blurOnHover && !hovered ? { filter: "blur(5px)" } : {};
+    const content = (
+      <Box
+        component={LazyLoadImage}
+        alt={alt}
+        src={src}
+        afterLoad={afterLoad}
+        delayTime={delayTime}
+        threshold={threshold}
+        beforeLoad={beforeLoad}
+        delayMethod={delayMethod}
+        placeholder={placeholder}
+        wrapperProps={wrapperProps}
+        scrollPosition={scrollPosition}
+        visibleByDefault={visibleByDefault}
+        effect={disabledEffect ? undefined : effect}
+        useIntersectionObserver={useIntersectionObserver}
+        wrapperClassName={wrapperClassName || "component-image-wrapper"}
+        placeholderSrc={
+          disabledEffect ? "/assets/transparent.png" : "/assets/placeholder.svg"
+        }
+        //
+        sx={{
+          width: 1,
+          height: 1,
+          objectFit: "cover",
+          verticalAlign: "bottom",
+          ...(!!ratio && {
+            top: 0,
+            left: 0,
+            position: "absolute",
+          }),
+        }}
+      />
+    );
 
     return (
       <Box
@@ -53,33 +94,21 @@ const Image = forwardRef(
           ...(!!ratio && {
             width: 1,
           }),
+          "& span.component-image-wrapper": {
+            width: 1,
+            height: 1,
+            verticalAlign: "bottom",
+            backgroundSize: "cover !important",
+            ...(!!ratio && {
+              pt: getRatio(ratio),
+            }),
+          },
           ...overlayStyles,
           ...sx,
         }}
         {...other}
       >
-        <Box
-          component="img"
-          ref={refView}
-          alt={alt}
-          src={inView ? src : undefined}
-          sx={{
-            width: 1,
-            height: 1,
-            objectFit: "cover",
-            verticalAlign: "bottom",
-            transition: blurOnHover
-              ? "filter 0.3s ease-in-out, transform 0.3s ease-in-out"
-              : undefined,
-            ...blurEffect,
-            transform: blurOnHover && hovered ? "scale(1.05)" : "scale(1)", // Add this line
-            ...(!!ratio && {
-              top: 0,
-              left: 0,
-              position: "absolute",
-            }),
-          }}
-        />
+        {content}
       </Box>
     );
   },

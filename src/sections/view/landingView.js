@@ -1,12 +1,13 @@
 "use client";
 import HomeHero from "@/sections/landing/homeHero";
-import HomeTrendingInsights from "@/sections/landing/homeTrendingInsights";
+import Posts from "@/sections/landing/posts";
+import { _travelPosts } from "@/_mock";
 
 export default function LandingView() {
   return (
     <>
       <HomeHero />
-      <HomeTrendingInsights />
+      <Posts posts={_travelPosts.slice(2, 6)} />
     </>
   );
 }

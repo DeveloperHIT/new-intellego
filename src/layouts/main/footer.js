@@ -26,8 +26,6 @@ import Collapse from "@mui/material/Collapse";
 export default function Footer() {
   const mdUp = useResponsive("up", "md");
 
-  const pathname = usePathname();
-
   const mobileList = navConfig.find((i) => i.title === "Pages")?.children || [];
 
   const desktopList = pageLinks.sort(
@@ -35,22 +33,6 @@ export default function Footer() {
   );
 
   const renderLists = mdUp ? desktopList : mobileList;
-
-  const isHome = pathname === "/";
-
-  const simpleFooter = (
-    <Container sx={{ py: 8, textAlign: "center" }}>
-      <Logo size="xl" />
-
-      <Typography
-        variant="caption"
-        component="div"
-        sx={{ color: "text.secondary" }}
-      >
-        © 2023. All rights reserved
-      </Typography>
-    </Container>
-  );
 
   const mainFooter = (
     <>
@@ -169,7 +151,7 @@ export default function Footer() {
     </>
   );
 
-  return <footer>{isHome ? simpleFooter : mainFooter}</footer>;
+  return <footer>{mainFooter}</footer>;
 }
 
 export function ListDesktop({ list }) {

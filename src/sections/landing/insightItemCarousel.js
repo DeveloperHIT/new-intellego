@@ -49,10 +49,10 @@ export default function InsightItemCarousel({ insight }) {
       <Image
         src={insight.coverUrl}
         alt={insight.title}
-        overlay={`linear-gradient(to bottom, ${alpha(
-          theme.palette.common.black,
+        overlay={`linear-gradient(to right top, ${alpha(
+          theme.palette.grey[900],
           0,
-        )} 0%, ${theme.palette.common.black} 75%)`}
+        )} 0%, ${theme.palette.grey[900]} 60%)`}
         sx={{
           width: 1,
           height: { xs: 720, md: 960 },

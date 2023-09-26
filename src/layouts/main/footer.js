@@ -104,9 +104,9 @@ export default function Footer() {
           <Grid xs={12} md={6}>
             {mdUp ? (
               <Masonry
-                columns={4}
+                columns={3}
                 spacing={2}
-                defaultColumns={4}
+                defaultColumns={3}
                 defaultSpacing={2}
               >
                 {renderLists.map((list) => (

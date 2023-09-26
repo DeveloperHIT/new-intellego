@@ -7,6 +7,7 @@ export default function LandingView() {
   return (
     <>
       <Hero />
+      {/* TODO: Make the recent insights section smaller..too much space on y-axis */}
       <RecentInsights insights={__insights.slice(0, 3)} />
     </>
   );

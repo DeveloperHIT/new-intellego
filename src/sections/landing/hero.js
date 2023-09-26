@@ -26,9 +26,10 @@ export default function Hero() {
 
   return (
     <Box
+      // TODO: Test out other gradients to make the bg more vibrant
       sx={{
         ...bgGradient({
-          color: alpha(theme.palette.grey[900], 0.6),
+          color: alpha(theme.palette.grey[900], 0.55),
           imgUrl: "/assets/images/insights/insight_1.jpg",
         }),
         overflow: "hidden",

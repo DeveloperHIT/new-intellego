@@ -26,30 +26,10 @@ export const _descriptions = [
 ];
 
 export const _tags = [
-  "Technology",
-  "Marketing",
-  "Design",
-  "Photography",
-  "Art",
-  "Fashion",
-  "Food",
-  "Travel",
-  "Fitness",
-  "Nature",
-  "Business",
-  "Music",
-  "Health",
-  "Books",
-  "Sports",
-  "Film",
-  "Education",
-  "Motivation",
-  "Gaming",
-  "Pets",
-  "Cooking",
-  "Finance",
-  "Selfcare",
-  "Writing",
+  "Digital Health Consulting",
+  "Life Sciences and Pharma Consulting",
+  "Valuation Services",
+  "Other",
 ];
 
 export const _insightTitles = [

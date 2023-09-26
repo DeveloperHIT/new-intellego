@@ -13,7 +13,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Iconify from "@/components/Iconify";
 import { useResponsive } from "@/hooks/useResponsive";
 
-import InsightItemMobile from "@/sections/insights/insightItemMobile";
+import InsightItemMobile from "@/sections/insights/insight/insightItemMobile";
 
 export default function InsightSidebar({
   categories,

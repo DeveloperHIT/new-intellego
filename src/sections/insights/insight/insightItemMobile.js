@@ -5,7 +5,7 @@ import Image from "@/components/Image";
 import { fDate } from "@/helpers/formatTime";
 import TextMaxLine from "@/components/TextMaxLine";
 
-import InsightTimeBlock from "@/sections/insights/insightTimeBlock";
+import InsightTimeBlock from "@/sections/insights/insight/insightTimeBlock";
 
 export default function InsightItemMobile({ insight, onSidebar }) {
   return (

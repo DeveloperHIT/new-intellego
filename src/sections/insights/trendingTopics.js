@@ -8,7 +8,7 @@ import { _mock } from "@/_mock";
 import { useResponsive } from "@/hooks/useResponsive";
 import Carousel, { useCarousel, CarouselArrows } from "@/components/Carousel";
 
-import TopicItem from "./trendingTopicItem";
+import TopicItem from "./insight/trendingTopicItem";
 
 const CATEGORIES = [
   "Marketing",

@@ -6,7 +6,7 @@ import { fDate } from "@/helpers/formatTime";
 import RouterLink from "@/routes/routerLink";
 import TextMaxLine from "@/components/TextMaxLine";
 
-import InsightTimeBlock from "@/sections/insights/insightTimeBlock";
+import InsightTimeBlock from "@/sections/insights/insight/insightTimeBlock";
 
 export default function InsightItem({ insight }) {
   return (

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
-import InsightItem from "@/sections/insights/insightItem";
+import InsightItem from "@/sections/insights/insight/insightItem";
 
 export default function FeaturedInsights({ posts }) {
   const featuredPost = posts[0];

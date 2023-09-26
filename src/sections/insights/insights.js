@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Pagination, { paginationClasses } from "@mui/material/Pagination";
 
-import InsightItem from "./insightItem";
+import InsightItem from "./insight/insightItem";
 
 export default function Insights({ insights }) {
   return (

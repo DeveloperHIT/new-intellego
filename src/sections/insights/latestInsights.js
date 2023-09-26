@@ -8,9 +8,9 @@ import Iconify from "@/components/Iconify";
 import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
 
-import InsightItemMobile from "@/sections/insights/insightItemMobile";
+import InsightItemMobile from "@/sections/insights/insight/insightItemMobile";
 
-import InsightItem from "@/sections/insights/insightItem";
+import InsightItem from "@/sections/insights/insight/insightItem";
 
 export default function LatestInsights({ insights }) {
   console.log(insights);

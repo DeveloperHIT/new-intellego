@@ -8,10 +8,10 @@ import Markdown from "@/components/Markdown";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import { _categories } from "@/_mock";
 
-import InsightTags from "@/sections/insights/insightTags";
+import InsightTags from "@/sections/insights/insight/insightTags";
 import Newsletter from "../newsletter";
-import InsightAuthor from "@/sections/insights/insightAuthor";
-import InsightSidebar from "@/sections/insights/insightSidebar";
+import InsightAuthor from "@/sections/insights/insight/insightAuthor";
+import InsightSidebar from "@/sections/insights/insight/insightSidebar";
 import LatestInsights from "@/sections/insights/latestInsights";
 
 // TODO: Move categories to supabase

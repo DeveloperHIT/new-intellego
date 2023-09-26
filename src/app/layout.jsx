@@ -1,5 +1,7 @@
 import "./globals.css";
 
+export const dynamic = "force-dynamic";
+
 import ThemeProvider from "@/theme";
 import { primaryFont } from "@/theme/typography";
 

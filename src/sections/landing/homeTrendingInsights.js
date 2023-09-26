@@ -50,7 +50,7 @@ export default function HomeTrendingInsights() {
             <HomeTrendingInsight
               title="Determining Fair Market Value in Healthcare: Best Practices"
               category="Valuation"
-              // imageUrl="/assets/images/blog/blog1.jpg"
+              // imageUrl="/assets/images/insights/blog1.jpg"
             />
             <HomeTrendingInsight
               title="The Intersection of Stark Law and Fair Market Valuation"

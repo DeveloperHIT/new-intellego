@@ -24,3 +24,13 @@ export const _socials = [
     color: "#00AAEC",
   },
 ];
+
+export const _categories = [
+  { label: "Ambulatory Surgery Centers", path: "" },
+  { label: "Compensation", path: "" },
+  { label: "Dialysis Clinics", path: "" },
+  { label: "Digital Health", path: "" },
+  { label: "HCP/KOL", path: "" },
+  { label: "Integration and Alignment", path: "" },
+  { label: "Pharma and Life Sciences", path: "" },
+];

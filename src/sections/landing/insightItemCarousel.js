@@ -5,12 +5,11 @@ import Typography from "@mui/material/Typography";
 import { alpha, useTheme } from "@mui/material/styles";
 
 import Image from "@/components/Image";
-import { paths } from "@/routes/paths";
 import Iconify from "@/components/Iconify";
 import { fDate } from "@/helpers/formatTime";
 import RouterLink from "@/routes/routerLink";
 
-export default function PostItemCarousel({ post }) {
+export default function InsightItemCarousel({ insight }) {
   const theme = useTheme();
 
   return (
@@ -30,26 +29,26 @@ export default function PostItemCarousel({ post }) {
       >
         <Box sx={{ mx: "auto", maxWidth: 400 }}>
           <Typography variant="body2" sx={{ color: "primary.main" }}>
-            {fDate(post.createdAt)}
+            {fDate(insight.createdAt)}
           </Typography>
 
           <Typography variant="h3" sx={{ mt: 1, mb: 5 }}>
-            {post.title}
+            {insight.title}
           </Typography>
 
           <Typography sx={{ opacity: 0.72, mb: 10 }}>
-            {post.description}
+            {insight.description}
           </Typography>
 
-          <Fab component={RouterLink} href={paths.travel.post}>
+          <Fab component={RouterLink} href="/">
             <Iconify icon="carbon:chevron-right" />
           </Fab>
         </Box>
       </Stack>
 
       <Image
-        src={post.coverUrl}
-        alt={post.title}
+        src={insight.coverUrl}
+        alt={insight.title}
         overlay={`linear-gradient(to bottom, ${alpha(
           theme.palette.common.black,
           0,

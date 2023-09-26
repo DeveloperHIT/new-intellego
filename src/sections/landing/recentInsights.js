@@ -2,8 +2,6 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
-import { paths } from "@/routes/paths";
 import Iconify from "@/components/Iconify";
 import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
@@ -13,10 +11,10 @@ import Carousel, {
   CarouselArrows,
 } from "@/components/Carousel";
 
-import PostItem from "./postItem";
-import PostItemCarousel from "./postItemCarousel";
+import InsightItem from "./insightItem";
+import InsightItemCarousel from "./insightItemCarousel";
 
-export default function Posts({ posts }) {
+export default function RecentInsights({ insights }) {
   const mdUp = useResponsive("up", "md");
 
   const carousel = useCarousel({
@@ -56,8 +54,8 @@ export default function Posts({ posts }) {
             rightButtonProps={{ sx: { color: "common.white" } }}
           >
             <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-              {posts.map((post) => (
-                <PostItemCarousel key={post.id} post={post} />
+              {insights.map((insight) => (
+                <InsightItemCarousel key={insight.id} insight={insight} />
               ))}
             </Carousel>
           </CarouselArrows>
@@ -70,13 +68,13 @@ export default function Posts({ posts }) {
         >
           {mdUp && (
             <Typography variant="h2" sx={{ color: "common.white", py: 10 }}>
-              Latest Posts
+              Latest Insights
             </Typography>
           )}
 
           <Stack spacing={3}>
-            {posts.slice(0, 3).map((post) => (
-              <PostItem key={post.id} post={post} />
+            {insights.map((insight) => (
+              <InsightItem key={insight.id} insight={insight} />
             ))}
           </Stack>
 
@@ -90,7 +88,7 @@ export default function Posts({ posts }) {
             <Button
               color="primary"
               component={RouterLink}
-              href={paths.travel.posts}
+              href="/"
               endIcon={<Iconify icon="carbon:chevron-right" />}
             >
               View All

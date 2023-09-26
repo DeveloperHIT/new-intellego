@@ -11,14 +11,14 @@ export const paths = {
     contact: "/marketing/contact",
   },
   // Travel
-  travel: {
+  insights: {
     root: "/travel",
     tours: "/travel/tours",
     tour: `/travel/tour`,
     checkout: "/travel/checkout",
     orderCompleted: "/travel/order-completed",
-    posts: "/travel/posts",
-    post: `/travel/post`,
+    posts: "/insights",
+    post: `/insight`,
     about: "/travel/about",
     contact: "/travel/contact",
   },

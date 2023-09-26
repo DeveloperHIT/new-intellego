@@ -13,27 +13,39 @@ export const pageLinks = [
     order: "1",
     subheader: "Clients",
     items: [
-      { title: "Academic Medical Centers", path: "/academic-medical-centers" },
+      {
+        title: "Academic Medical Centers",
+        path: "/clients/academic-medical-centers",
+      },
       {
         title: "Ambulatory Surgery Centers",
-        path: "/ambulatory-surgery-centers",
+        path: "/clients/ambulatory-surgery-centers",
       },
-      { title: "Cancer Centers", path: "/cancer-centers" },
-      { title: "Children's Hospitals", path: "/childrens-hospitals" },
-      { title: "Digital Health", path: "/digital-health" },
-      { title: "Dialysis Clinics", path: "/dialysis-clinics" },
+      { title: "Cancer Centers", path: "/clients/cancer-centers" },
+      { title: "Children's Hospitals", path: "/clients/childrens-hospitals" },
+      { title: "Digital Health", path: "/clients/digital-health" },
+      { title: "Dialysis Clinics", path: "/clients/dialysis-clinics" },
       {
         title: "Management Services Organizations",
-        path: "/management-services-organizations",
+        path: "/clients/management-services-organizations",
       },
       {
         title: "Hospitals & Health Systems",
-        path: "/hospitals-and-health-systems",
+        path: "/clients/hospitals-and-health-systems",
       },
-      { title: "Pharma & Life Sciences", path: "/pharma-and-life-sciences" },
-      { title: "Physician Organizations", path: "/physician-organizations" },
-      { title: "Private Equity", path: "/private-equity" },
-      { title: "Vascular Access Centers", path: "/vascular-access-centers" },
+      {
+        title: "Pharma & Life Sciences",
+        path: "/clients/pharma-and-life-sciences",
+      },
+      {
+        title: "Physician Organizations",
+        path: "/clients/physician-organizations",
+      },
+      { title: "Private Equity", path: "/clients/private-equity" },
+      {
+        title: "Vascular Access Centers",
+        path: "/clients/vascular-access-centers",
+      },
     ],
   },
   {

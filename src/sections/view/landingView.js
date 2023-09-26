@@ -7,7 +7,7 @@ export default function LandingView() {
   return (
     <>
       <HomeHero />
-      <RecentInsights insights={__insights} />
+      <RecentInsights insights={__insights.slice(0, 3)} />
     </>
   );
 }

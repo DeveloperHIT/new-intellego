@@ -1,13 +1,13 @@
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 
-import Image from "src/components/image";
+import Image from "@/components/Image";
 import { fDate } from "@/helpers/formatTime";
 import TextMaxLine from "@/components/TextMaxLine";
 
 import InsightTimeBlock from "@/sections/insights/insightTimeBlock";
 
-export default function InsightItemMobile({ insight, onSiderbar }) {
+export default function InsightItemMobile({ insight, onSidebar }) {
   return (
     <Stack
       spacing={2}
@@ -26,9 +26,9 @@ export default function InsightItemMobile({ insight, onSiderbar }) {
         }}
       />
 
-      <Stack spacing={onSiderbar ? 0.5 : 1}>
+      <Stack spacing={onSidebar ? 0.5 : 1}>
         <Link color="inherit">
-          <TextMaxLine variant={onSiderbar ? "subtitle2" : "h6"}>
+          <TextMaxLine variant={onSidebar ? "subtitle2" : "h6"}>
             {insight.title}
           </TextMaxLine>
         </Link>

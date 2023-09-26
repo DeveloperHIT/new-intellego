@@ -81,7 +81,7 @@ export default function InsightSidebar({
       <Typography variant="h5">Recent Insights</Typography>
 
       {recentInsights.list.map((insight) => (
-        <InsightItemMobile key={insight.id} insight={insight} onSiderbar />
+        <InsightItemMobile key={insight.id} insight={insight} onSidebar />
       ))}
     </Stack>
   );

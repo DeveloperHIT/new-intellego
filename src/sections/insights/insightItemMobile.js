@@ -17,7 +17,7 @@ export default function InsightItemMobile({ insight, onSidebar }) {
     >
       <Image
         alt={insight.title}
-        src={insight.coverUrl}
+        src={insight.cover_url}
         sx={{
           width: 80,
           height: 80,
@@ -34,7 +34,7 @@ export default function InsightItemMobile({ insight, onSidebar }) {
         </Link>
 
         <InsightTimeBlock
-          createdAt={fDate(insight.createdAt)}
+          createdAt={fDate(insight.created_at)}
           duration={insight.duration}
         />
       </Stack>

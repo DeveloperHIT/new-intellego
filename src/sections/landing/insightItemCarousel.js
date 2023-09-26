@@ -29,7 +29,7 @@ export default function InsightItemCarousel({ insight }) {
       >
         <Box sx={{ mx: "auto", maxWidth: 400 }}>
           <Typography variant="body2" sx={{ color: "primary.main" }}>
-            {fDate(insight.createdAt)}
+            {fDate(insight.created_at)}
           </Typography>
 
           <Typography variant="h3" sx={{ mt: 1, mb: 5 }}>
@@ -47,14 +47,14 @@ export default function InsightItemCarousel({ insight }) {
       </Stack>
 
       <Image
-        src={insight.coverUrl}
+        src={insight.cover_url}
         alt={insight.title}
         overlay={`linear-gradient(to right top, ${alpha(
           theme.palette.grey[900],
           0,
         )} 0%, ${theme.palette.grey[900]} 0%)`}
         sx={{
-          width: 1,
+          width: 0,
           height: { xs: 720, md: 900 },
         }}
       />

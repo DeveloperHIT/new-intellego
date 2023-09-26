@@ -12,7 +12,8 @@ import InsightItemMobile from "@/sections/insights/insightItemMobile";
 
 import InsightItem from "@/sections/insights/insightItem";
 
-export default function TravelLatestPosts({ insights }) {
+export default function LatestInsights({ insights }) {
+  console.log(insights);
   const mdUp = useResponsive("up", "md");
 
   const viewAllBtn = (

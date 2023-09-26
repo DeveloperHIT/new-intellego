@@ -6,17 +6,18 @@ import Typography from "@mui/material/Typography";
 
 import Markdown from "@/components/Markdown";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
-import { _tags, _categories, __insights } from "@/_mock";
+import { _categories } from "@/_mock";
 
-import PostTags from "@/sections/insights/insightTags";
+import InsightTags from "@/sections/insights/insightTags";
 import Newsletter from "../newsletter";
-import PostAuthor from "@/sections/insights/insightAuthor";
+import InsightAuthor from "@/sections/insights/insightAuthor";
 import InsightSidebar from "@/sections/insights/insightSidebar";
 import LatestInsights from "@/sections/insights/latestInsights";
 
-export default function TravelPostView() {
-  const { title, description, author, tags, content } = __insights[0];
+// TODO: Move categories to supabase
+// TODO: Create storage on supabase for insights images
 
+export default function InsightView({ insight, insights, insightTags }) {
   return (
     <>
       <Container>
@@ -24,8 +25,8 @@ export default function TravelPostView() {
           sx={{ my: 3 }}
           links={[
             { name: "Home", href: "/" },
-            { name: "Blog", href: "/" },
-            { name: title },
+            { name: "Insights", href: "/insights" },
+            { name: insight.title },
           ]}
         />
       </Container>
@@ -36,30 +37,30 @@ export default function TravelPostView() {
         <Grid container spacing={{ md: 8 }}>
           <Grid xs={12} md={8}>
             <Typography variant="h5" sx={{ mb: 5 }}>
-              {description}
+              {insight.description}
             </Typography>
 
-            <Markdown content={content} firstLetter />
+            <Markdown content={insight.content} firstLetter />
 
-            <PostTags tags={tags} />
+            <InsightTags tags={insight.tags} />
 
             <Divider sx={{ mt: 8 }} />
 
-            <PostAuthor author={author} />
+            <InsightAuthor author={insight.author} />
           </Grid>
 
           <Grid xs={12} md={4}>
             <InsightSidebar
-              popularTags={_tags}
-              author={author}
+              insightTags={insightTags}
+              author={insight.author}
               categories={_categories}
-              recentPosts={{ list: __insights }}
+              recentPosts={{ list: insights }}
             />
           </Grid>
         </Grid>
       </Container>
 
-      <LatestInsights insights={__insights} />
+      <LatestInsights insights={insights} />
 
       <Newsletter />
     </>

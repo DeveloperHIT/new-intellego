@@ -17,6 +17,8 @@
     "@mui/lab": "^5.0.0-alpha.135",
     "@mui/material": "^5.14.9",
     "@mui/styled-engine-sc": "^5.14.9",
+    "@supabase/auth-helpers-nextjs": "^0.8.1",
+    "@supabase/supabase-js": "^2.36.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/chroma-js": "^2.4.1",
     "@types/node": "20.6.0",

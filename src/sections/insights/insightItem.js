@@ -12,7 +12,7 @@ export default function InsightItem({ insight }) {
   return (
     <Stack spacing={2.5}>
       <Image
-        src={insight.coverUrl}
+        src={insight.cover_url}
         alt={insight.title}
         ratio="1/1"
         sx={{ borderRadius: 2 }}
@@ -20,11 +20,15 @@ export default function InsightItem({ insight }) {
 
       <Stack spacing={1}>
         <InsightTimeBlock
-          createdAt={fDate(insight.createdAt)}
-          duration={insight.duration}
+          createdAt={fDate(insight.created_at)}
+          // duration={insight.duration}
         />
 
-        <Link component={RouterLink} href="/insights/insight" color="inherit">
+        <Link
+          component={RouterLink}
+          href={`insights/${insight.slug}`}
+          color="inherit"
+        >
           <TextMaxLine variant="h5" persistent>
             {insight.title}
           </TextMaxLine>

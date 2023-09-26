@@ -54,6 +54,7 @@ export default function Hero() {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
+              {/* TODO: Put FMV on separate row */}
               <Typography variant="h1" color="common.white">
                 Healthcare fair market value
                 <Box component="span" sx={{ color: "primary.main" }}>

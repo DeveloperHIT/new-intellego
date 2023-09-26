@@ -2,7 +2,7 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-export default function PostTags({ tags }) {
+export default function InsightTags({ tags }) {
   return (
     <Stack direction="row" alignItems="center" flexWrap="wrap" sx={{ mt: 5 }}>
       <Typography variant="subtitle2" sx={{ mr: 1 }}>
@@ -10,15 +10,15 @@ export default function PostTags({ tags }) {
       </Typography>
 
       <Stack direction="row" flexWrap="wrap" spacing={1}>
-        {tags.map((tag) => (
-          <Chip
-            key={tag}
-            size="small"
-            variant="soft"
-            label={tag}
-            onClick={() => {}}
-          />
-        ))}
+        {/*{tags.map((tag) => (*/}
+        <Chip
+          key={tags}
+          size="small"
+          variant="soft"
+          label={tags}
+          onClick={() => {}}
+        />
+        {/*))}*/}
       </Stack>
     </Stack>
   );

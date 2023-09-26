@@ -26,10 +26,17 @@ export const _descriptions = [
 ];
 
 export const _tags = [
-  "Digital Health Consulting",
-  "Life Sciences and Pharma Consulting",
-  "Valuation Services",
-  "Other",
+  "Anti-kickback Statute",
+  "Anesthesia Stipend",
+  "Call Coverage",
+  "Co-management Agreement",
+  "HCP/KOL",
+  "Friendly PC",
+  "Management Services Agreement",
+  "Medical Directorship",
+  "Physician Compensation",
+  "Radiology Stipend",
+  "Stark Law",
 ];
 
 export const _insightTitles = [

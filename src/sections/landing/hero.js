@@ -13,7 +13,7 @@ import { HEADER } from "@/layouts/configLayout";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useBoundingClientRect } from "@/hooks/useBoundingClientRect";
 
-export default function HomeHero() {
+export default function Hero() {
   const theme = useTheme();
 
   const containerRef = useRef(null);
@@ -28,8 +28,8 @@ export default function HomeHero() {
     <Box
       sx={{
         ...bgGradient({
-          color: alpha(theme.palette.background.default, 0.1),
-          imgUrl: "/assets/background/hero.png",
+          color: alpha(theme.palette.grey[900], 0.6),
+          imgUrl: "/assets/images/insights/insight_1.jpg",
         }),
         overflow: "hidden",
         position: "relative",

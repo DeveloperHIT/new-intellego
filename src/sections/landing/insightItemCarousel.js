@@ -52,10 +52,10 @@ export default function InsightItemCarousel({ insight }) {
         overlay={`linear-gradient(to right top, ${alpha(
           theme.palette.grey[900],
           0,
-        )} 0%, ${theme.palette.grey[900]} 60%)`}
+        )} 0%, ${theme.palette.grey[900]} 0%)`}
         sx={{
           width: 1,
-          height: { xs: 720, md: 960 },
+          height: { xs: 720, md: 900 },
         }}
       />
     </Stack>

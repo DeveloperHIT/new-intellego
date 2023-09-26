@@ -5,6 +5,7 @@ import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Grid from "@mui/material/Unstable_Grid2";
 import ClientSummary from "@/sections/clients/clientSummary";
 import Typography from "@mui/material/Typography";
+import Markdown from "@/components/Markdown";
 
 export default function ClientView({ client }) {
   return (
@@ -35,7 +36,7 @@ export default function ClientView({ client }) {
 
         <Grid xs={12} md={8}>
           <Typography variant="h4">{client.client_type}</Typography>
-          <Typography variant="body1">{client.description}</Typography>
+          <Markdown content={client.description} />
         </Grid>
       </Grid>
     </Container>

@@ -9,7 +9,7 @@ import Iconify from "@/components/Iconify";
 import TextMaxLine from "@/components/TextMaxLine";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 
-export default function ServicesSection({}) {
+export default function ServicesSection({ services }) {
   return (
     <Box
       sx={{
@@ -24,6 +24,7 @@ export default function ServicesSection({}) {
           links={[
             { name: "Home", href: "/" },
             { name: "Services", href: "/insights" },
+            { name: services.service },
           ]}
         />
         <Grid
@@ -66,16 +67,12 @@ export default function ServicesSection({}) {
                 },
               }}
             >
-              <CategoryItem category="Business Valuation" />
-              <CategoryItem category="Digital Health Advisory" />
-              <CategoryItem category="Fixed Asset Valuation" />
-              <CategoryItem category="HCP/KOL Valuation" />
-              <CategoryItem category="Intellectual Property Valuation" />
-              <CategoryItem category="Litigation Support" />
-              <CategoryItem category="Provider Compensation Valuation" />
-              <CategoryItem category="Real Estate Valuation" />
-              <CategoryItem category="Physician Integration & Alignment" />
-              <CategoryItem category="Transaction Advisory" />
+              {services.map((service) => (
+                <CategoryItem
+                  key={service.service}
+                  category={service.service}
+                />
+              ))}
             </Box>
           </Grid>
         </Grid>

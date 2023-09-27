@@ -13,7 +13,7 @@ export const metadata = {
   title: "intellego",
   description: "Industry expert in healthcare fair market value",
   keywords:
-    "fair market value, stark, antikickback, valuation, compensation, fmv, asc, dialysis clinic, digital health, hcp/kol, life sciences, pharma",
+    "fair market value, stark, anti-kickback, valuation, compensation, fmv, asc, dialysis clinic, digital health, hcp/kol, life sciences, pharma",
   themeColor: "#000000",
   icons: [
     {

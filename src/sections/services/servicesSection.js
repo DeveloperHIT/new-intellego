@@ -23,7 +23,7 @@ export default function ServicesSection({}) {
           sx={{ my: 3 }}
           links={[
             { name: "Home", href: "/" },
-            { name: "Insights", href: "/insights" },
+            { name: "Services", href: "/insights" },
           ]}
         />
         <Grid

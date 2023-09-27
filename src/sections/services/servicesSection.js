@@ -106,13 +106,13 @@ function CategoryItem({ category }) {
         },
       }}
     >
-      <TextMaxLine variant="body1" line={1}>
+      <TextMaxLine variant="body1" line={2}>
         {category}
       </TextMaxLine>
 
-      {/*<Typography variant="body2" sx={{ mt: 1, color: "text.disabled" }}>*/}
-      {/*  {category.totalStudents} students*/}
-      {/*</Typography>*/}
+      <Typography variant="body2" sx={{ mt: 1, color: "text.disabled" }}>
+        advisory, strategy, valuation
+      </Typography>
     </Paper>
   );
 }

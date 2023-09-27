@@ -27,7 +27,7 @@ export default function Footer() {
   const mdUp = useResponsive("up", "md");
 
   const mobileList = navConfig.find((i) => i.title === "Pages")?.children || [];
-
+  // TODO: Replace with supabase data
   const desktopList = pageLinks.sort(
     (listA, listB) => Number(listA.order) - Number(listB.order),
   );

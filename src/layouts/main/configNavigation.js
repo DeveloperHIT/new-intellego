@@ -22,7 +22,6 @@ export const pageLinks = [
         path: "/clients/ambulatory-surgery-centers",
       },
       { title: "Cancer Centers", path: "/clients/cancer-centers" },
-      { title: "Children's Hospitals", path: "/clients/childrens-hospitals" },
       { title: "Digital Health", path: "/clients/digital-health" },
       { title: "Dialysis Clinics", path: "/clients/dialysis-clinics" },
       {

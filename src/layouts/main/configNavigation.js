@@ -52,11 +52,29 @@ export const pageLinks = [
     order: "2",
     subheader: "Services",
     items: [
-      { title: "Digital Health Consulting", path: "/" },
-      { title: "HCP/KOL", path: "/" },
-      { title: "Physician Integration & Alignment", path: "/" },
-      { title: "Transaction Advisory", path: "/" },
-      { title: "Valuation Services", path: "/" },
+      { title: "Business Valuation", path: "services/business-valuation" },
+      {
+        title: "Digital Health Consulting",
+        path: "services/digital-health-advisory",
+      },
+      {
+        title: "Fixed Asset Valuation",
+        path: "services/fixed-asset-valuation",
+      },
+      {
+        title: "Intellectual Property Valuation",
+        path: "services/intellectual-property-valuation",
+      },
+      {
+        title: "Real Estate Valuation",
+        path: "services/real-estate-valuation",
+      },
+      {
+        title: "Physician Integration & Alignment",
+        path: "services/physician-integration-and-alignment",
+      },
+      { title: "Transaction Advisory", path: "services/transaction-advisory" },
+      { title: "Litigation Support", path: "services/litigation-support" },
     ],
   },
 

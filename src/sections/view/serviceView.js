@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
+import Markdown from "@/components/Markdown";
 
 export default function ServiceView({ service }) {
   return (
@@ -27,7 +28,7 @@ export default function ServiceView({ service }) {
             {/*  {insight.description}*/}
             {/*</Typography>*/}
 
-            {/*<Markdown content={insight.content} firstLetter />*/}
+            <Markdown content={service.description} firstLetter />
 
             {/*<InsightTags tags={insight.tags} />*/}
 

@@ -4,13 +4,12 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
-
+import Link from "@mui/material/Link";
 import Iconify from "@/components/Iconify";
 import TextMaxLine from "@/components/TextMaxLine";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
-import Link from "@mui/material/Link";
 
-export default function ServicesSection({ services }) {
+export default function ClientsSection({ clients }) {
   return (
     <Box
       sx={{
@@ -24,8 +23,8 @@ export default function ServicesSection({ services }) {
           sx={{ my: 3 }}
           links={[
             { name: "Home", href: "/" },
-            { name: "Services", href: "/clients" },
-            { name: services.service },
+            { name: "Clients", href: "/clients" },
+            { name: clients.client_type },
           ]}
         />
         <Grid
@@ -40,7 +39,7 @@ export default function ServicesSection({ services }) {
               textAlign: { xs: "center", lg: "unset" },
             }}
           >
-            <Typography variant="h2">What we do</Typography>
+            <Typography variant="h2">Who we serve</Typography>
 
             <Typography sx={{ color: "text.secondary", mt: 2, mb: 5 }}>
               Intellego provides a wide range of valuation services to meet the
@@ -68,11 +67,11 @@ export default function ServicesSection({ services }) {
                 },
               }}
             >
-              {services.map((service) => (
+              {clients.map((client) => (
                 <CategoryItem
-                  key={service.service}
-                  category={service.service}
-                  slug={service.slug}
+                  key={client.client}
+                  category={client.client_type}
+                  slug={client.slug}
                 />
               ))}
             </Box>
@@ -85,7 +84,7 @@ export default function ServicesSection({ services }) {
 
 function CategoryItem({ category, slug }) {
   return (
-    <Link href={`/services/${slug}`} underline="none">
+    <Link href={`/clients/${slug}`} underline="none">
       <Paper
         variant="outlined"
         sx={{

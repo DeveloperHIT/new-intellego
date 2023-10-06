@@ -1,20 +1,10 @@
 "use client";
-import Container from "@mui/material/Container";
+import ClientsSection from "@/sections/clients/clientsSection";
 
-import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
-
-export default function ClientsView({}) {
+export default function ClientsView({ clients }) {
   return (
     <>
-      <Container>
-        <CustomBreadcrumbs
-          sx={{ my: 3 }}
-          links={[
-            { name: "Home", href: "/" },
-            { name: "Clients", href: "/clients" },
-          ]}
-        />
-      </Container>
+      <ClientsSection clients={clients} />
     </>
   );
 }

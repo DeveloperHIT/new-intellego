@@ -1,5 +1,6 @@
 export const navConfig = [
   { title: "Home", path: "/" },
+  { title: "Clients", path: "/clients" },
   { title: "Services", path: "/services" },
   {
     title: "Insights",
@@ -63,10 +64,10 @@ export const pageLinks = [
     order: "3",
     subheader: "Other",
     items: [
-      { title: "About Us", path: "/" },
+      { title: "About Us", path: "/about" },
       { title: "Alumni", path: "/" },
-      { title: "Careers", path: "/" },
-      { title: "Insights", path: "/" },
+      { title: "Careers", path: "/careers" },
+      { title: "Insights", path: "/insights" },
       { title: "Media", path: "/" },
       { title: "News", path: "/" },
     ],

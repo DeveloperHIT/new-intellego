@@ -1,4 +1,6 @@
 import "./globals.css";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic";
 
@@ -40,7 +42,13 @@ export const metadata = {
   ],
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase
+    .from("clients")
+    .select("id, type, slug")
+    .order("type", { ascending: true });
+
   return (
     <html lang="en" className={primaryFont.className}>
       <body>
@@ -55,7 +63,7 @@ export default function RootLayout({ children }) {
             <MotionLazy>
               {/*<ProgressBar />*/}
               <SettingsDrawer />
-              <MainLayout>{children}</MainLayout>
+              <MainLayout data={data}>{children}</MainLayout>
             </MotionLazy>
           </ThemeProvider>
         </SettingsProvider>

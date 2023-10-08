@@ -14,7 +14,7 @@ const pathsOnDark = ["/"];
 
 const spacingLayout = [...pathsOnDark, "/"];
 
-export default function MainLayout({ children }) {
+export default function MainLayout({ children, data }) {
   const pathname = usePathname();
 
   const actionPage = (arr) => arr.some((path) => pathname === path);
@@ -38,7 +38,7 @@ export default function MainLayout({ children }) {
           {children}
         </Box>
 
-        <Footer />
+        <Footer data={data} />
       </Box>
     </>
   );

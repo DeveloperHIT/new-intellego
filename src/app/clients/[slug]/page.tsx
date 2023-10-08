@@ -11,7 +11,7 @@ export default async function Page({
     cookies,
   });
   const { data: client } = await supabase
-    .from("client-types")
+    .from("clients")
     .select()
     .match({ slug })
     .single();

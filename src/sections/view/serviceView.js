@@ -27,13 +27,22 @@ export default function ServiceView({ service }) {
             {/*<Typography variant="h5" sx={{ mb: 5 }}>*/}
             {/*  {insight.description}*/}
             {/*</Typography>*/}
-
-            <Markdown content={service.description} firstLetter />
-
+            <Markdown content={service.main_header} />
+            <br />
+            <Markdown content={service.main_paragraph} /> <br />
+            <Markdown content={service.why_intellego_header} /> <br />
+            <Markdown content={service.why_intellego_paragraph} /> <br />
+            <Markdown content={service.process_header} /> <br />
+            <Markdown content={service.process_paragraph} /> <br />
+            <Markdown content={service.benefits_header} /> <br />
+            <Markdown content={service.benefits_paragraph} /> <br />
+            <Markdown content={service.main_paragraph} /> <br />
+            <Markdown content={service.main_paragraph} /> <br />
+            <Markdown content={service.applications_header} /> <br />
+            <Markdown content={service.applications_paragraph} /> <br />
+            <Markdown content={service.closer} /> <br />
             {/*<InsightTags tags={insight.tags} />*/}
-
             {/*<Divider sx={{ mt: 8 }} />*/}
-
             {/*<InsightAuthor author={insight.author} />*/}
           </Grid>
 

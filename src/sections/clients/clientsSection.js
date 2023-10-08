@@ -24,7 +24,7 @@ export default function ClientsSection({ clients }) {
           links={[
             { name: "Home", href: "/" },
             { name: "Clients", href: "/clients" },
-            { name: clients.client_type },
+            { name: clients.type },
           ]}
         />
         <Grid
@@ -70,7 +70,7 @@ export default function ClientsSection({ clients }) {
               {clients.map((client) => (
                 <CategoryItem
                   key={client.client}
-                  category={client.client_type}
+                  category={client.type}
                   slug={client.slug}
                 />
               ))}

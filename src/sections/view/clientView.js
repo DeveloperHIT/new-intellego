@@ -21,7 +21,7 @@ export default function ClientView({ client }) {
         links={[
           { name: "Home", href: "/" },
           { name: "Clients", href: "/clients" },
-          { name: client.client_type },
+          { name: client.type },
         ]}
       />
 
@@ -35,8 +35,20 @@ export default function ClientView({ client }) {
         </Grid>
 
         <Grid xs={12} md={8}>
-          <Typography variant="h4">{client.client_type}</Typography>
-          <Markdown content={client.description} />
+          <Typography variant="h3">{client.type}</Typography>
+          <br />
+          <Markdown content={client.main_header} />
+          <br />
+          <Markdown content={client.main_paragraph} />
+          <br />
+          <Markdown content={client.services_header} />
+          <br />
+          <Markdown content={client.services_paragraph} />
+          <br />
+          <Markdown content={client.why_intellego_header} />
+          <br />
+          <Markdown content={client.why_intellego_paragraph} />
+          <br />
         </Grid>
       </Grid>
     </Container>

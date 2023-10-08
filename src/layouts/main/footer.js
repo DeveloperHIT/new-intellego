@@ -20,17 +20,37 @@ import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useBoolean } from "@/hooks/useBoolean";
 import { navConfig } from "@/theme/config";
-import { pageLinks } from "@/layouts/main/configNavigation";
 import Collapse from "@mui/material/Collapse";
 
-export default function Footer() {
+export default function Footer({ data }) {
+  const transformFetchedData = (data) => {
+    if (!data) return [];
+
+    return [
+      {
+        order: "1",
+        subheader: "Clients",
+        items: data.map((entry) => ({
+          title: entry.type,
+          path: `/clients/${entry.slug}`,
+        })),
+      },
+    ];
+  };
+
   const mdUp = useResponsive("up", "md");
 
   const mobileList = navConfig.find((i) => i.title === "Pages")?.children || [];
   // TODO: Replace with supabase data
-  const desktopList = pageLinks.sort(
-    (listA, listB) => Number(listA.order) - Number(listB.order),
-  );
+  // const desktopList = pageLinks.sort(
+  //   (listA, listB) => Number(listA.order) - Number(listB.order),
+  // );
+
+  const desktopList = data
+    ? transformFetchedData(data).sort(
+        (listA, listB) => Number(listA.order) - Number(listB.order),
+      )
+    : [];
 
   const renderLists = mdUp ? desktopList : mobileList;
 

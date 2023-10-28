@@ -1,9 +1,21 @@
 import Box from "@mui/material/Box";
 import Pagination, { paginationClasses } from "@mui/material/Pagination";
-
 import InsightItem from "./insight/insightItem";
+import { useState } from "react";
 
 export default function Insights({ insights }) {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+  const pageCount = Math.ceil(insights.length / itemsPerPage);
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentInsights = insights.slice(indexOfFirstItem, indexOfLastItem);
+
   return (
     <>
       <Box
@@ -17,14 +29,16 @@ export default function Insights({ insights }) {
           },
         }}
       >
-        {insights.map((insight) => (
+        {currentInsights.map((insight) => (
           <InsightItem key={insight.id} insight={insight} />
         ))}
       </Box>
 
       <Pagination
-        count={10}
+        count={pageCount}
         color="primary"
+        page={currentPage}
+        onChange={handlePageChange}
         sx={{
           py: { xs: 8, md: 10 },
           [`& .${paginationClasses.ul}`]: {

@@ -24,9 +24,6 @@ export default function ServiceView({ service }) {
       <Container>
         <Grid container spacing={{ md: 8 }}>
           <Grid xs={12} md={8}>
-            {/*<Typography variant="h5" sx={{ mb: 5 }}>*/}
-            {/*  {insight.description}*/}
-            {/*</Typography>*/}
             <Markdown content={service.main_header} />
             <br />
             <Markdown content={service.main_paragraph} /> <br />
@@ -41,9 +38,6 @@ export default function ServiceView({ service }) {
             <Markdown content={service.applications_header} /> <br />
             <Markdown content={service.applications_paragraph} /> <br />
             <Markdown content={service.closer} /> <br />
-            {/*<InsightTags tags={insight.tags} />*/}
-            {/*<Divider sx={{ mt: 8 }} />*/}
-            {/*<InsightAuthor author={insight.author} />*/}
           </Grid>
 
           <Grid xs={12} md={4}>
@@ -56,8 +50,6 @@ export default function ServiceView({ service }) {
           </Grid>
         </Grid>
       </Container>
-
-      {/*<LatestInsights insights={insights} />*/}
     </>
   );
 }

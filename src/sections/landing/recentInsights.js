@@ -91,7 +91,7 @@ export default function RecentInsights({ insights }) {
             <Button
               color="primary"
               component={RouterLink}
-              href="/"
+              href="/insights"
               endIcon={<Iconify icon="carbon:chevron-right" />}
             >
               View All

@@ -18,9 +18,9 @@ export default function ClientSummary({ client }) {
           summary
         </Typography>
 
-        <Typography variant="h6">{client.client_type}</Typography>
+        <Typography variant="h6">{client.type}</Typography>
 
-        <Typography variant="body2">Client description</Typography>
+        <Typography variant="body2">{client.client_description}</Typography>
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />
@@ -34,13 +34,14 @@ export default function ClientSummary({ client }) {
           Add typical services here
         </Link>
 
-        <Typography variant="overline" sx={{ color: "text.disabled", pt: 1 }}>
-          Case Studies
-        </Typography>
+        {/* TODO - Add case studies */}
+        {/*<Typography variant="overline" sx={{ color: "text.disabled", pt: 1 }}>*/}
+        {/*  Case Studies*/}
+        {/*</Typography>*/}
 
-        <Typography variant="body2" sx={{ pb: 1 }}>
-          Add case studies here
-        </Typography>
+        {/*<Typography variant="body2" sx={{ pb: 1 }}>*/}
+        {/*  Add case studies here*/}
+        {/*</Typography>*/}
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />

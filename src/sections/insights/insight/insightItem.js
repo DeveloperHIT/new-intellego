@@ -23,6 +23,7 @@ export default function InsightItem({ insight }) {
           createdAt={fDate(insight.created_at)}
           // duration={insight.duration}
         />
+        {/* TODO: Insert tags */}
 
         <Link
           component={RouterLink}

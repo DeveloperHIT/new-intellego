@@ -10,15 +10,15 @@ export default function InsightTags({ tags }) {
       </Typography>
 
       <Stack direction="row" flexWrap="wrap" spacing={1}>
-        {/*{tags.map((tag) => (*/}
-        <Chip
-          key={tags}
-          size="small"
-          variant="soft"
-          label={tags}
-          onClick={() => {}}
-        />
-        {/*))}*/}
+        {tags.map((tag, index) => (
+          <Chip
+            key={index}
+            size="small"
+            variant="soft"
+            label={tag.tag}
+            onClick={() => {}}
+          />
+        ))}
       </Stack>
     </Stack>
   );

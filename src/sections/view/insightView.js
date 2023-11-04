@@ -42,6 +42,7 @@ export default function InsightView({ insight, insights, insightTags }) {
 
             <Markdown content={insight.content} firstLetter />
 
+            {/* TODO: Fix this. It shows tag ID instead of tag name */}
             <InsightTags tags={insight.tags} />
 
             <Divider sx={{ mt: 8 }} />

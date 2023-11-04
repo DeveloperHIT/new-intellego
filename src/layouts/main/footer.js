@@ -22,35 +22,48 @@ import { useBoolean } from "@/hooks/useBoolean";
 import { navConfig } from "@/theme/config";
 import Collapse from "@mui/material/Collapse";
 
-export default function Footer({ data }) {
-  const transformFetchedData = (data) => {
-    if (!data) return [];
+export default function Footer({ clientData, serviceData }) {
+  // Transform client data
+  const clientColumn = clientData.map((entry) => ({
+    title: entry.type,
+    path: `/clients/${entry.slug}`,
+  }));
 
-    return [
-      {
-        order: "1",
-        subheader: "Clients",
-        items: data.map((entry) => ({
-          title: entry.type,
-          path: `/clients/${entry.slug}`,
-        })),
-      },
-    ];
-  };
+  // Transform service data
+  const serviceColumn = serviceData.map((entry) => ({
+    title: entry.service,
+    path: `/services/${entry.slug}`,
+  }));
+
+  const additionalLinks = [
+    { title: "About", path: "/about" },
+    { title: "Alumni", path: "/alumni" },
+    { title: "Careers", path: "/careers" },
+    { title: "Contact", path: "/contact" },
+    { title: "Insights", path: "/insights" },
+  ];
+
+  const desktopList = [
+    {
+      order: "1",
+      subheader: "Clients",
+      items: clientColumn,
+    },
+    {
+      order: "2",
+      subheader: "Services",
+      items: serviceColumn,
+    },
+    {
+      order: "3",
+      subheader: "Company",
+      items: additionalLinks,
+    },
+  ].sort((listA, listB) => Number(listA.order) - Number(listB.order));
 
   const mdUp = useResponsive("up", "md");
 
   const mobileList = navConfig.find((i) => i.title === "Pages")?.children || [];
-  // TODO: Replace with supabase data
-  // const desktopList = pageLinks.sort(
-  //   (listA, listB) => Number(listA.order) - Number(listB.order),
-  // );
-
-  const desktopList = data
-    ? transformFetchedData(data).sort(
-        (listA, listB) => Number(listA.order) - Number(listB.order),
-      )
-    : [];
 
   const renderLists = mdUp ? desktopList : mobileList;
 

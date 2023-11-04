@@ -44,10 +44,16 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const supabase = createServerComponentClient({ cookies });
-  const { data } = await supabase
+
+  const { data: clientData } = await supabase
     .from("clients")
     .select("id, type, slug")
     .order("type", { ascending: true });
+
+  const { data: serviceData } = await supabase
+    .from("services")
+    .select("id, service, slug")
+    .order("service", { ascending: true });
 
   return (
     <html lang="en" className={primaryFont.className}>
@@ -63,7 +69,9 @@ export default async function RootLayout({ children }) {
             <MotionLazy>
               {/*<ProgressBar />*/}
               <SettingsDrawer />
-              <MainLayout data={data}>{children}</MainLayout>
+              <MainLayout clientData={clientData} serviceData={serviceData}>
+                {children}
+              </MainLayout>
             </MotionLazy>
           </ThemeProvider>
         </SettingsProvider>

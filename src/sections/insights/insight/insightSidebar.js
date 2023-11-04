@@ -156,7 +156,7 @@ export default function InsightSidebar({
           placeholder="Search..."
           value={searchQuery}
           onChange={handleSearchChange}
-          onKeyPress={(event) => {
+          onKeyDown={(event) => {
             if (event.key === "Enter") {
               event.preventDefault();
               handleSearch();

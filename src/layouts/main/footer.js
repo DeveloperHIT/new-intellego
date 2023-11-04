@@ -125,7 +125,11 @@ export default function Footer({ clientData, serviceData }) {
                 <Typography variant="h6">Social</Typography>
                 <Stack direction="row" alignItems="center">
                   {_socials.map((social) => (
-                    <IconButton key={social.value} color="primary">
+                    <IconButton
+                      key={social.value}
+                      color="primary"
+                      href={social.link}
+                    >
                       <Iconify icon={social.icon} />
                     </IconButton>
                   ))}

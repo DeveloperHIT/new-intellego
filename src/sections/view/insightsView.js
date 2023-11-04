@@ -11,7 +11,6 @@ import InsightSearchMobile from "@/sections/insights/insight/insightSearchMobile
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 
 export default function InsightsView({ insights, insightsTags }) {
-  console.log("insights from insightsView", insights);
   return (
     <>
       <Container>

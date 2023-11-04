@@ -1,4 +1,6 @@
 "use client";
+import React, { useState } from "react";
+import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Chip from "@mui/material/Chip";
@@ -22,6 +24,46 @@ export default function InsightSidebar({
   sx,
   ...other
 }) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredInsights, setFilteredInsights] = useState(insights);
+
+  const supabase = createPagesBrowserClient();
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSearch = async () => {
+    await searchInsights(searchQuery);
+  };
+
+  const searchInsights = async (query) => {
+    if (!query) {
+      // If the search query is empty, you might want to reset to the default state or handle it differently
+      setFilteredInsights(insights);
+      return;
+    }
+
+    const { data, error } = await supabase
+      .from("insights")
+      .select("*")
+      .textSearch("description", `%${query}%`, {
+        type: "websearch",
+        config: "english ",
+      });
+
+    if (error) {
+      console.error("Error searching insights:", error);
+      return;
+    }
+
+    // Update your insights state with the search results
+    // This assumes you have a way to update the insights state in your component
+    setFilteredInsights(data);
+  };
+
+  console.log(filteredInsights);
+
   const mdUp = useResponsive("up", "md");
 
   // const renderAuthor = insights.author && (
@@ -75,11 +117,11 @@ export default function InsightSidebar({
     </Stack>
   );
 
-  const renderRecentInsights = insights && (
+  const renderRecentInsights = filteredInsights && (
     <Stack spacing={3}>
       <Typography variant="h5">Recent Insights</Typography>
 
-      {insights.map((insight) => (
+      {filteredInsights.map((insight) => (
         <InsightItemMobile key={insight.id} insight={insight} onSidebar />
       ))}
     </Stack>
@@ -112,6 +154,14 @@ export default function InsightSidebar({
           fullWidth
           hiddenLabel
           placeholder="Search..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          onKeyPress={(event) => {
+            if (event.key === "Enter") {
+              event.preventDefault();
+              handleSearch();
+            }
+          }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

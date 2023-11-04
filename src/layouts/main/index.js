@@ -1,10 +1,7 @@
 "use client";
 import Box from "@mui/material/Box";
-
 import { usePathname } from "@/hooks/usePathname";
-
 import { HEADER } from "@/layouts/configLayout";
-
 import Header from "./header";
 import Footer from "./footer";
 import { useScroll } from "framer-motion";
@@ -21,27 +18,35 @@ export default function MainLayout({ children, clientData, serviceData }) {
 
   const { scrollYProgress } = useScroll();
 
-  return (
-    <>
-      <ScrollProgress scrollYProgress={scrollYProgress} />
-      <Box sx={{ display: "flex", flexDirection: "column", height: 1 }}>
-        <Header headerOnDark={actionPage(pathsOnDark)} />
+  // Check if the current route is the admin route
+  const isAdminRoute = pathname.includes("/admin");
+  console.log("isAdminRoute", isAdminRoute);
 
-        <Box
-          component="main"
-          sx={{
-            flexGrow: 1,
-          }}
-        >
-          {!actionPage(spacingLayout) && <Spacing />}
+  if (isAdminRoute) {
+    return <>{children}</>;
+  } else {
+    return (
+      <>
+        <ScrollProgress scrollYProgress={scrollYProgress} />
+        <Box sx={{ display: "flex", flexDirection: "column", height: 1 }}>
+          <Header headerOnDark={actionPage(pathsOnDark)} />
 
-          {children}
+          <Box
+            component="main"
+            sx={{
+              flexGrow: 1,
+            }}
+          >
+            {!actionPage(spacingLayout) && <Spacing />}
+
+            {children}
+          </Box>
+
+          <Footer clientData={clientData} serviceData={serviceData} />
         </Box>
-
-        <Footer clientData={clientData} serviceData={serviceData} />
-      </Box>
-    </>
-  );
+      </>
+    );
+  }
 }
 
 function Spacing() {

@@ -17,13 +17,7 @@ import { useResponsive } from "@/hooks/useResponsive";
 
 import InsightItemMobile from "@/sections/insights/insight/insightItemMobile";
 
-export default function InsightSidebar({
-  categories,
-  insights,
-  insightTags,
-  sx,
-  ...other
-}) {
+export default function InsightSidebar({ categories, insights, sx, ...other }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredInsights, setFilteredInsights] = useState(insights);
 
@@ -127,24 +121,6 @@ export default function InsightSidebar({
     </Stack>
   );
 
-  const renderInsightTags = insightTags && (
-    <Stack spacing={3}>
-      <Typography variant="h5">Trending Tags</Typography>
-
-      <Stack direction="row" flexWrap="wrap" spacing={1}>
-        {insightTags.map((tag) => (
-          <Chip
-            key={tag.id}
-            label={tag.tag}
-            variant="soft"
-            size="small"
-            onClick={() => {}}
-          />
-        ))}
-      </Stack>
-    </Stack>
-  );
-
   return (
     <>
       {/*{mdUp && renderAuthor}*/}
@@ -188,8 +164,6 @@ export default function InsightSidebar({
         {renderCategories}
 
         {renderRecentInsights}
-
-        {renderInsightTags}
       </Stack>
     </>
   );

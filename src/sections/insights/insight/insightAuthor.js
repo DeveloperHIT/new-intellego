@@ -6,9 +6,7 @@ import Typography from "@mui/material/Typography";
 import { _socials } from "@/_mock";
 import Iconify from "@/components/Iconify";
 
-export default function PostAuthor({ author }) {
-  const { name, role, about, quotes, avatarUrl } = author;
-
+export default function InsightAuthor({ name, role }) {
   return (
     <Stack
       direction="row"
@@ -17,7 +15,7 @@ export default function PostAuthor({ author }) {
         py: { xs: 5, md: 10 },
       }}
     >
-      <Avatar src={avatarUrl} sx={{ width: 96, height: 96 }} />
+      <Avatar src={"/"} sx={{ width: 96, height: 96 }} />
 
       <Stack spacing={2}>
         <Stack
@@ -33,23 +31,7 @@ export default function PostAuthor({ author }) {
               {role}
             </Typography>
           </Stack>
-
-          <Stack direction="row">
-            {_socials.map((social) => (
-              <IconButton key={social.value}>
-                <Iconify icon={social.icon} sx={{ color: social.color }} />
-              </IconButton>
-            ))}
-          </Stack>
         </Stack>
-
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          {about}
-        </Typography>
-
-        <Typography variant="caption" sx={{ color: "text.disabled" }}>
-          {quotes}
-        </Typography>
       </Stack>
     </Stack>
   );

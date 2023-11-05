@@ -12,7 +12,7 @@ import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 
 // TODO: Replace with sanity data
 
-export default function InsightsView({ insights, insightsTags }) {
+export default function InsightsView({ insights }) {
   return (
     <>
       <Container>
@@ -37,11 +37,7 @@ export default function InsightsView({ insights, insightsTags }) {
           </Grid>
 
           <Grid xs={12} md={4}>
-            <InsightSidebar
-              insightTags={insightsTags}
-              categories={_categories}
-              insights={insights}
-            />
+            <InsightSidebar categories={_categories} insights={insights} />
           </Grid>
         </Grid>
       </Container>

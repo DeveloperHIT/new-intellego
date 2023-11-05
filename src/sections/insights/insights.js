@@ -30,7 +30,7 @@ export default function Insights({ insights }) {
         }}
       >
         {currentInsights.map((insight) => (
-          <InsightItem key={insight.id} insight={insight} />
+          <InsightItem key={insight._id} insight={insight} />
         ))}
       </Box>
 

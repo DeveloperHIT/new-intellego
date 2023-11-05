@@ -7,20 +7,20 @@ import RouterLink from "@/routes/routerLink";
 import TextMaxLine from "@/components/TextMaxLine";
 
 import InsightTimeBlock from "@/sections/insights/insight/insightTimeBlock";
+import { Typography } from "@mui/material";
 
 export default function InsightItem({ insight }) {
   return (
     <Stack spacing={2.5}>
       <Image
-        src={insight.cover_url}
+        src={insight.coverImage}
         alt={insight.title}
         ratio="1/1"
         sx={{ borderRadius: 2 }}
       />
-
       <Stack spacing={1}>
         <InsightTimeBlock
-          createdAt={fDate(insight.created_at)}
+          createdAt={fDate(insight._createdAt)}
           // duration={insight.duration}
         />
         {/* TODO: Insert tags */}
@@ -34,6 +34,9 @@ export default function InsightItem({ insight }) {
             {insight.title}
           </TextMaxLine>
         </Link>
+        <Typography variant="body1" color="text.secondary">
+          {insight.excerpt}
+        </Typography>
       </Stack>
     </Stack>
   );

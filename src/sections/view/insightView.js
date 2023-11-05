@@ -3,21 +3,17 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Unstable_Grid2";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-
-import Markdown from "@/components/Markdown";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import { _categories } from "@/_mock";
-
-import InsightTags from "@/sections/insights/insight/insightTags";
 import Newsletter from "../newsletter";
 import InsightAuthor from "@/sections/insights/insight/insightAuthor";
 import InsightSidebar from "@/sections/insights/insight/insightSidebar";
 import LatestInsights from "@/sections/insights/latestInsights";
+import { PortableText } from "@portabletext/react";
+import InsightTags from "@/sections/insights/insight/insightTags";
+import InsightSocialsShare from "@/sections/insights/insight/insightSocialsShare";
 
-// TODO: Move categories to supabase
-// TODO: Create storage on supabase for insights images
-
-export default function InsightView({ insight, insights, insightTags }) {
+export default function InsightView({ insight, insights }) {
   return (
     <>
       <Container>
@@ -37,22 +33,26 @@ export default function InsightView({ insight, insights, insightTags }) {
         <Grid container spacing={{ md: 8 }}>
           <Grid xs={12} md={8}>
             <Typography variant="h5" sx={{ mb: 5 }}>
-              {insight.description}
+              {insight.excerpt}
             </Typography>
 
-            <Markdown content={insight.content} firstLetter />
+            {/* TODO: Format blog text */}
+            <PortableText value={insight.content} />
 
-            {/* TODO: Fix this. It shows tag ID instead of tag name */}
-            <InsightTags tags={insight.tags} />
+            <InsightTags tags={["tag"]} />
+
+            <InsightSocialsShare />
 
             <Divider sx={{ mt: 8 }} />
 
-            <InsightAuthor author={insight.author} />
+            <InsightAuthor
+              name={insight.authorName}
+              role={insight.authorRole}
+            />
           </Grid>
 
           <Grid xs={12} md={4}>
             <InsightSidebar
-              insightTags={insightTags}
               author={insight.author}
               categories={_categories}
               recentPosts={{ list: insights }}
@@ -62,8 +62,6 @@ export default function InsightView({ insight, insights, insightTags }) {
       </Container>
 
       <LatestInsights insights={insights} />
-
-      <Newsletter />
     </>
   );
 }

@@ -10,6 +10,8 @@ import Insights from "@/sections/insights/insights";
 import InsightSearchMobile from "@/sections/insights/insight/insightSearchMobile";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 
+// TODO: Replace with sanity data
+
 export default function InsightsView({ insights, insightsTags }) {
   return (
     <>

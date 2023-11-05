@@ -53,6 +53,14 @@ const insight = {
       type: "reference",
       to: [{ type: author.name }],
     },
+    {
+      name: "insightTags",
+      title: "Insight Tags",
+      type: "tags",
+      options: {
+        includeFromRelated: "insightTags",
+      },
+    },
   ],
 };
 

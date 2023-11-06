@@ -1,4 +1,6 @@
 "use client";
+
+import NextLink from "next/link";
 import Link from "@mui/material/Link";
 import Masonry from "@mui/lab/Masonry";
 import Stack from "@mui/material/Stack";
@@ -81,7 +83,9 @@ export default function Footer({ clientData, serviceData }) {
           <Grid xs={12} md={4}>
             <Stack spacing={{ xs: 3, md: 5 }}>
               <Stack alignItems="flex-start" spacing={3}>
-                <Logo size="xl" />
+                <NextLink href="/">
+                  <Logo size="xl" />
+                </NextLink>
 
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
                   The industry leader in healthcare fair market value solutions.

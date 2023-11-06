@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
+import NextLink from "next/link";
 import { useTheme } from "@mui/material/styles";
 import { bgBlur } from "@/theme/css";
 import Logo from "@/components/Logo";
@@ -59,21 +60,23 @@ export default function Header({ headerOnDark }) {
         >
           <Box sx={{ lineHeight: 0, position: "relative" }}>
             {/* TODO: Change color based on whether background is dark */}
-            <Logo
-              size="xl"
-              sx={{
-                ...(headerOnDark && {
-                  "& svg path": {
-                    fill: theme.palette.common.white,
-                  },
-                }),
-                ...(offset && {
-                  "& svg path": {
-                    fill: theme.palette.text.primary,
-                  },
-                }),
-              }}
-            />
+            <NextLink href="/">
+              <Logo
+                size="xl"
+                sx={{
+                  ...(headerOnDark && {
+                    "& svg path": {
+                      fill: theme.palette.common.white,
+                    },
+                  }),
+                  ...(offset && {
+                    "& svg path": {
+                      fill: theme.palette.text.primary,
+                    },
+                  }),
+                }}
+              />
+            </NextLink>
           </Box>
 
           {mdUp && <NavDesktop data={navConfig} />}

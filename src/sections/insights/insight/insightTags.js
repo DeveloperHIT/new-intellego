@@ -9,13 +9,15 @@ export default function InsightTags({ tags }) {
         Tags:
       </Typography>
 
+      {/* TODO: Handle click */}
+
       <Stack direction="row" flexWrap="wrap" spacing={1}>
         {tags.map((tag, index) => (
           <Chip
             key={index}
             size="small"
             variant="soft"
-            label={tag.tag}
+            label={tag.label}
             onClick={() => {}}
           />
         ))}

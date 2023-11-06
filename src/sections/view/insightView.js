@@ -5,7 +5,6 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import { _categories } from "@/_mock";
-import Newsletter from "../newsletter";
 import InsightAuthor from "@/sections/insights/insight/insightAuthor";
 import InsightSidebar from "@/sections/insights/insight/insightSidebar";
 import LatestInsights from "@/sections/insights/latestInsights";
@@ -39,7 +38,7 @@ export default function InsightView({ insight, insights }) {
             {/* TODO: Format blog text */}
             <PortableText value={insight.content} />
 
-            <InsightTags tags={["tag"]} />
+            <InsightTags tags={insight.insightTags} />
 
             <InsightSocialsShare />
 

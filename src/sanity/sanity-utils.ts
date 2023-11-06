@@ -43,7 +43,8 @@ export async function getInsight(slug: string): Promise<Insight> {
     title,
     "slug": slug.current,
     "coverImage": coverImage.asset->url,
-    content
+    content,
+    insightTags
     }`,
     { slug },
   );

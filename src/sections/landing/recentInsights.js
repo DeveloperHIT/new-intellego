@@ -73,8 +73,8 @@ export default function RecentInsights({ insights }) {
           )}
 
           <Stack spacing={3}>
-            {insights.map((insight) => (
-              <InsightItem key={insight.id} insight={insight} />
+            {insights.map((insight, index) => (
+              <InsightItem key={index} insight={insight} />
             ))}
           </Stack>
 

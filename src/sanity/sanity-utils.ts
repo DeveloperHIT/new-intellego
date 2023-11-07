@@ -1,5 +1,4 @@
 import { createClient, groq } from "next-sanity";
-import { Insight } from "@/types";
 
 export async function getUniqueTags() {
   const client = createClient({
@@ -24,7 +23,7 @@ const insightFields = groq`
     "slug": slug.current,
     "author": author->{name}`;
 
-export async function getInsights(): Promise<Insight[]> {
+export async function getInsights() {
   const client = createClient({
     projectId: "khbtshbn",
     dataset: "production",
@@ -38,7 +37,7 @@ export async function getInsights(): Promise<Insight[]> {
   );
 }
 
-export async function getInsight(slug: string): Promise<Insight> {
+export async function getInsight(slug: string) {
   const client = createClient({
     projectId: "khbtshbn",
     dataset: "production",

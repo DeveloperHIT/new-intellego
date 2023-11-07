@@ -54,8 +54,8 @@ export default function RecentInsights({ insights }) {
             rightButtonProps={{ sx: { color: "common.white" } }}
           >
             <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-              {insights.map((insight) => (
-                <InsightItemCarousel key={insight.id} insight={insight} />
+              {insights.map((insight, index) => (
+                <InsightItemCarousel key={index} insight={insight} />
               ))}
             </Carousel>
           </CarouselArrows>

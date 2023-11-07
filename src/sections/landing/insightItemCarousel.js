@@ -8,8 +8,19 @@ import Image from "@/components/Image";
 import Iconify from "@/components/Iconify";
 import { fDate } from "@/helpers/formatTime";
 import RouterLink from "@/routes/routerLink";
+import { urlFor } from "@/sanity/lib/urlFor";
 
 export default function InsightItemCarousel({ insight }) {
+  const {
+    mainImage: {
+      alt,
+      asset: { _ref },
+    },
+    meta_description,
+    publishedAt,
+    title,
+  } = insight;
+
   const theme = useTheme();
 
   return (
@@ -29,15 +40,15 @@ export default function InsightItemCarousel({ insight }) {
       >
         <Box sx={{ mx: "auto", maxWidth: 400 }}>
           <Typography variant="body2" sx={{ color: "primary.main" }}>
-            {fDate(insight._createdAt)}
+            {fDate(publishedAt)}
           </Typography>
 
           <Typography variant="h3" sx={{ mt: 1, mb: 5 }}>
-            {insight.title}
+            {title}
           </Typography>
 
           <Typography sx={{ opacity: 0.72, mb: 10 }}>
-            {insight.excerpt}
+            {meta_description}
           </Typography>
 
           <Fab component={RouterLink} href="/">
@@ -47,8 +58,8 @@ export default function InsightItemCarousel({ insight }) {
       </Stack>
 
       <Image
-        src={insight.coverImage}
-        alt={insight.coverImageAlt}
+        src={`${urlFor(_ref)}`}
+        alt={alt}
         overlay={`linear-gradient(to right top, ${alpha(
           theme.palette.grey[900],
           0,

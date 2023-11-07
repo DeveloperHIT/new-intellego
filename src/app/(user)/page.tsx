@@ -1,10 +1,12 @@
-// import LandingView from "@/sections/view/landingView";
-// import { getInsights } from "@/sanity/sanity-utils";
+import LandingView from "@/sections/view/landingView";
+import { sanityFetch } from "@/sanity/lib/sanityFetch";
+import { SanityDocument } from "@sanity/client";
+import { postsQuery } from "@/sanity/lib/queries";
 
 export default async function Home() {
-  // TODO: Replace this with new queries
-  // const insights = await getInsights();
+  const insights = await sanityFetch<SanityDocument>({
+    query: postsQuery,
+  });
 
-  // return <LandingView insights={insights} />;
-  return <div></div>;
+  return <LandingView insights={insights} />;
 }

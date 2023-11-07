@@ -1,6 +1,18 @@
 import { createClient, groq } from "next-sanity";
 import { Insight } from "@/types";
 
+export async function getUniqueTags() {
+  const client = createClient({
+    projectId: "khbtshbn",
+    dataset: "production",
+    apiVersion: "2023-11-04",
+  });
+
+  return client.fetch(
+    groq`*[_type == "insight"] {"tags": insightTags[].value}`,
+  );
+}
+
 const insightFields = groq`
     _id,
     _createdAt,
@@ -43,6 +55,7 @@ export async function getInsight(slug: string): Promise<Insight> {
     title,
     "slug": slug.current,
     "coverImage": coverImage.asset->url,
+    "coverImageAlt": coverImage.asset->alt,
     content,
     insightTags
     }`,

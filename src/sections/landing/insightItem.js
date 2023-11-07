@@ -10,7 +10,7 @@ export default function InsightItem({ insight }) {
   return (
     <div>
       <Typography variant="caption" sx={{ color: "primary.main" }}>
-        {fDate(insight.createdAt)}
+        {fDate(insight._createdAt)}
       </Typography>
 
       <Link component={RouterLink} href="/" sx={{ color: "common.white" }}>
@@ -20,7 +20,7 @@ export default function InsightItem({ insight }) {
       </Link>
 
       <TextMaxLine variant="body2" sx={{ color: "text.secondary" }}>
-        {insight.description}
+        {insight.excerpt}
       </TextMaxLine>
 
       <Divider sx={{ borderStyle: "dashed", mt: 3 }} />

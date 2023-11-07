@@ -55,10 +55,7 @@ export default function RecentInsights({ insights }) {
           >
             <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
               {insights.map((insight) => (
-                <div key={insight.id}>
-                  <p>{insight.cover_url[0]}</p>
-                  <InsightItemCarousel key={insight.id} insight={insight} />
-                </div>
+                <InsightItemCarousel key={insight.id} insight={insight} />
               ))}
             </Carousel>
           </CarouselArrows>

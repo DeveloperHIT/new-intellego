@@ -29,7 +29,7 @@ export default function InsightItemCarousel({ insight }) {
       >
         <Box sx={{ mx: "auto", maxWidth: 400 }}>
           <Typography variant="body2" sx={{ color: "primary.main" }}>
-            {fDate(insight.created_at)}
+            {fDate(insight._createdAt)}
           </Typography>
 
           <Typography variant="h3" sx={{ mt: 1, mb: 5 }}>
@@ -37,7 +37,7 @@ export default function InsightItemCarousel({ insight }) {
           </Typography>
 
           <Typography sx={{ opacity: 0.72, mb: 10 }}>
-            {insight.description}
+            {insight.excerpt}
           </Typography>
 
           <Fab component={RouterLink} href="/">
@@ -47,14 +47,14 @@ export default function InsightItemCarousel({ insight }) {
       </Stack>
 
       <Image
-        src={insight.cover_url}
-        alt={insight.title}
+        src={insight.coverImage}
+        alt={insight.coverImageAlt}
         overlay={`linear-gradient(to right top, ${alpha(
           theme.palette.grey[900],
           0,
-        )} 0%, ${theme.palette.grey[900]} 0%)`}
+        )} 0%, ${theme.palette.grey[900]} 75%)`}
         sx={{
-          width: 0,
+          width: 1,
           height: { xs: 720, md: 900 },
         }}
       />

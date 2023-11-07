@@ -1,10 +1,8 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import LandingView from "@/sections/view/landingView";
+import { getInsights } from "@/sanity/sanity-utils";
 
 export default async function Home() {
-  const supabase = createServerComponentClient({ cookies });
-  const { data: insights } = await supabase.from("insights").select("*");
+  const insights = await getInsights();
 
   return <LandingView insights={insights} />;
 }

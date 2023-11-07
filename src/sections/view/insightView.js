@@ -4,7 +4,6 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
-import { _categories } from "@/_mock";
 import InsightAuthor from "@/sections/insights/insight/insightAuthor";
 import InsightSidebar from "@/sections/insights/insight/insightSidebar";
 import LatestInsights from "@/sections/insights/latestInsights";
@@ -12,7 +11,7 @@ import { PortableText } from "@portabletext/react";
 import InsightTags from "@/sections/insights/insight/insightTags";
 import InsightSocialsShare from "@/sections/insights/insight/insightSocialsShare";
 
-export default function InsightView({ insight, insights }) {
+export default function InsightView({ categories, insight, insights }) {
   return (
     <>
       <Container>
@@ -53,7 +52,7 @@ export default function InsightView({ insight, insights }) {
           <Grid xs={12} md={4}>
             <InsightSidebar
               author={insight.author}
-              categories={_categories}
+              categories={categories}
               recentPosts={{ list: insights }}
             />
           </Grid>

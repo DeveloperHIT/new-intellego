@@ -1,17 +1,28 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
-import schemas from "@/sanity/schemas";
-import { tags } from "sanity-plugin-tags";
+import { codeInput } from "@sanity/code-input";
+import { visionTool } from "@sanity/vision";
+import {
+  dashboardTool,
+  projectUsersWidget,
+  projectInfoWidget,
+} from "@sanity/dashboard";
+import { schema } from "@/sanity/schema";
+import { apiVersion, dataset, projectId } from "@/sanity/env";
 
-// TODO: Move to environment variables
-const config = defineConfig({
-  projectId: "khbtshbn",
-  dataset: "production",
+export default defineConfig({
+  projectId,
+  dataset,
   title: "Intellego Website",
   apiVersion: "2023-11-04",
   basePath: "/admin",
-  plugins: [deskTool(), tags({})],
-  schema: { types: schemas },
+  plugins: [
+    deskTool(),
+    codeInput(),
+    dashboardTool({
+      widgets: [projectInfoWidget(), projectUsersWidget()],
+    }),
+    visionTool({ defaultApiVersion: apiVersion }),
+  ],
+  schema,
 });
-
-export default config;

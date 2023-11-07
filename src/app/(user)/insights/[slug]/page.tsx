@@ -1,3 +1,4 @@
+import { getUniqueTags } from "@/sanity/sanity-utils";
 import { getInsight } from "@/sanity/sanity-utils";
 import { getInsights } from "@/sanity/sanity-utils";
 import InsightView from "@/sections/view/insightView";
@@ -10,7 +11,10 @@ export default async function Insight({ params }: Props) {
   const slug = params.slug;
   const insight = await getInsight(slug);
   const insights = await getInsights();
-  console.log(insight);
+  const tags = await getUniqueTags();
+  console.log("tags");
 
-  return <InsightView insight={insight} insights={insights} />;
+  return (
+    <InsightView categories={tags} insight={insight} insights={insights} />
+  );
 }

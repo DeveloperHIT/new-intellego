@@ -29,8 +29,12 @@ export default function Insights({ insights }) {
           },
         }}
       >
-        {currentInsights.map((insight) => (
-          <InsightItem key={insight._id} insight={insight} />
+        {currentInsights.map((insight, index) => (
+          <InsightItem
+            key={index}
+            insight={insight}
+            path={`/insights/${insight.slug.current}`}
+          />
         ))}
       </Box>
 

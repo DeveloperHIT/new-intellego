@@ -1,14 +1,13 @@
-// import InsightView from "@/sections/view/insightView";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { SanityDocument } from "@sanity/client";
 import {
+  getCategoriesQuery,
   getRandomPostsQuery,
   postQuery,
   seriesRelatedPosts,
 } from "@/sanity/lib/queries";
 import { Metadata } from "next";
 import InsightView from "@/sections/view/insightView";
-// import insight from "@/sanity/schemas/insight";
 
 type Props = {
   params: { slug: string };
@@ -33,6 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const SingleInsight = async ({ params }: Props) => {
+  const categories = await sanityFetch<SanityDocument>({
+    query: getCategoriesQuery,
+  });
   const post = await sanityFetch<SanityDocument>({
     query: postQuery,
     params,
@@ -55,11 +57,13 @@ const SingleInsight = async ({ params }: Props) => {
       },
     });
   }
-  return <InsightView insight={post} insights={relatedPosts} />;
+  return (
+    <InsightView
+      categories={categories}
+      insight={post}
+      insights={relatedPosts}
+    />
+  );
 };
 
 export default SingleInsight;
-
-// export default async function Insight({ params }: Props) {
-//   return <InsightView insight={insight} insights={insights} />;
-// }

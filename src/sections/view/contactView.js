@@ -6,7 +6,9 @@ import Typography from "@mui/material/Typography";
 import ContactInfo from "@/sections/contact/contactInfo";
 import ContactForm from "@/sections/contact/contactForm";
 
-export default function ContactView() {
+export default function ContactView({ contact }) {
+  console.log(contact);
+  const {} = contact;
   return (
     <>
       <Container

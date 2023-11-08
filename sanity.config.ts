@@ -9,6 +9,7 @@ import {
 } from "@sanity/dashboard";
 import { schema } from "@/sanity/schema";
 import { apiVersion, dataset, projectId } from "@/sanity/env";
+import { deskStructure } from "@/sanity/deskStructure";
 
 export default defineConfig({
   projectId,
@@ -17,7 +18,7 @@ export default defineConfig({
   apiVersion: "2023-11-04",
   basePath: "/admin",
   plugins: [
-    deskTool(),
+    deskTool({ structure: deskStructure }),
     codeInput(),
     dashboardTool({
       widgets: [projectInfoWidget(), projectUsersWidget()],

@@ -1,10 +1,6 @@
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-
-import { _socials } from "@/_mock";
-import Iconify from "@/components/Iconify";
 
 export default function InsightAuthor({ name, role }) {
   return (

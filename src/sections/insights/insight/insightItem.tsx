@@ -1,13 +1,12 @@
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Image from "@/components/Image";
-import RouterLink from "@/routes/routerLink";
 import TextMaxLine from "@/components/TextMaxLine";
 
 import InsightTimeBlock from "@/sections/insights/insight/insightTimeBlock";
 import { Typography } from "@mui/material";
 import { ArticleHeaderData } from "@/types/Insight";
 import { urlFor } from "@/sanity/lib/urlFor";
+import CustomLink from "@/routes/routerLink";
 
 interface InsightItemProps {
   insight: ArticleHeaderData;
@@ -24,8 +23,6 @@ export default function InsightItem({ insight, path }: InsightItemProps) {
       asset: { _ref },
     },
   } = insight;
-
-  console.log(publishedAt);
 
   return (
     <Stack spacing={2.5}>
@@ -45,14 +42,13 @@ export default function InsightItem({ insight, path }: InsightItemProps) {
           // duration={estimatedReadTime}
         />
 
-        {/* TODO: How to get actual slug? */}
-        {/* @ts-ignore */}
-        <Link component={RouterLink} href={path} color="inherit">
+        <CustomLink href={path || "#"} color={"inherit"}>
           {/* @ts-ignore */}
           <TextMaxLine variant="h5" persistent>
             {title}
           </TextMaxLine>
-        </Link>
+        </CustomLink>
+
         <Typography variant="body1" color="text.secondary">
           {meta_description}
         </Typography>

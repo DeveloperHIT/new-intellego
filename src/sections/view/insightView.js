@@ -5,13 +5,21 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import InsightAuthor from "@/sections/insights/insight/insightAuthor";
-import InsightSidebar from "@/sections/insights/insight/insightSidebar";
 import LatestInsights from "@/sections/insights/latestInsights";
 import { PortableText } from "@portabletext/react";
-import InsightTags from "@/sections/insights/insight/insightTags";
 import InsightSocialsShare from "@/sections/insights/insight/insightSocialsShare";
+import InsightSidebar from "@/sections/insights/insight/insightSidebar";
+import InsightTags from "@/sections/insights/insight/insightTags";
 
 export default function InsightView({ categories, insight, insights }) {
+  const {
+    author: { designation, name },
+    body,
+    meta_description,
+    tags,
+    title,
+  } = insight;
+
   return (
     <>
       <Container>
@@ -20,7 +28,7 @@ export default function InsightView({ categories, insight, insights }) {
           links={[
             { name: "Home", href: "/" },
             { name: "Insights", href: "/insights" },
-            { name: insight.title },
+            { name: title },
           ]}
         />
       </Container>
@@ -31,27 +39,24 @@ export default function InsightView({ categories, insight, insights }) {
         <Grid container spacing={{ md: 8 }}>
           <Grid xs={12} md={8}>
             <Typography variant="h5" sx={{ mb: 5 }}>
-              {insight.excerpt}
+              {meta_description}
             </Typography>
 
             {/* TODO: Format blog text */}
-            <PortableText value={insight.content} />
+            <PortableText value={body} />
 
-            <InsightTags tags={insight.insightTags} />
+            <InsightTags tags={tags} />
 
             <InsightSocialsShare />
 
             <Divider sx={{ mt: 8 }} />
 
-            <InsightAuthor
-              name={insight.authorName}
-              role={insight.authorRole}
-            />
+            <InsightAuthor name={name} role={designation} />
           </Grid>
 
           <Grid xs={12} md={4}>
             <InsightSidebar
-              author={insight.author}
+              author={name}
               categories={categories}
               recentPosts={{ list: insights }}
             />

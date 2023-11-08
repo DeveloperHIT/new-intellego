@@ -1,35 +1,29 @@
 import InsightsView from "@/sections/view/insightsView";
 import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { SanityDocument } from "@sanity/client";
-import { postsQuery, snippetsQuery } from "@/sanity/lib/queries";
+import { getCategoriesQuery, postsQuery } from "@/sanity/lib/queries";
+import { Metadata } from "next";
+import { META_SEO_KEYWORDS } from "@/constants/metaData";
+
+// TODO: Add metadata to all pages
+export const metadata: Metadata = {
+  title: "Insights",
+  description: "Insights",
+  keywords: META_SEO_KEYWORDS,
+};
 
 export default async function Page() {
-  // const insights = await getInsights();
+  const categories = await sanityFetch<SanityDocument>({
+    query: getCategoriesQuery,
+  });
 
   const insights = await sanityFetch<SanityDocument>({
     query: postsQuery,
   });
 
-  console.log(insights);
-
-  const allSnippets = await sanityFetch<SanityDocument>({
-    query: snippetsQuery,
-  });
-
   return (
     <div>
-      {insights.map((insight: any) => (
-        <div key={insight._id}>
-          <h2>{insight.title}</h2>
-        </div>
-      ))}
-
-      {allSnippets?.length > 0 ? (
-        <div>Add snippets logic</div>
-      ) : (
-        <p>No snippets found</p>
-      )}
-      <InsightsView insights={insights} />
+      <InsightsView categories={categories} insights={insights} />
     </div>
   );
 }

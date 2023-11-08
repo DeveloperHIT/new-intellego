@@ -8,12 +8,9 @@ import Iconify from "@/components/Iconify";
 import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
 
-import InsightItemMobile from "@/sections/insights/insight/insightItemMobile";
-
 import InsightItem from "@/sections/insights/insight/insightItem";
 
 export default function LatestInsights({ insights }) {
-  console.log(insights);
   const mdUp = useResponsive("up", "md");
 
   const viewAllBtn = (
@@ -59,11 +56,12 @@ export default function LatestInsights({ insights }) {
             },
           }}
         >
-          {insights.map((insight) =>
+          {insights.map((insight, index) =>
             mdUp ? (
-              <InsightItem key={insight.id} insight={insight} />
+              <InsightItem key={index} insight={insight} />
             ) : (
-              <InsightItemMobile key={insight.id} insight={insight} />
+              <div key={index}>test</div>
+              // <InsightItemMobile key={index} insight={insight} />
             ),
           )}
         </Box>

@@ -1,8 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import { createPagesBrowserClient } from "@supabase/auth-helpers-nextjs";
-import Box from "@mui/material/Box";
-// import Link from "@mui/material/Link";
+import React from "react";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -10,46 +7,10 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Iconify from "@/components/Iconify";
 import { useResponsive } from "@/hooks/useResponsive";
 import InsightItemMobile from "@/sections/insights/insight/insightItemMobile";
+import Box from "@mui/material/Box";
+import Category from "@/sections/insights/category";
 
 export default function InsightSidebar({ categories, insights, sx, ...other }) {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredInsights, setFilteredInsights] = useState(insights);
-
-  const supabase = createPagesBrowserClient();
-
-  const handleSearchChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleSearch = async () => {
-    await searchInsights(searchQuery);
-  };
-
-  const searchInsights = async (query) => {
-    if (!query) {
-      // If the search query is empty, you might want to reset to the default state or handle it differently
-      setFilteredInsights(insights);
-      return;
-    }
-
-    const { data, error } = await supabase
-      .from("insights")
-      .select("*")
-      .textSearch("description", `%${query}%`, {
-        type: "websearch",
-        config: "english ",
-      });
-
-    if (error) {
-      console.error("Error searching insights:", error);
-      return;
-    }
-
-    // Update your insights state with the search results
-    // This assumes you have a way to update the insights state in your component
-    setFilteredInsights(data);
-  };
-
   const mdUp = useResponsive("up", "md");
 
   const renderCategories = categories && (
@@ -58,8 +19,8 @@ export default function InsightSidebar({ categories, insights, sx, ...other }) {
         Categories
       </Typography>
 
-      {categories.map((category) => (
-        <Stack key={category.value} direction="row" alignItems="center">
+      {categories.map((category, index) => (
+        <Stack key={index} direction="row" alignItems="center">
           <Box
             sx={{
               mr: 2,
@@ -69,21 +30,22 @@ export default function InsightSidebar({ categories, insights, sx, ...other }) {
               bgcolor: "primary.main",
             }}
           />
-
-          {/*<Link variant="body2" href="/" color="inherit">*/}
-          {/*  {category.key}*/}
-          {/*</Link>*/}
+          <Category
+            path={`/insights/categories/${category.slug.current}`}
+            title={category.title}
+            postCount={category.postCount}
+          />
         </Stack>
       ))}
     </Stack>
   );
 
-  const renderRecentInsights = filteredInsights && (
+  const renderRecentInsights = insights && (
     <Stack spacing={3}>
       <Typography variant="h5">Recent Insights</Typography>
 
-      {filteredInsights.map((insight) => (
-        <InsightItemMobile key={insight.id} insight={insight} onSidebar />
+      {insights.map((insight, index) => (
+        <InsightItemMobile key={index} insight={insight} onSidebar />
       ))}
     </Stack>
   );
@@ -97,14 +59,6 @@ export default function InsightSidebar({ categories, insights, sx, ...other }) {
           fullWidth
           hiddenLabel
           placeholder="Search..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              event.preventDefault();
-              handleSearch();
-            }
-          }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">

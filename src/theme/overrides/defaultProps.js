@@ -1,3 +1,5 @@
+import Iconify from "@/components/Iconify";
+
 export function defaultProps(theme) {
   return {
     MuiAppBar: {
@@ -19,6 +21,11 @@ export function defaultProps(theme) {
       defaultProps: {
         color: "inherit",
         disableElevation: true,
+      },
+    },
+    MuiChip: {
+      defaultProps: {
+        deleteIcon: <Iconify icon="solar:close-circle-bold" />,
       },
     },
     MuiLink: {

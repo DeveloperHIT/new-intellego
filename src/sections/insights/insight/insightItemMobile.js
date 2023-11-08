@@ -6,8 +6,18 @@ import { fDate } from "@/helpers/formatTime";
 import TextMaxLine from "@/components/TextMaxLine";
 
 import InsightTimeBlock from "@/sections/insights/insight/insightTimeBlock";
+import { urlFor } from "@/sanity/lib/urlFor";
 
 export default function InsightItemMobile({ insight, onSidebar }) {
+  const {
+    mainImage: {
+      alt,
+      asset: { _ref },
+    },
+    publishedAt,
+    title,
+  } = insight;
+
   return (
     <Stack
       spacing={2}
@@ -16,8 +26,8 @@ export default function InsightItemMobile({ insight, onSidebar }) {
       sx={{ width: 1 }}
     >
       <Image
-        alt={insight.title}
-        src={insight.cover_url}
+        alt={alt}
+        src={`${urlFor(_ref)}`}
         sx={{
           width: 80,
           height: 80,
@@ -29,13 +39,13 @@ export default function InsightItemMobile({ insight, onSidebar }) {
       <Stack spacing={onSidebar ? 0.5 : 1}>
         <Link color="inherit">
           <TextMaxLine variant={onSidebar ? "subtitle2" : "h6"}>
-            {insight.title}
+            {title}
           </TextMaxLine>
         </Link>
 
         <InsightTimeBlock
-          createdAt={fDate(insight.created_at)}
-          duration={insight.duration}
+          createdAt={fDate(publishedAt)}
+          // duration={insight.duration}
         />
       </Stack>
     </Stack>

@@ -1,4 +1,4 @@
-import { projectId, apiVersion, dataset, useCdn } from "@/sanity/env";
+import { projectId, apiVersion, dataset, useCdn } from "../env";
 
 const config = {
   projectId,

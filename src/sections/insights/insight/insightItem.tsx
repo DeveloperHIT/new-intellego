@@ -14,22 +14,17 @@ interface InsightItemProps {
 }
 
 export default function InsightItem({ insight, path }: InsightItemProps) {
-  const {
-    title,
-    meta_description,
-    publishedAt,
-    mainImage: {
-      alt,
-      asset: { _ref },
-    },
-  } = insight;
+  const { title, meta_description, publishedAt, mainImage } = insight || {};
+
+  const imageAssetRef = mainImage?.asset?._ref;
+  const imageAltText = mainImage?.alt || "";
 
   return (
     <Stack spacing={2.5}>
       <Image
         // @ts-ignore
-        src={`${urlFor(_ref)}`}
-        alt={alt}
+        src={imageAssetRef ? `${urlFor(imageAssetRef)}` : undefined}
+        alt={imageAltText}
         // @ts-ignore
         ratio="1/1"
         sx={{ borderRadius: 2 }}

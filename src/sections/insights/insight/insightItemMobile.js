@@ -9,14 +9,10 @@ import InsightTimeBlock from "@/sections/insights/insight/insightTimeBlock";
 import { urlFor } from "@/sanity/lib/urlFor";
 
 export default function InsightItemMobile({ insight, onSidebar }) {
-  const {
-    mainImage: {
-      alt,
-      asset: { _ref },
-    },
-    publishedAt,
-    title,
-  } = insight;
+  const { mainImage, publishedAt, title } = insight || {};
+
+  const imageAssetRef = mainImage?.asset?._ref;
+  const imageAltText = mainImage?.alt || "";
 
   return (
     <Stack
@@ -26,8 +22,8 @@ export default function InsightItemMobile({ insight, onSidebar }) {
       sx={{ width: 1 }}
     >
       <Image
-        alt={alt}
-        src={`${urlFor(_ref)}`}
+        alt={imageAltText}
+        src={imageAssetRef ? `${urlFor(imageAssetRef)}` : undefined}
         sx={{
           width: 80,
           height: 80,

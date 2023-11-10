@@ -1,10 +1,12 @@
+import { StructureBuilder } from "sanity/desk";
+
 /**
- * Defines the insights structure in the Sanity Studio.
+ * Defines the insights desk in the Sanity Studio.
  *
- * @param {Object} S - The structure builder object.
- * @returns {Object} The insights structure with lists and children defined.
+ * @param {Object} S - The desk builder object.
+ * @returns {Object} The insights desk with lists and children defined.
  */
-export const insightsStructure = (S) =>
+export const insights = (S: StructureBuilder) =>
   S.listItem()
     .title("Filtered Insights")
     .child(

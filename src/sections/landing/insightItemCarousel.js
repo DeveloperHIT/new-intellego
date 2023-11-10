@@ -11,15 +11,10 @@ import RouterLink from "@/routes/routerLink";
 import { urlFor } from "@/sanity/lib/urlFor";
 
 export default function InsightItemCarousel({ insight }) {
-  const {
-    mainImage: {
-      alt,
-      asset: { _ref },
-    },
-    meta_description,
-    publishedAt,
-    title,
-  } = insight;
+  const { mainImage, meta_description, publishedAt, title } = insight || {};
+
+  const imageAssetRef = mainImage?.asset?._ref;
+  const imageAltText = mainImage?.alt || "";
 
   const theme = useTheme();
 
@@ -58,8 +53,8 @@ export default function InsightItemCarousel({ insight }) {
       </Stack>
 
       <Image
-        src={`${urlFor(_ref)}`}
-        alt={alt}
+        src={imageAssetRef ? `${urlFor(imageAssetRef)}` : undefined}
+        alt={imageAltText}
         overlay={`linear-gradient(to right top, ${alpha(
           theme.palette.grey[900],
           0,

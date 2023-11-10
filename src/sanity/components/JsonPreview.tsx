@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * Expected structure of the `document.displayed` object.
+ * Expected desk of the `document.displayed` object.
  */
 interface Displayed {
   title: string;

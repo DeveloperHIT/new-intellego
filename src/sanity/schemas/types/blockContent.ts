@@ -61,7 +61,7 @@ export default defineType({
           { title: "Underline", value: "underline" },
           { title: "Strike", value: "strike-through" },
         ],
-        // Annotations can be any object structure – e.g. a link or a footnote.
+        // Annotations can be any object desk – e.g. a link or a footnote.
         annotations: [
           {
             title: "URL",

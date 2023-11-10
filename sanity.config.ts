@@ -9,10 +9,8 @@ import {
 } from "@sanity/dashboard";
 import { index } from "@/sanity/schemas";
 import { apiVersion, dataset, projectId } from "@/sanity/env";
-import {
-  defaultDocumentNodeResolver,
-  documentTypes,
-} from "@/sanity/studio/structure";
+import { structure } from "@/sanity/studio/desk";
+import { defaultDocumentNodeResolver } from "@/sanity/studio/desk/defaultDocumentNode";
 
 export default defineConfig({
   projectId,
@@ -22,7 +20,7 @@ export default defineConfig({
   basePath: "/admin",
   plugins: [
     deskTool({
-      structure: documentTypes,
+      structure: structure,
       defaultDocumentNode: defaultDocumentNodeResolver,
     }),
     codeInput(),

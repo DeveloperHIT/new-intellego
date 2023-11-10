@@ -1,10 +1,12 @@
+import { StructureBuilder } from "sanity/desk";
+
 /**
- * Defines the settings structure in the Sanity Studio.
+ * Defines the settings desk in the Sanity Studio.
  *
- * @param {Object} S - The structure builder object.
- * @returns {Object} The settings structure with lists and children defined.
+ * @param {Object} S - The desk builder object.
+ * @returns {Object} The settings desk with lists and children defined.
  */
-export const settingsStructure = (S) =>
+export const settings = (S: StructureBuilder) =>
   S.listItem()
     .title("Site Config")
     .child(

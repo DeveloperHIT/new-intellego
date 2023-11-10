@@ -8,5 +8,7 @@ export default async function Home() {
     query: postsQuery,
   });
 
+  console.log(insights);
+
   return <LandingView insights={insights} />;
 }

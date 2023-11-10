@@ -7,9 +7,12 @@ import {
   projectUsersWidget,
   projectInfoWidget,
 } from "@sanity/dashboard";
-import { schema } from "@/sanity/schema";
+import { index } from "@/sanity/schemas";
 import { apiVersion, dataset, projectId } from "@/sanity/env";
-import { deskStructure } from "@/sanity/deskStructure";
+import {
+  defaultDocumentNodeResolver,
+  documentTypes,
+} from "@/sanity/studio/structure";
 
 export default defineConfig({
   projectId,
@@ -18,12 +21,15 @@ export default defineConfig({
   apiVersion: "2023-11-04",
   basePath: "/admin",
   plugins: [
-    deskTool({ structure: deskStructure }),
+    deskTool({
+      structure: documentTypes,
+      defaultDocumentNode: defaultDocumentNodeResolver,
+    }),
     codeInput(),
     dashboardTool({
       widgets: [projectInfoWidget(), projectUsersWidget()],
     }),
     visionTool({ defaultApiVersion: apiVersion }),
   ],
-  schema,
+  schema: index,
 });

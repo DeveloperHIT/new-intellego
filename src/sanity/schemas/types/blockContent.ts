@@ -2,8 +2,8 @@ import { defineType, defineArrayMember } from "sanity";
 import ExternalLinkRenderer from "../../components/ExternalLinkRenderer";
 import TitleStyle from "../../components/TitleStyle";
 /**
- * This is the schema type for block content used in the post document type
- * Importing this type into the studio configuration's `schema` property
+ * This is the index type for block content used in the post document type
+ * Importing this type into the studio configuration's `index` property
  * lets you reuse it in other document types with:
  *  {
  *    name: 'someName',

@@ -11,7 +11,7 @@ const algolia = algoliasearch(
 );
 
 // Create sanity client
-export const sanity = createClient({
+const sanity = createClient({
   apiVersion,
   dataset,
   projectId,

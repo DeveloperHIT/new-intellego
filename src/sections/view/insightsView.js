@@ -7,6 +7,8 @@ import Insights from "@/sections/insights/insights";
 import InsightSearchMobile from "@/sections/insights/insight/insightSearchMobile";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 
+// TODO: Change this to use react-instantsearch? I thought algolia was just json.
+
 export default function InsightsView({ categories, insights }) {
   return (
     <>

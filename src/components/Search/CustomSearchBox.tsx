@@ -1,7 +1,7 @@
 "use client";
 import { useSearchBox } from "react-instantsearch";
 import type { UseSearchBoxProps } from "react-instantsearch";
-import { TextField } from "@mui/material";
+import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
 
 // TODO: Move this over to the blog so that it changes the hits based on search and categories and tags

@@ -28,6 +28,7 @@ const query = `*[
   _createdAt,
 
   title,
+  "mainImage": mainImage.asset._ref,
   "slug": slug.current,
   "categories": categories[] -> {
     _id, title
@@ -43,6 +44,7 @@ const post_projection = `{
     _createdAt,
     
     title,
+    "mainImage": mainImage.asset._ref,
     "slug": slug.current,
     "categories": categories[] -> {
         _id, title

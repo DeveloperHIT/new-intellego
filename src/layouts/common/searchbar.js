@@ -31,8 +31,6 @@ const StyledSearchbar = styled("div")(({ theme }) => ({
   },
 }));
 
-// ----------------------------------------------------------------------
-
 export default function Searchbar({ sx }) {
   const searchOpen = useBoolean();
 

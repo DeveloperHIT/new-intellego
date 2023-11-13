@@ -5,6 +5,22 @@ import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 
 import LinkItem from "./linkItem";
+import { ReactNode } from "react";
+import { BoxProps } from "@mui/material";
+
+interface LinkItemProps {
+  href?: string;
+  name: string;
+}
+
+interface CustomBreadcrumbsProps {
+  links: LinkItemProps[];
+  action?: ReactNode;
+  heading?: string;
+  moreLink?: string[];
+  activeLast?: boolean;
+  sx?: BoxProps;
+}
 
 export default function CustomBreadcrumbs({
   links,
@@ -14,7 +30,7 @@ export default function CustomBreadcrumbs({
   activeLast,
   sx,
   ...other
-}) {
+}: CustomBreadcrumbsProps) {
   const lastLink = links[links.length - 1].name;
 
   return (

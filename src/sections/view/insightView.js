@@ -9,14 +9,14 @@ import LatestInsights from "@/sections/insights/latestInsights";
 import { PortableText } from "@portabletext/react";
 import InsightSocialsShare from "@/sections/insights/insight/insightSocialsShare";
 import InsightSidebar from "@/sections/insights/insight/insightSidebar";
-import InsightTags from "@/sections/insights/insight/insightTags";
+// import InsightTags from "@/sections/insights/insight/insightTags";
 
 export default function InsightView({ categories, insight, insights }) {
   const {
     author: { designation, name },
     body,
     meta_description,
-    tags,
+    // tags = ["a", "b"],
     title,
   } = insight;
 
@@ -45,7 +45,7 @@ export default function InsightView({ categories, insight, insights }) {
             {/* TODO: Format blog text */}
             <PortableText value={body} />
 
-            <InsightTags tags={tags} />
+            {/*<InsightTags tags={tags} />*/}
 
             <InsightSocialsShare />
 

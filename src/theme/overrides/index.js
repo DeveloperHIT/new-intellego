@@ -7,6 +7,7 @@ import { breadcrumbs } from "@/theme/overrides/components/breadcrumbs";
 import { button } from "@/theme/overrides/components/button";
 import { buttonGroup } from "@/theme/overrides/components/buttonGroup";
 import { card } from "@/theme/overrides/components/card";
+import { checkbox } from "@/theme/overrides/components/checkbox";
 import { chip } from "@/theme/overrides/components/chip";
 import { cssBaseline } from "@/theme/overrides/components/cssBaseline";
 import { defaultProps } from "@/theme/overrides/defaultProps";
@@ -29,6 +30,7 @@ export function componentOverrides(theme) {
     button(theme),
     buttonGroup(theme),
     card(theme),
+    checkbox(theme),
     chip(theme),
     cssBaseline(theme),
     defaultProps(theme),

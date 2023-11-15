@@ -8,7 +8,7 @@ import InsightAuthor from "@/sections/insights/insight/insightAuthor";
 import LatestInsights from "@/sections/insights/latestInsights";
 import { PortableText } from "@portabletext/react";
 import InsightSocialsShare from "@/sections/insights/insight/insightSocialsShare";
-import InsightSidebar from "@/sections/insights/insight/insightSidebar";
+import InsightSidebar from "@/sections/insights/insight/sidebar";
 // import InsightTags from "@/sections/insights/insight/insightTags";
 
 export default function InsightView({ categories, insight, insights }) {

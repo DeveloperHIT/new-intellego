@@ -41,7 +41,7 @@ export default function ServiceView({ service }) {
           </Grid>
 
           <Grid xs={12} md={4}>
-            {/*<InsightSidebar*/}
+            {/*<Sidebar*/}
             {/*  insightTags={insightTags}*/}
             {/*  author={insight.author}*/}
             {/*  categories={_categories}*/}

@@ -27,7 +27,7 @@ export function HitComponent({ hit }: HitComponentProps) {
     : "assets/images/insights/insight_1.jpg";
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} key={_id}>
+    <Grid item xs={4} key={_id}>
       <Card
         sx={{
           height: 350,

@@ -20,5 +20,13 @@ export default function CustomSearchBox(props: UseSearchBoxProps) {
     setQuery(event.currentTarget.value);
   };
 
-  return <TextField type="search" onChange={handleChange} value={inputValue} />;
+  return (
+    <TextField
+      type="search"
+      onChange={handleChange}
+      value={inputValue}
+      fullWidth
+      label="Search"
+    />
+  );
 }

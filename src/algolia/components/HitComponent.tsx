@@ -22,16 +22,19 @@ export function HitComponent({ hit }: HitComponentProps) {
   const { mainImage, slug, title, _id } = hit;
 
   const imageAssetRef = mainImage?.asset?._ref;
+  const imageUrl = imageAssetRef
+    ? urlFor(imageAssetRef).url()
+    : "assets/images/insights/insight_1.jpg";
 
   return (
-    <Grid item xs={12} sm={6} md={4} key={_id}>
-      <Card>
-        <CardMedia
-          sx={{ height: 140 }}
-          image={`${urlFor(imageAssetRef)}`}
-          title={title}
-        />
-        <CardContent>
+    <Grid item xs={12} sm={6} md={4} lg={3} key={_id}>
+      <Card
+        sx={{
+          height: 350,
+        }}
+      >
+        <CardMedia sx={{ height: 150 }} image={imageUrl} title={title} />
+        <CardContent sx={{ height: 150 }}>
           <Typography variant="h5" component="div" gutterBottom>
             {title}
           </Typography>
@@ -52,49 +55,5 @@ export function HitComponent({ hit }: HitComponentProps) {
         </CardActions>
       </Card>
     </Grid>
-    // <Link href={`insights/${slug}`}>
-    //   <Box
-    //     sx={{
-    //       position: { sm: "relative" },
-    //       bgcolor: "white",
-    //       "&:hover": {
-    //         opacity: 0.75,
-    //       },
-    //       p: 6,
-    //     }}
-    //   >
-    //     {/* TODO: Add images to algolia*/}
-    //     <Image
-    //       src={`${urlFor(imageAssetRef)}`}
-    //       alt={title}
-    //       width={512}
-    //       height={512}
-    //     />
-    //     <Box
-    //       sx={{
-    //         flex: 1,
-    //         p: 2,
-    //         display: "flex",
-    //         flexDirection: "column",
-    //         gap: 1,
-    //       }}
-    //     >
-    //       <Typography
-    //         variant="subtitle1"
-    //         sx={{
-    //           mt: 2,
-    //           color: "text.secondary",
-    //         }}
-    //       >
-    //         {/* TODO: Use hook */}
-    //         <Highlight
-    //           hit={hit}
-    //           attribute="title"
-    //           // className={{ highlighted: "" }}
-    //         />
-    //       </Typography>
-    //     </Box>
-    //   </Box>
-    // </Link>
   );
 }

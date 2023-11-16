@@ -3,7 +3,7 @@ import Link from "@mui/material/Link";
 import Tooltip from "@mui/material/Tooltip";
 import ListItemText from "@mui/material/ListItemText";
 
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 
 import Iconify from "@/components/Iconify";
 
@@ -116,7 +116,7 @@ export default function NavItem({
   // Default
   return (
     <Link
-      component={RouterLink}
+      // component={RouterLink}
       href={path}
       underline="none"
       color="inherit"

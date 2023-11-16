@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Iconify from "@/components/Iconify";
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
 import Carousel, {
   useCarousel,
@@ -13,6 +13,7 @@ import Carousel, {
 
 import InsightItem from "./insightItem";
 import InsightItemCarousel from "./insightItemCarousel";
+import Link from "@mui/material/Link";
 
 export default function RecentInsights({ insights }) {
   const mdUp = useResponsive("up", "md");
@@ -87,7 +88,7 @@ export default function RecentInsights({ insights }) {
           >
             <Button
               color="primary"
-              component={RouterLink}
+              component={Link}
               href="/insights"
               endIcon={<Iconify icon="carbon:chevron-right" />}
             >

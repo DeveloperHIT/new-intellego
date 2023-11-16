@@ -7,7 +7,7 @@ import { useTheme } from "@mui/material/styles";
 import { bgBlur } from "@/theme/css";
 import Logo from "@/components/Logo";
 import { paths } from "@/routes/paths";
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 import { useOffsetTop } from "@/hooks/useOffsetTop";
 
 import { HEADER } from "@/layouts/configLayout";
@@ -50,7 +50,7 @@ export default function HeaderSimple() {
 
           <Link
             href={paths.support}
-            component={RouterLink}
+            // component={RouterLink}
             color="inherit"
             sx={{ typography: "subtitle2" }}
           >

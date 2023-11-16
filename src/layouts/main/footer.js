@@ -18,7 +18,7 @@ import { _socials } from "@/_mock";
 import Logo from "@/components/Logo";
 import Iconify from "@/components/Iconify";
 import { usePathname } from "@/hooks/usePathname";
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useBoolean } from "@/hooks/useBoolean";
 import { navConfig } from "@/theme/config";
@@ -207,7 +207,7 @@ export function ListDesktop({ list }) {
 
         return (
           <Link
-            component={RouterLink}
+            // component={RouterLink}
             key={link.title}
             href={link.path}
             variant="caption"
@@ -260,7 +260,7 @@ export function ListMobile({ list }) {
         <Stack spacing={1.5} alignItems="flex-start">
           {list.items?.map((link) => (
             <Link
-              component={RouterLink}
+              // component={RouterLink}
               key={link.title}
               href={link.path}
               variant="caption"

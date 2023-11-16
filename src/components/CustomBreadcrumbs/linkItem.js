@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 
 export default function BreadcrumbsLink({ link, activeLast, disabled }) {
   const { name, href, icon } = link;
@@ -40,7 +40,7 @@ export default function BreadcrumbsLink({ link, activeLast, disabled }) {
 
   if (href) {
     return (
-      <Link component={RouterLink} href={href} sx={styles}>
+      <Link href={href} sx={styles}>
         {renderContent}
       </Link>
     );

@@ -11,7 +11,7 @@ import Image from "@/components/Image";
 import Label from "@/components/Label";
 import { usePathname } from "@/hooks/usePathname";
 import { useBoolean } from "@/hooks/useBoolean";
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 import { useActiveLink } from "@/hooks/useActiveLink";
 
 import { NavItem } from "./navItem";
@@ -128,7 +128,10 @@ function NavSubList({ subheader, isNew, cover, items }) {
       </StyledSubheader>
 
       {!commonList && (
-        <Link component={RouterLink} href={coverPath}>
+        <Link
+          // component={RouterLink}
+          href={coverPath}
+        >
           <Image
             disabledEffect
             alt={cover}

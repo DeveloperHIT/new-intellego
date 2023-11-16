@@ -1,22 +1,25 @@
 "use client";
 import {
+  Box,
   Button,
-  Collapse,
   Container,
   Divider,
+  FormControl,
+  MenuItem,
+  Select,
   Stack,
+  ToggleButton,
+  ToggleButtonGroup,
   Typography,
 } from "@mui/material";
 import algoliasearch from "algoliasearch/lite";
 import { singleIndex } from "instantsearch.js/es/lib/stateMappings";
 import { InstantSearchNext } from "react-instantsearch-nextjs";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Iconify from "@/components/Iconify";
 import { useBoolean } from "@/hooks/useBoolean";
-
-import AuthorRefinementList from "@/algolia/components/AuthorRefinementList";
-import CategoryRefinementList from "@/algolia/components/CategoryRefinementList";
-import TagsRefinementList from "@/algolia/components/TagsRefinementList";
+import InfiniteHitsComponent from "@/algolia/components/CustomInfiniteHits";
+import InsightFilters from "@/sections/insights/insightFilters";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
@@ -28,42 +31,49 @@ interface InsightsViewProps {}
 export default function InsightsView({}: InsightsViewProps) {
   const mobileOpen = useBoolean();
 
-  return (
-    // <>
-    //   <Container>
-    //     <CustomBreadcrumbs
-    //       sx={{ my: 3 }}
-    //       links={[
-    //         { name: "Home", href: "/" },
-    //         { name: "Insights", href: "/insights" },
-    //       ]}
-    //     />
-    //   </Container>
-    //   <InsightSearchMobile />
-    //
-    //   <Container
-    //     sx={{
-    //       mt: { xs: 4, md: 10 },
-    //       mb: { xs: 4, md: 10 },
-    //     }}
-    //   >
+  const [sort, setSort] = useState("latest");
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
-    //       <Configure hitsPerPage={8} />
-    //
-    //       <Grid container spacing={2} xs={12}>
-    //         <Grid xs={8}>
-    //           <InfiniteHitsComponent />
-    //         </Grid>
-    //
-    //         <Grid xs={4}>
-    //           <Sidebar />
-    //         </Grid>
-    //       </Grid>
-    //     </InstantSearchNext>
-    //   </Container>
-    //
-    //   <Newsletter />
-    // </>
+  // @ts-ignore
+  const handleChangeViewMode = useCallback((event, newAlignment) => {
+    if (newAlignment !== null) {
+      setViewMode(newAlignment);
+    }
+  }, []);
+
+  // @ts-ignore
+  const handleChangeSort = useCallback((event) => {
+    setSort(event.target.value);
+  }, []);
+
+  const VIEW_OPTIONS = [
+    {
+      value: "list",
+      icon: (
+        <Iconify
+          // @ts-ignore
+          icon="carbon:list-boxes"
+        />
+      ),
+    },
+    {
+      value: "grid",
+      icon: (
+        <Iconify
+          // @ts-ignore
+          icon="carbon:grid"
+        />
+      ),
+    },
+  ];
+
+  const SORT_OPTIONS = [
+    { value: "latest", label: "Latest" },
+    { value: "oldest", label: "Oldest" },
+    { value: "popular", label: "Popular" },
+  ];
+
+  return (
     <Container>
       <InstantSearchNext
         searchClient={searchClient}
@@ -111,74 +121,51 @@ export default function InsightsView({}: InsightsViewProps) {
             spacing={5}
             divider={<Divider sx={{ borderStyle: "dashed" }} />}
           >
-            {/* Filters */}
-            <Stack
-              spacing={3}
-              alignItems="flex-start"
-              sx={{ flexShrink: 0, width: { xs: 1, md: 280 } }}
-            >
-              {/* TODO: Fix font size*/}
-              <Block title="Authors">
-                <AuthorRefinementList attribute="author.name" sx={{ mt: 2 }} />
-              </Block>
-              <Block title="Categories">
-                <CategoryRefinementList
-                  attribute="categories.title"
-                  sx={{ mt: 1 }}
-                />
-              </Block>
-              <Block title="Tags">
-                <TagsRefinementList attribute="tags.title" sx={{ mt: 2 }} />
-              </Block>
-              {/* TODO: Apply logic */}
-              <Button
-                fullWidth
-                color="inherit"
-                size="large"
-                variant="contained"
-                startIcon={
-                  <Iconify
-                    // @ts-ignore
-                    icon="carbon:trash-can"
-                  />
-                }
-              >
-                Clear All
-              </Button>
-            </Stack>
+            <InsightFilters />
+            {/* TODO: Add recent or trending insights */}
           </Stack>
+          <Box
+            sx={{
+              flexGrow: 1,
+              pl: { md: 8 },
+              width: { md: `calc(100% - ${280}px)` },
+            }}
+          >
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ mb: 5 }}
+            >
+              <ToggleButtonGroup
+                exclusive
+                size="small"
+                value={viewMode}
+                onChange={handleChangeViewMode}
+                sx={{ borderColor: "transparent" }}
+              >
+                {VIEW_OPTIONS.map((option) => (
+                  <ToggleButton key={option.value} value={option.value}>
+                    {option.icon}
+                  </ToggleButton>
+                ))}
+              </ToggleButtonGroup>
+
+              <FormControl size="small" hiddenLabel sx={{ width: 120 }}>
+                <Select value={sort} onChange={handleChangeSort}>
+                  {SORT_OPTIONS.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Stack>
+
+            <InfiniteHitsComponent viewMode={viewMode} />
+          </Box>
         </Stack>
       </InstantSearchNext>
     </Container>
-  );
-}
-
-interface BlockProps {
-  title: string;
-  children: React.ReactNode;
-}
-
-function Block({ children, title }: BlockProps) {
-  const contentOpen = useBoolean(true);
-  return (
-    <Stack alignItems="flex-start" sx={{ width: 1 }}>
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        onClick={contentOpen.onToggle}
-        sx={{ width: 1, cursor: "pointer" }}
-      >
-        <Typography variant="h6">{title}</Typography>
-        <Iconify
-          // @ts-ignore
-          icon={contentOpen.value ? "carbon:subtract" : "carbon:add"}
-          sx={{ color: "text-secondary" }}
-        />
-      </Stack>
-      <Collapse unmountOnExit in={contentOpen.value} sx={{ px: 0.5 }}>
-        {children}
-      </Collapse>
-    </Stack>
   );
 }

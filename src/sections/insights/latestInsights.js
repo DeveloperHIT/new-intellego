@@ -5,17 +5,18 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 import Iconify from "@/components/Iconify";
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
 
 import InsightItem from "@/sections/insights/insight/insightItem";
+import Link from "@mui/material/Link";
 
 export default function LatestInsights({ insights }) {
   const mdUp = useResponsive("up", "md");
 
   const viewAllBtn = (
     <Button
-      component={RouterLink}
+      component={Link}
       href="/"
       color="inherit"
       endIcon={<Iconify icon="carbon:chevron-right" />}

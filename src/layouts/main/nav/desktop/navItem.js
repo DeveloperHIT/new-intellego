@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import Link from "@mui/material/Link";
 
 import Iconify from "@/components/Iconify";
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 
 import { StyledNavItem } from "./styles";
 
@@ -49,7 +49,7 @@ export const NavItem = forwardRef(
     // Default
     return (
       <Link
-        component={RouterLink}
+        // component={RouterLink}
         href={item.path}
         color="inherit"
         underline="none"

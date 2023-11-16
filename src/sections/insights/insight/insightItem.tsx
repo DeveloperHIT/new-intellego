@@ -3,10 +3,11 @@ import Image from "@/components/Image";
 import TextMaxLine from "@/components/TextMaxLine";
 
 import InsightTimeBlock from "@/sections/insights/insight/insightTimeBlock";
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import { ArticleHeaderData } from "@/types/Insight";
 import { urlFor } from "@/sanity/lib/urlFor";
-import CustomLink from "@/routes/routerLink";
+
+// import CustomLink from "@/routes/routerLink";
 
 interface InsightItemProps {
   insight: ArticleHeaderData;
@@ -37,12 +38,12 @@ export default function InsightItem({ insight, path }: InsightItemProps) {
           // duration={estimatedReadTime}
         />
 
-        <CustomLink href={path || "#"} color={"inherit"}>
+        <Link href={path || "#"} color={"inherit"}>
           {/* @ts-ignore */}
           <TextMaxLine variant="h5" persistent>
             {title}
           </TextMaxLine>
-        </CustomLink>
+        </Link>
 
         <Typography variant="body1" color="text.secondary">
           {meta_description}

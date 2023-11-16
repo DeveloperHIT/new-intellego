@@ -7,9 +7,10 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 import Iconify from "@/components/Iconify";
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 
 import HomeTrendingInsight from "@/sections/landing/homeTrendingInsight";
+import Link from "@mui/material/Link";
 
 export default function HomeTrendingInsights() {
   return (
@@ -97,7 +98,7 @@ function Insight({ title, description, path, sx, ...other }) {
       </Typography>
 
       <Button
-        component={RouterLink}
+        component={Link}
         href={path}
         color="inherit"
         endIcon={<Iconify icon="carbon:chevron-right" />}

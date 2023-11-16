@@ -2,30 +2,46 @@ import { useInfiniteHits } from "react-instantsearch";
 import { HitComponent } from "@/algolia/components/HitComponent";
 import { Hit } from "instantsearch.js";
 import { Post } from "@/algolia/types/Post";
-import { Button, Grid } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+import React from "react";
 
 interface InfiniteHitsComponentProps {
   props?: any;
+  viewMode: "grid" | "list";
 }
 
 type PostHit = Hit<Post>;
 
 export default function InfiniteHitsComponent({
+  viewMode,
   props,
 }: InfiniteHitsComponentProps) {
-  const { hits, showMore } = useInfiniteHits<PostHit>(props);
+  const { hits } = useInfiniteHits<PostHit>(props);
 
   return (
-    <Grid container spacing={2}>
-      {hits.map((hit) => (
-        <HitComponent hit={hit} key={hit.objectID} />
-      ))}
-      <Grid item xs={12}>
-        {/* TODO: How to only show more if there are more to show? */}
-        <Button onClick={showMore} variant="outlined" fullWidth>
-          Show more
-        </Button>
-      </Grid>
-    </Grid>
+    <Box>
+      {viewMode === "grid" ? (
+        <Box
+          rowGap={4}
+          columnGap={3}
+          display="grid"
+          gridTemplateColumns={{
+            xs: "repeat(2, 1fr)",
+            sm: "repeat(3, 1fr)",
+            md: "repeat(4, 1fr)",
+          }}
+        >
+          {hits.map((hit) => (
+            <HitComponent hit={hit} key={hit.objectID} viewMode="grid" />
+          ))}
+        </Box>
+      ) : (
+        <Stack spacing={4}>
+          {hits.map((hit) => (
+            <HitComponent hit={hit} key={hit.objectID} viewMode="list" />
+          ))}
+        </Stack>
+      )}
+    </Box>
   );
 }

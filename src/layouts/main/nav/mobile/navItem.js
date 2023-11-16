@@ -3,7 +3,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 
 import Iconify from "@/components/Iconify";
-import RouterLink from "@/routes/routerLink";
+// import RouterLink from "@/routes/routerLink";
 
 import { StyledNavItem } from "./styles";
 
@@ -46,7 +46,11 @@ export default function NavItem({
 
   // Default
   return (
-    <Link component={RouterLink} href={item.path} underline="none">
+    <Link
+      // component={RouterLink}
+      href={item.path}
+      underline="none"
+    >
       {renderContent}
     </Link>
   );

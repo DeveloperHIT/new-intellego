@@ -23,16 +23,13 @@ export function defaultProps(theme) {
         disableElevation: true,
       },
     },
+
     MuiChip: {
       defaultProps: {
         deleteIcon: <Iconify icon="solar:close-circle-bold" />,
       },
     },
-    MuiLink: {
-      defaultProps: {
-        underline: "hover",
-      },
-    },
+
     MuiPaper: {
       defaultProps: {
         elevation: 0,

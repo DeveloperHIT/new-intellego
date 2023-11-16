@@ -12,14 +12,17 @@ import { chip } from "@/theme/overrides/components/chip";
 import { cssBaseline } from "@/theme/overrides/components/cssBaseline";
 import { defaultProps } from "@/theme/overrides/defaultProps";
 import { drawer } from "@/theme/overrides/components/drawer";
+import { fab } from "@/theme/overrides/components/fab";
 import { list } from "@/theme/overrides/components/list";
 import { loadingButton } from "@/theme/overrides/components/loadingButton";
 import { menu } from "@/theme/overrides/components/menu";
 import { paper } from "@/theme/overrides/components/paper";
 import { popover } from "@/theme/overrides/components/popover";
+import { select } from "@/theme/overrides/components/select";
 import { svgIcon } from "@/theme/overrides/components/svgIcon";
 import { textField } from "@/theme/overrides/components/textField";
 import { typography } from "@/theme/overrides/components/typography";
+import { toggleButton } from "@/theme/overrides/components/toggleButton";
 
 export function componentOverrides(theme) {
   const allComponents = [
@@ -35,13 +38,16 @@ export function componentOverrides(theme) {
     cssBaseline(theme),
     defaultProps(theme),
     drawer(theme),
+    fab(theme),
     list(theme),
     loadingButton(theme),
     menu(theme),
     paper(theme),
     popover(theme),
+    select(theme),
     svgIcon(theme),
     textField(theme),
+    toggleButton(theme),
     typography(theme),
   ];
 

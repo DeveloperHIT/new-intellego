@@ -1,13 +1,10 @@
-import Box from "@mui/material/Box";
-import Fab from "@mui/material/Fab";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { Box, Fab, Link, Stack, Typography } from "@mui/material";
+
 import { alpha, useTheme } from "@mui/material/styles";
 
 import Image from "@/components/Image";
 import Iconify from "@/components/Iconify";
 import { fDate } from "@/helpers/formatTime";
-import RouterLink from "@/routes/routerLink";
 import { urlFor } from "@/sanity/lib/urlFor";
 
 export default function InsightItemCarousel({ insight }) {
@@ -46,7 +43,7 @@ export default function InsightItemCarousel({ insight }) {
             {meta_description}
           </Typography>
 
-          <Fab component={RouterLink} href="/">
+          <Fab component={Link} href="/">
             <Iconify icon="carbon:chevron-right" />
           </Fab>
         </Box>

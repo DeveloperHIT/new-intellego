@@ -7,7 +7,7 @@ import React from "react";
 
 interface InfiniteHitsComponentProps {
   props?: any;
-  viewMode: "grid" | "list";
+  viewMode?: "grid" | "list";
 }
 
 type PostHit = Hit<Post>;

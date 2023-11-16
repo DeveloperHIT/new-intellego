@@ -21,8 +21,10 @@ import { popover } from "@/theme/overrides/components/popover";
 import { select } from "@/theme/overrides/components/select";
 import { svgIcon } from "@/theme/overrides/components/svgIcon";
 import { textField } from "@/theme/overrides/components/textField";
-import { typography } from "@/theme/overrides/components/typography";
 import { toggleButton } from "@/theme/overrides/components/toggleButton";
+import { typography } from "@/theme/overrides/components/typography";
+import { radio } from "@/theme/overrides/components/radioButton";
+import { formControl } from "@/theme/overrides/components/formControl";
 
 export function componentOverrides(theme) {
   const allComponents = [
@@ -39,11 +41,13 @@ export function componentOverrides(theme) {
     defaultProps(theme),
     drawer(theme),
     fab(theme),
+    formControl(theme),
     list(theme),
     loadingButton(theme),
     menu(theme),
     paper(theme),
     popover(theme),
+    radio(theme),
     select(theme),
     svgIcon(theme),
     textField(theme),

@@ -1,0 +1,13 @@
+/* carousel */
+@import '../../node_modules/slick-carousel/slick/slick.css';
+@import '../../node_modules/slick-carousel/slick/slick-theme.css';
+
+/* lazy image */
+@import '../../node_modules/react-lazy-load-image-component/src/effects/blur.css';
+
+/* Disable overscroll behavior */
+body {
+    background: #FBFDFF;
+    overscroll-behavior: none;
+}
+

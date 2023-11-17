@@ -1,5 +1,7 @@
 import { StructureBuilder } from "sanity/desk";
 
+// TODO: Add Insights Config so someone can manage categories and tags that are approved for use.
+
 /**
  * Defines the insights desk in the Sanity Studio.
  *

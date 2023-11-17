@@ -1,13 +1,11 @@
-import { menuItem } from "../../css";
-
 // ----------------------------------------------------------------------
 
-export function menu(theme) {
+export function stepper(theme) {
   return {
-    MuiMenuItem: {
+    MuiStepConnector: {
       styleOverrides: {
-        root: {
-          ...menuItem(theme),
+        line: {
+          borderColor: theme.palette.divider,
         },
       },
     },

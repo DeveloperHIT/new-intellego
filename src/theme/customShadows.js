@@ -1,8 +1,10 @@
-import { alpha } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 
-import { palette as themePalette } from "@/theme/palette";
+import { palette as themePalette } from "./palette";
 
-const palette = themePalette();
+// ----------------------------------------------------------------------
+
+const palette = themePalette("light");
 
 const LIGHT_MODE = palette.grey[500];
 

@@ -1,19 +1,22 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Link, Stack } from "@mui/material";
 // import { Highlight } from "react-instantsearch";
 import type { Hit } from "instantsearch.js";
 import { Post } from "@/algolia/types/Post";
 import { urlFor } from "@/sanity/lib/urlFor";
 import Image from "@/components/Image";
 import TextMaxLine from "@/components/TextMaxLine";
-import Link from "next/link";
+import NextLink from "@/components/NextLink/NextLink";
+import PostDate from "@/algolia/components/PostDate";
 
 interface HitComponentProps {
   hit: Hit<Post>;
   viewMode: "grid" | "list";
 }
 
+// Format ISO string to date
+
 export function HitComponent({ hit, viewMode }: HitComponentProps) {
-  const { author, categories, mainImage, slug, title } = hit;
+  const { author, categories, mainImage, slug, title, _createdAt } = hit;
 
   const imageAssetRef = mainImage?.asset?._ref;
   const imageUrl = imageAssetRef
@@ -41,10 +44,9 @@ export function HitComponent({ hit, viewMode }: HitComponentProps) {
             />
           </Box>
           <Stack spacing={0.5}>
-            {categories.map((category, index) => (
+            {categories?.map((category, index) => (
               <TextMaxLine
                 key={index}
-                // @ts-ignore
                 variant="caption"
                 line={1}
                 sx={{ color: "text.disabled" }}
@@ -52,7 +54,12 @@ export function HitComponent({ hit, viewMode }: HitComponentProps) {
                 {category.title}
               </TextMaxLine>
             ))}
-            <Link href={`insights/${slug}`}>
+
+            <Link
+              component={NextLink}
+              href={`insights/${slug}`}
+              color="inherit"
+            >
               <TextMaxLine
                 variant="body2"
                 line={1}
@@ -61,6 +68,7 @@ export function HitComponent({ hit, viewMode }: HitComponentProps) {
                 {title}
               </TextMaxLine>
             </Link>
+            <PostDate date={_createdAt} />
           </Stack>
         </Stack>
       ) : (
@@ -79,7 +87,7 @@ export function HitComponent({ hit, viewMode }: HitComponentProps) {
           />
           <Stack spacing={1}>
             <Stack spacing={0.5}>
-              {categories.map((category, index) => (
+              {categories?.map((category, index) => (
                 <TextMaxLine
                   key={index}
                   variant="caption"
@@ -90,7 +98,11 @@ export function HitComponent({ hit, viewMode }: HitComponentProps) {
                 </TextMaxLine>
               ))}
 
-              <Link href={`insights/${slug}`} color="inherit">
+              <Link
+                component={NextLink}
+                href={`insights/${slug}`}
+                color="inherit"
+              >
                 <TextMaxLine variant="h6" line={1}>
                   {title}
                 </TextMaxLine>
@@ -104,6 +116,8 @@ export function HitComponent({ hit, viewMode }: HitComponentProps) {
             >
               {author.name}
             </TextMaxLine>
+            <PostDate date={_createdAt} sx={{ typography: "h6" }} />
+            {/* TODO: Add excerpt if screen is large enough */}
           </Stack>
         </Stack>
       )}

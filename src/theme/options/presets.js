@@ -1,5 +1,8 @@
 import { alpha } from "@mui/material/styles";
-import { palette as themePalette } from "@/theme/palette";
+
+import { palette as themePalette } from "src/theme/palette";
+
+// ----------------------------------------------------------------------
 
 export function presets(presetsColor) {
   const color = presetOptions.find((i) => i.name === presetsColor);
@@ -16,7 +19,9 @@ export function presets(presetsColor) {
   };
 }
 
-const palette = themePalette();
+// ----------------------------------------------------------------------
+
+const palette = themePalette("light");
 
 export const presetOptions = [
   // DEFAULT

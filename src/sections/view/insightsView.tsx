@@ -4,9 +4,6 @@ import {
   Button,
   Container,
   Divider,
-  FormControl,
-  MenuItem,
-  Select,
   Stack,
   ToggleButton,
   ToggleButtonGroup,
@@ -20,6 +17,7 @@ import Iconify from "@/components/Iconify";
 import { useBoolean } from "@/hooks/useBoolean";
 import InfiniteHitsComponent from "@/algolia/components/CustomInfiniteHits";
 import InsightFilters from "@/sections/insights/insightFilters";
+import CustomSortBy from "@/algolia/components/CustomSortBy";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID!,
@@ -31,7 +29,6 @@ interface InsightsViewProps {}
 export default function InsightsView({}: InsightsViewProps) {
   const mobileOpen = useBoolean();
 
-  const [sort, setSort] = useState("latest");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   // @ts-ignore
@@ -39,11 +36,6 @@ export default function InsightsView({}: InsightsViewProps) {
     if (newAlignment !== null) {
       setViewMode(newAlignment);
     }
-  }, []);
-
-  // @ts-ignore
-  const handleChangeSort = useCallback((event) => {
-    setSort(event.target.value);
   }, []);
 
   const VIEW_OPTIONS = [
@@ -68,8 +60,8 @@ export default function InsightsView({}: InsightsViewProps) {
   ];
 
   const SORT_OPTIONS = [
-    { value: "latest", label: "Latest" },
-    { value: "oldest", label: "Oldest" },
+    { value: "live_posts_latest", label: "Latest" },
+    { value: "live_posts_oldest", label: "Oldest" },
     { value: "popular", label: "Popular" },
   ];
 
@@ -150,16 +142,12 @@ export default function InsightsView({}: InsightsViewProps) {
                   </ToggleButton>
                 ))}
               </ToggleButtonGroup>
-
-              <FormControl size="small" hiddenLabel sx={{ width: 120 }}>
-                <Select value={sort} onChange={handleChangeSort}>
-                  {SORT_OPTIONS.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+              <CustomSortBy
+                items={SORT_OPTIONS.map((option) => ({
+                  label: option.label,
+                  value: option.value,
+                }))}
+              />
             </Stack>
 
             <InfiniteHitsComponent viewMode={viewMode} />

@@ -5,7 +5,21 @@ import useTypography from "./useTypography";
 
 interface TextMaxLineProps {
   asLink?: boolean;
-  variant?: string;
+  variant?:
+    | "body1"
+    | "body2"
+    | "button"
+    | "caption"
+    | "h1"
+    | "h2"
+    | "h3"
+    | "h4"
+    | "h5"
+    | "h6"
+    | "inherit"
+    | "overline"
+    | "subtitle1"
+    | "subtitle2";
   line?: number;
   persistent?: boolean;
   children: ReactNode;
@@ -14,10 +28,7 @@ interface TextMaxLineProps {
   [key: string]: any;
 }
 
-const TextMaxLine = forwardRef<
-  HTMLDivElement | HTMLAnchorElement,
-  TextMaxLineProps
->(
+const TextMaxLine = forwardRef<HTMLDivElement, TextMaxLineProps>(
   (
     {
       asLink,
@@ -33,33 +44,26 @@ const TextMaxLine = forwardRef<
   ) => {
     const { lineHeight } = useTypography(variant);
 
-    const styles = {
+    const styles: CSSProperties = {
       overflow: "hidden",
+      textDecoration: "none",
       textOverflow: "ellipsis",
       display: "-webkit-box",
       WebkitLineClamp: line,
       WebkitBoxOrient: "vertical",
       ...(persistent && {
-        height: lineHeight * line,
+        height: `${lineHeight * line}px`,
       }),
       ...sx,
     };
 
-    // Check if children are valid
-    if (!React.isValidElement(children) && typeof children !== "string") {
-      console.error("Invalid children passed to TextMaxLine:", children);
-      return null; // or render some fallback UI
-    }
-
-    if (asLink && href) {
+    if (asLink) {
       return (
         <Link
           color="inherit"
-          ref={ref}
-          href={href}
-          // @ts-ignore
+          ref={ref as React.Ref<HTMLAnchorElement>}
           variant={variant}
-          sx={{ ...styles }}
+          sx={styles}
           {...other}
         >
           {children}
@@ -68,13 +72,7 @@ const TextMaxLine = forwardRef<
     }
 
     return (
-      <Typography
-        ref={ref}
-        // @ts-ignore
-        variant={variant}
-        sx={{ ...styles }}
-        {...other}
-      >
+      <Typography ref={ref} variant={variant} sx={styles} {...other}>
         {children}
       </Typography>
     );

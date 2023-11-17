@@ -9,7 +9,6 @@ export const metadata = {
   description: "Industry expert in healthcare fair market value",
   keywords:
     "fair market value, stark, anti-kickback, valuation, compensation, fmv, asc, dialysis clinic, digital health, hcp/kol, life sciences, pharma",
-  themeColor: "#000000",
   icons: [
     {
       rel: "icon",

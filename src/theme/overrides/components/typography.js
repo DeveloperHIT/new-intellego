@@ -1,3 +1,5 @@
+// ----------------------------------------------------------------------
+
 export function typography(theme) {
   return {
     MuiTypography: {

@@ -12,8 +12,14 @@ export const structure = (S: StructureBuilder) =>
   S.list()
     .title("Base")
     .items([
+      // Add insight categories
+      S.listItem()
+        .title("Manage Insight Categories")
+        .child(S.documentTypeList("category").title("Insight Categories")),
       settings(S),
       S.divider(),
+      // TODO: Get rid of "create new" insight categories button so they can be managed in settings.
+      // TODO: Only allow one category to be selected per insight.
       insights(S),
       S.listItem().title("All Insights").child(
         /* Create a list of all posts */

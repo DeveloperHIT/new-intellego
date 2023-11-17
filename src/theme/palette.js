@@ -1,5 +1,9 @@
 "use client";
-import { alpha } from "@mui/material";
+import { alpha } from "@mui/material/styles";
+
+// ----------------------------------------------------------------------
+
+// SETUP COLORS
 
 const GREY = {
   0: "#FFFFFF",
@@ -15,24 +19,23 @@ const GREY = {
 };
 
 const PRIMARY = {
-  lighter: "#0087ff",
-  light: "#0073ff",
-  main: "#0060f0",
-  dark: "#1e3cd1",
-  // darker: "#002ed1",
+  lighter: "#FEE9D1",
+  light: "#FDAB76",
+  main: "#FA541C",
+  dark: "#B3200E",
+  darker: "#770508",
   contrastText: "#FFFFFF",
 };
 
 const SECONDARY = {
-  lighter: "#f1f1f1",
-  light: "#e5e5e5",
-  main: "#c2c2c2",
-  dark: "#a4a4a4",
-  darker: "#a4a4a4",
+  lighter: "#E6DBFE",
+  light: "#B195FE",
+  main: "#754FFE",
+  dark: "#4027B6",
+  darker: "#1C0F79",
   contrastText: "#FFFFFF",
 };
 
-// TODO: Add more colors based on primary and secondary
 const INFO = {
   lighter: "#CAFDF5",
   light: "#61F3F3",

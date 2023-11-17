@@ -30,4 +30,5 @@ export type Post = {
   slug: string;
   tags: null | string[];
   title: string;
+  viewCount: number;
 };

@@ -35,6 +35,7 @@ const query = `*[
   },
   "tags": tags[] -> {_id, title},
   "author": author -> {_id, name}
+  "viewCount": viewCount
 }`;
 
 const post_projection = `{
@@ -50,7 +51,8 @@ const post_projection = `{
         _id, title
     },
     "tags": tags[] -> {_id, title},
-    "author": author -> {_id, name}
+    "author": author -> {_id, name},
+    "viewCount": viewCount
     }`;
 
 // GET request is confirmed to work

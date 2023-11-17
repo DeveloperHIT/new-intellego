@@ -62,6 +62,13 @@ export default defineType({
       title: "Body",
       type: "blockContent",
     }),
+    defineField({
+      name: "viewCount",
+      title: "View Count",
+      type: "number",
+      description: "The number of times the post has been viewed",
+      initialValue: 0,
+    }),
   ],
 
   preview: {

@@ -31,7 +31,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-const SingleInsight = async ({ params }: Props) => {
+export async function load({ params }: Props) {
+  if (params?.slug) {
+    await fetch("/api/increment-views", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ postId: params.slug }),
+    });
+  }
+
   const categories = await sanityFetch<SanityDocument>({
     query: getCategoriesQuery,
   });
@@ -39,6 +49,7 @@ const SingleInsight = async ({ params }: Props) => {
     query: postQuery,
     params,
   });
+
   const isSeries = post?.isSeries;
   let relatedPosts;
   if (isSeries) {
@@ -57,13 +68,22 @@ const SingleInsight = async ({ params }: Props) => {
       },
     });
   }
-  return (
-    <InsightView
-      categories={categories}
-      insight={post}
-      insights={relatedPosts}
-    />
-  );
+
+  return {
+    props: {
+      categories,
+      insight: post,
+      insights: relatedPosts,
+    },
+  };
+}
+
+type SingleInsightPageProps = {
+  categories: SanityDocument[];
+  insight: SanityDocument;
+  insights: SanityDocument[];
 };
 
-export default SingleInsight;
+export default function SingleInsightPage(props: SingleInsightPageProps) {
+  return <InsightView {...props} />;
+}

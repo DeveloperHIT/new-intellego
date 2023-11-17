@@ -1,30 +1,41 @@
-import { buttonClasses } from '@mui/material/Button';
+import { buttonClasses } from "@mui/material/Button";
 
-import Iconify from 'src/components/iconify';
+import Iconify from "@/components/Iconify";
 
 // ----------------------------------------------------------------------
 
 const dateList = [
-  'DatePicker',
-  'DateTimePicker',
-  'StaticDatePicker',
-  'DesktopDatePicker',
-  'DesktopDateTimePicker',
-  'MobileDatePicker',
-  'MobileDateTimePicker',
+  "DatePicker",
+  "DateTimePicker",
+  "StaticDatePicker",
+  "DesktopDatePicker",
+  "DesktopDateTimePicker",
+  "MobileDatePicker",
+  "MobileDateTimePicker",
 ];
 
-const timeList = ['TimePicker', 'MobileTimePicker', 'StaticTimePicker', 'DesktopTimePicker'];
+const timeList = [
+  "TimePicker",
+  "MobileTimePicker",
+  "StaticTimePicker",
+  "DesktopTimePicker",
+];
 
 const switchIcon = () => <Iconify icon="eva:chevron-down-fill" width={24} />;
 
 const leftIcon = () => <Iconify icon="eva:arrow-ios-back-fill" width={24} />;
 
-const rightIcon = () => <Iconify icon="eva:arrow-ios-forward-fill" width={24} />;
+const rightIcon = () => (
+  <Iconify icon="eva:arrow-ios-forward-fill" width={24} />
+);
 
-const calendarIcon = () => <Iconify icon="solar:calendar-minimalistic-linear" width={24} />;
+const calendarIcon = () => (
+  <Iconify icon="solar:calendar-minimalistic-linear" width={24} />
+);
 
-const clockIcon = () => <Iconify icon="solar:clock-circle-outline" width={24} />;
+const clockIcon = () => (
+  <Iconify icon="solar:clock-circle-outline" width={24} />
+);
 
 const desktopTypes = dateList.reduce((result, currentValue) => {
   result[`Mui${currentValue}`] = {
@@ -60,11 +71,11 @@ export function datePicker(theme) {
     MuiPickersLayout: {
       styleOverrides: {
         root: {
-          '& .MuiPickersLayout-actionBar': {
+          "& .MuiPickersLayout-actionBar": {
             [`& .${buttonClasses.root}:last-of-type`]: {
               backgroundColor: theme.palette.text.primary,
               color:
-                theme.palette.mode === 'light'
+                theme.palette.mode === "light"
                   ? theme.palette.common.white
                   : theme.palette.grey[800],
             },

@@ -130,6 +130,7 @@ export const getRandomPostsQuery = groq`*[_type == "post" && slug.current != $cu
   "series": series-> {title, slug},
   publishedAt,
 }[0..2]`;
+
 // ======================== Open Source ================================
 export const getOpenSourceQuery = groq`*[_type == "openSource"]`;
 

@@ -8,7 +8,7 @@ import CategoryRefinementList from "@/algolia/components/CategoryRefinementList"
 
 import AuthorRefinementList from "@/algolia/components/AuthorRefinementList";
 
-export default function Sidebar({}) {
+export default function InsightsSidebar({}) {
   const mdUp = useResponsive("up", "md");
 
   return (

@@ -5,18 +5,16 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import InsightAuthor from "@/sections/insights/insight/insightAuthor";
-import LatestInsights from "@/sections/insights/latestInsights";
 import { PortableText } from "@portabletext/react";
 import InsightSocialsShare from "@/sections/insights/insight/insightSocialsShare";
-import InsightSidebar from "@/sections/insights/insight/sidebar";
-// import InsightTags from "@/sections/insights/insight/insightTags";
+import InsightSidebar from "@/sections/insights/insight/insightSidebar";
+import InsightTags from "@/sections/insights/insight/insightTags";
 
-export default function InsightView({ categories, insight, insights }) {
+export default function InsightView({ categories, insight }) {
   const {
     author: { designation, name },
     body,
-    meta_description,
-    // tags = ["a", "b"],
+    tags,
     title,
   } = insight;
 
@@ -39,13 +37,13 @@ export default function InsightView({ categories, insight, insights }) {
         <Grid container spacing={{ md: 8 }}>
           <Grid xs={12} md={8}>
             <Typography variant="h5" sx={{ mb: 5 }}>
-              {meta_description}
+              {title}
             </Typography>
 
-            {/* TODO: Format blog text */}
+            {/*TODO: Format blog text*/}
             <PortableText value={body} />
 
-            {/*<InsightTags tags={tags} />*/}
+            <InsightTags tags={tags} />
 
             <InsightSocialsShare />
 
@@ -55,16 +53,10 @@ export default function InsightView({ categories, insight, insights }) {
           </Grid>
 
           <Grid xs={12} md={4}>
-            <InsightSidebar
-              author={name}
-              categories={categories}
-              recentPosts={{ list: insights }}
-            />
+            <InsightSidebar categories={categories} tags={tags} />
           </Grid>
         </Grid>
       </Container>
-
-      <LatestInsights insights={insights} />
     </>
   );
 }

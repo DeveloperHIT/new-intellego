@@ -2,7 +2,7 @@ import "../theme/globals.css";
 
 export const dynamic = "force-dynamic";
 
-import { primaryFont } from "@/theme/typography";
+// import { primaryFont } from "@/theme/typography";
 
 export const metadata = {
   title: "intellego",
@@ -36,7 +36,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html lang="en" className={primaryFont.className}>
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

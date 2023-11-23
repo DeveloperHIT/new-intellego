@@ -1,10 +1,11 @@
 import MotionLazy from "@/components/Animate/motionLazy";
-import ThemeProvider from "@/theme";
+// import ThemeProvider from "@/theme";
 import MainLayout from "@/layouts/main";
 import { SettingsDrawer, SettingsProvider } from "@/components/Settings";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import React from "react";
+import IntellegoThemeProvider from "@/theme/intellegoThemeProvider";
 
 interface UserLayoutProps {
   children: React.ReactNode;
@@ -30,7 +31,8 @@ export default async function UserLayout({ children }: UserLayoutProps) {
         themeColorPresets: "default", // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
       }}
     >
-      <ThemeProvider>
+      {/*<ThemeProvider>*/}
+      <IntellegoThemeProvider>
         <MotionLazy>
           {/*<ProgressBar />*/}
           <SettingsDrawer />
@@ -38,7 +40,8 @@ export default async function UserLayout({ children }: UserLayoutProps) {
             {children}
           </MainLayout>
         </MotionLazy>
-      </ThemeProvider>
+        {/*</ThemeProvider>*/}
+      </IntellegoThemeProvider>
     </SettingsProvider>
   );
 }

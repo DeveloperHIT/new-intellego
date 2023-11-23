@@ -1,34 +1,9 @@
-import { alpha } from "@mui/material/styles";
-
-import { palette as themePalette } from "src/theme/palette";
-
-// ----------------------------------------------------------------------
-
-export function presets(presetsColor) {
-  const color = presetOptions.find((i) => i.name === presetsColor);
-
-  return {
-    palette: {
-      primary: color?.primary,
-      secondary: color?.secondary,
-    },
-    customShadows: {
-      primary: `0 8px 16px 0 ${alpha(`${color?.primary?.main}`, 0.24)}`,
-      secondary: `0 8px 16px 0 ${alpha(`${color?.secondary?.main}`, 0.24)}`,
-    },
-  };
-}
-
-// ----------------------------------------------------------------------
-
-const palette = themePalette("light");
-
 export const presetOptions = [
   // DEFAULT
   {
     name: "default",
-    primary: { ...palette.primary },
-    secondary: { ...palette.secondary },
+    // primary: { ...palette.primary },
+    // secondary: { ...palette.secondary },
   },
 
   // GREEN - BLUE
@@ -40,7 +15,7 @@ export const presetOptions = [
       main: "#1AD5A6",
       dark: "#0D9991",
       darker: "#045966",
-      contrastText: palette.grey[800],
+      // contrastText: palette.grey[800],
     },
     secondary: {
       lighter: "#D6E5FD",
@@ -111,7 +86,7 @@ export const presetOptions = [
       main: "#FFA03F",
       dark: "#B75D1F",
       darker: "#7A2D0C",
-      contrastText: palette.grey[800],
+      // contrastText: palette.grey[800],
     },
   },
 

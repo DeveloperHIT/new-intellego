@@ -1,6 +1,7 @@
 import { insights } from "./insights";
 import { settings } from "./settings";
 import { StructureBuilder } from "sanity/desk";
+import { careers } from "@/sanity/studio/desk/careers";
 
 /**
  * Defines the overall desk structure in the Sanity Studio.
@@ -29,4 +30,5 @@ export const structure = (S: StructureBuilder) =>
           .filter('_type == "post"'),
       ),
       S.divider(),
+      careers(S),
     ]);

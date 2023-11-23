@@ -10,23 +10,11 @@ import {
 import Iconify from "@/components/Iconify";
 import NextLink from "next/link";
 import Chip from "@mui/material/Chip";
-
-interface Category {
-  slug: string;
-  title: string;
-}
-
-interface Slug {
-  current: string;
-}
-
-interface Tag {
-  title: string;
-  slug: Slug;
-}
+import { InsightCategory } from "@/types/InsightCategory";
+import { Tag } from "@/types/Tag";
 
 interface InsightSidebarProps {
-  categories: Category[];
+  categories: InsightCategory[];
   tags?: Tag[];
 }
 
@@ -56,6 +44,8 @@ export default function InsightSidebar({
           <Link
             component={NextLink}
             variant="body2"
+            // TODO: Fix this
+            // @ts-ignore
             href={category.slug}
             color="inherit"
           >

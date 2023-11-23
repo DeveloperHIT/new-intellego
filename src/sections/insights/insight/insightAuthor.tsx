@@ -2,7 +2,12 @@ import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 
-export default function InsightAuthor({ name, role }) {
+interface InsightAuthorProps {
+  name: string;
+  role: string;
+}
+
+export default function InsightAuthor({ name, role }: InsightAuthorProps) {
   return (
     <Stack
       direction="row"

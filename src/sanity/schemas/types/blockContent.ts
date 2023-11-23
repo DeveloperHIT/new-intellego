@@ -127,8 +127,6 @@ export default defineType({
         },
       ],
     }),
-    {
-      type: "code",
-    },
+    // TODO: Add call to action
   ],
 });

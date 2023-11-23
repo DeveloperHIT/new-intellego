@@ -3,7 +3,11 @@ import Iconify from "@/components/Iconify";
 import { _socials } from "@/_mock";
 import { alpha } from "@mui/material/styles";
 
-export default function InsightSocialsShare() {
+interface InsightSocialsShareProps {
+  // socials?: any;
+}
+
+export default function InsightSocialsShare({}: InsightSocialsShareProps) {
   return (
     <Stack direction="row" sx={{ mt: 5 }}>
       <Typography variant="subtitle2" sx={{ mt: 0.75, mr: 1.5 }}>

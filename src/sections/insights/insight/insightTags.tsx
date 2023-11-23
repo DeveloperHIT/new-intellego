@@ -1,9 +1,10 @@
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
+import { Tag } from "@/types/Tag";
 
 interface InsightTagsProps {
-  tags: string[];
+  tags: Tag[];
 }
 
 export default function InsightTags({ tags }: InsightTagsProps) {

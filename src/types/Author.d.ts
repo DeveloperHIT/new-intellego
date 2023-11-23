@@ -1,12 +1,9 @@
-import { ImageData } from "@/types/Image";
-
 export interface Author {
-  image?: ImageData;
   name: string;
+  slug: AuthorSlug;
+  image: string;
   designation: string;
-  bio: string;
-  post?: any;
-  slug: {
-    current: string;
-  };
+  profiles: any;
+  bio: any;
+  about: any;
 }

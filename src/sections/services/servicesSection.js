@@ -25,7 +25,6 @@ export default function ServicesSection({ services }) {
           links={[
             { name: "Home", href: "/" },
             { name: "Services", href: "/clients" },
-            { name: services.service },
           ]}
         />
         <Grid

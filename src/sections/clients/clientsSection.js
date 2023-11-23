@@ -24,7 +24,6 @@ export default function ClientsSection({ clients }) {
           links={[
             { name: "Home", href: "/" },
             { name: "Clients", href: "/clients" },
-            { name: clients.type },
           ]}
         />
         <Grid

@@ -10,8 +10,8 @@ import InsightSocialsShare from "@/sections/insights/insight/insightSocialsShare
 import InsightSidebar from "@/sections/insights/insight/insightSidebar";
 import InsightTags from "@/sections/insights/insight/insightTags";
 import { PortableTextImage } from "@/components/PortableText/PortableTextImage";
-import { InsightCategory } from "@/types/InsightCategory";
-import { Insight } from "@/types/Insight";
+import { InsightCategory } from "@/types/Insights/InsightCategory";
+import { Insight } from "@/types/Insights/Insight";
 import List from "@mui/material/List";
 import { ListItem } from "@mui/material";
 
@@ -143,7 +143,7 @@ export default function InsightView({ categories, insight }: InsightViewProps) {
           sx={{ my: 3 }}
           links={[
             { name: "Home", href: "/" },
-            { name: "Insights", href: "/insights" },
+            { name: "Insights", href: "/filteredInsights" },
             { name: title },
           ]}
         />
@@ -160,8 +160,6 @@ export default function InsightView({ categories, insight }: InsightViewProps) {
 
             {/* TODO: Add image block into sanity studio for portable text */}
             <PortableText value={body} components={components} />
-
-            {/*<pre>{JSON.stringify(body, null, 2)}</pre>*/}
 
             <InsightTags tags={tags} />
 

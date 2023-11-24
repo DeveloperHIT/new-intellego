@@ -1,4 +1,4 @@
-import { InsightSlug } from "@/types/InsightSlug";
+import { InsightSlug } from "@/types/Insights/InsightSlug";
 
 export interface InsightCategory {
   _id: string;

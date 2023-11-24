@@ -114,7 +114,7 @@ export default function InsightsView({}: InsightsViewProps) {
             divider={<Divider sx={{ borderStyle: "dashed" }} />}
           >
             <InsightFilters />
-            {/* TODO: Add recent or trending insights */}
+            {/* TODO: Add recent or trending filteredInsights */}
           </Stack>
           <Box
             sx={{

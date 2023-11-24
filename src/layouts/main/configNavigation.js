@@ -4,7 +4,7 @@ export const navConfig = [
   { title: "Services", path: "/services" },
   {
     title: "Insights",
-    path: "/insights",
+    path: "/filteredInsights",
   },
   { title: "Careers", path: "/careers" },
 ];
@@ -85,7 +85,7 @@ export const pageLinks = [
       { title: "About Us", path: "/about" },
       { title: "Alumni", path: "/" },
       { title: "Careers", path: "/careers" },
-      { title: "Insights", path: "/insights" },
+      { title: "Insights", path: "/filteredInsights" },
       { title: "Media", path: "/" },
       { title: "News", path: "/" },
     ],

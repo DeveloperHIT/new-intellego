@@ -21,7 +21,7 @@ export const _descriptions = [
   "Peeling back the layers of the valuation process to understand how experts determine the fair market value in healthcare.",
   "Diving into the business side of healthcare, emphasizing risk management against Stark Law and Anti-Kickback pitfalls.",
   "An overview of the all-encompassing approach, from initial due diligence to ensuring ongoing compliance in healthcare valuation.",
-  "Expert insights addressing the often ambiguous areas in Stark Law and Anti-Kickback interpretations and compliance.",
+  "Expert filteredInsights addressing the often ambiguous areas in Stark Law and Anti-Kickback interpretations and compliance.",
   "Predicting the trajectory of healthcare valuation, including upcoming trends and shifts over the next decade.",
 ];
 

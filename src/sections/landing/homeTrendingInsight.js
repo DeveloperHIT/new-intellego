@@ -21,7 +21,7 @@ export default function HomeTrendingInsight({
   const bgStyles = {
     ...bgGradient({
       color: alpha(theme.palette.common.black, 0.5),
-      imgUrl: "/assets/images/insights/blog1.jpg",
+      imgUrl: "/assets/images/filteredInsights/blog1.jpg",
     }),
     position: "absolute",
     top: 0,

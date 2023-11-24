@@ -3,12 +3,12 @@ import { StructureBuilder } from "sanity/desk";
 // TODO: Add Insights Config so someone can manage categories and tags that are approved for use.
 
 /**
- * Defines the insights desk in the Sanity Studio.
+ * Defines the filteredInsights desk in the Sanity Studio.
  *
  * @param {Object} S - The desk builder object.
- * @returns {Object} The insights desk with lists and children defined.
+ * @returns {Object} The filteredInsights desk with lists and children defined.
  */
-export const insights = (S: StructureBuilder) =>
+export const filteredInsights = (S: StructureBuilder) =>
   S.listItem()
     .title("Filtered Insights")
     .child(

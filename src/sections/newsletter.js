@@ -23,12 +23,12 @@ export default function Newsletter() {
         ...bgGradient({
           startColor: `${alpha(theme.palette.grey[900], 0.88)}`,
           endColor: `${alpha(theme.palette.grey[900], 0.88)}`,
-          // imgUrl: "/assets/images/insights/insight_1.jpg",
+          // imgUrl: "/assets/images/filteredInsights/insight_1.jpg",
           ...(upMd && {
             direction: "to right",
             startColor: `${alpha(theme.palette.grey[900], 0)} 0%`,
             endColor: `${alpha(theme.palette.grey[900], 1)} 50%`,
-            // imgUrl: "/assets/images/insights/insight_1.jpg",
+            // imgUrl: "/assets/images/filteredInsights/insight_1.jpg",
           }),
         }),
         py: 10,

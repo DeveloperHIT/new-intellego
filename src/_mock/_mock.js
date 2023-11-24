@@ -21,6 +21,6 @@ export const _mock = {
   // Image
   image: {
     cover: "/assets/images/cover/cover_1.jpg",
-    insights: "/assets/images/insights/insight_1.jpg",
+    insights: "/assets/images/filteredInsights/insight_1.jpg",
   },
 };

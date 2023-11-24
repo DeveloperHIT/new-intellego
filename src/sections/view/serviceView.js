@@ -45,7 +45,7 @@ export default function ServiceView({ service }) {
             {/*  insightTags={insightTags}*/}
             {/*  author={insight.author}*/}
             {/*  categories={_categories}*/}
-            {/*  recentPosts={{ list: insights }}*/}
+            {/*  recentPosts={{ list: filteredInsights }}*/}
             {/*/>*/}
           </Grid>
         </Grid>

@@ -89,7 +89,7 @@ export default function RecentInsights({ insights }) {
             <Button
               color="primary"
               component={Link}
-              href="/insights"
+              href="/filteredInsights"
               endIcon={<Iconify icon="carbon:chevron-right" />}
             >
               View All

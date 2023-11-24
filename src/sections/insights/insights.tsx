@@ -6,7 +6,7 @@
 export default function Insights() {
   // const [currentPage, setCurrentPage] = useState(1);
   // const itemsPerPage = 5;
-  // const pageCount = Math.ceil(insights.length / itemsPerPage);
+  // const pageCount = Math.ceil(filteredInsights.length / itemsPerPage);
   //
   // const handlePageChange = (event, value) => {
   //   setCurrentPage(value);
@@ -14,7 +14,7 @@ export default function Insights() {
   //
   // const indexOfLastItem = currentPage * itemsPerPage;
   // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  // const currentInsights = insights.slice(indexOfFirstItem, indexOfLastItem);
+  // const currentInsights = filteredInsights.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <>
@@ -33,7 +33,7 @@ export default function Insights() {
       {/*    <InsightItem*/}
       {/*      key={index}*/}
       {/*      insight={insight}*/}
-      {/*      path={`/insights/${insight.slug.current}`}*/}
+      {/*      path={`/filteredInsights/${insight.slug.current}`}*/}
       {/*    />*/}
       {/*  ))}*/}
       {/*</Box>*/}

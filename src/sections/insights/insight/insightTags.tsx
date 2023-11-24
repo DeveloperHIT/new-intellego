@@ -1,7 +1,7 @@
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import { Tag } from "@/types/Tag";
+import { Tag } from "@/types/Insights/Tags/Tag";
 
 interface InsightTagsProps {
   tags: Tag[];

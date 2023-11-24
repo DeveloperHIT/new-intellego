@@ -1,9 +1,9 @@
-import { Author } from "@/types/Author";
+import { Author } from "@/types/Insights/Author/Author";
 import { SEO } from "@/types/SEO";
-import { InsightSlug } from "@/types/InsightSlug";
-import { Tag } from "@/types/Tag";
-import { InsightCategory } from "@/types/InsightCategory";
-import { MainImage } from "@/types/mainImage";
+import { InsightSlug } from "@/types/Insights/InsightSlug";
+import { Tag } from "@/types/Insights/Tags/Tag";
+import { InsightCategory } from "@/types/Insights/InsightCategory";
+import { MainImage } from "@/types/Insights/mainImage";
 
 export interface ArticleHeaderData {
   author: Author;

@@ -394,3 +394,38 @@ export const getContactQuery = groq`*[_type == "contact"]{
 
 // getFull details
 export const getFullDetailsQuery = groq`*[_type == "post"]`;
+
+// ======================== Contact Us Page =======================
+export const getContactUsPageQuery = groq`*[_type == "contact"]{
+  pageTitle,
+  pageDescription,
+  address,
+  contactPhoneNumber,
+  contactEmail,
+  "contactFormFields": contactFormFields[]{
+    fieldType,
+    fieldName,
+    isRequired
+  },
+  "socialMediaProfiles": socialMediaProfiles[]{
+    platformName,
+    profileUrl,
+    "iconAsset": platformIcon.asset->url
+  }
+}`;
+
+// ======================== Clients Page ================================
+
+export const getClientsPageQuery = groq`*[_type == "clients"]{
+  buttonText,
+  pageDescription,
+  pageTitle,
+}`;
+
+// ======================== Services ================================
+
+export const getServicesPageQuery = groq`*[_type == "services"]{
+  buttonText,
+  pageDescription,
+  pageTitle,
+}`;

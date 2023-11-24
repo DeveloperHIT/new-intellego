@@ -2,13 +2,21 @@
 import Grid from "@mui/material/Unstable_Grid2";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-
 import ContactInfo from "@/sections/contact/contactInfo";
 import ContactForm from "@/sections/contact/contactForm";
+import { ContactUsPage } from "@/types/Pages/ContactUs";
 
-export default function ContactView({ contact }) {
-  console.log(contact);
-  const {} = contact;
+interface ContactViewProps {
+  contactPageData: ContactUsPage;
+}
+
+export default function ContactView({ contactPageData }: ContactViewProps) {
+  const {
+    address: { street, city, state, zipCode, pmb },
+    pageTitle,
+    contactEmail,
+    contactPhoneNumber,
+  } = contactPageData;
   return (
     <>
       <Container
@@ -25,12 +33,20 @@ export default function ContactView({ contact }) {
           direction={{ xs: "column-reverse", md: "row" }}
         >
           <Grid xs={12} md={6} lg={5}>
-            <ContactInfo />
+            <ContactInfo
+              street={street}
+              city={city}
+              pmb={pmb}
+              state={state}
+              zipCode={zipCode}
+              contactPhoneNumber={contactPhoneNumber}
+              contactEmail={contactEmail}
+            />
           </Grid>
 
           <Grid xs={12} md={6} lg={6}>
             <Typography variant="h3" sx={{ mb: 5 }}>
-              Ready To Get Started?
+              {pageTitle}
             </Typography>
 
             <ContactForm />

@@ -21,7 +21,7 @@ export default function CategoriesView({
           sx={{ my: 3 }}
           links={[
             { name: "Home", href: "/" },
-            { name: "Insights", href: "/insights" },
+            { name: "Insights", href: "/filteredInsights" },
             { name: title },
           ]}
         />

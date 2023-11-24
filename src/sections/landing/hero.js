@@ -30,7 +30,7 @@ export default function Hero() {
       sx={{
         ...bgGradient({
           color: alpha(theme.palette.grey[900], 0.55),
-          imgUrl: "/assets/images/insights/insight_1.jpg",
+          imgUrl: "/assets/images/filteredInsights/insight_1.jpg",
         }),
         overflow: "hidden",
         position: "relative",

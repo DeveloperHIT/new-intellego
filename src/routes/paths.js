@@ -17,7 +17,7 @@ export const paths = {
     tour: `/travel/tour`,
     checkout: "/travel/checkout",
     orderCompleted: "/travel/order-completed",
-    posts: "/insights",
+    posts: "/filteredInsights",
     post: `/insight`,
     about: "/travel/about",
     contact: "/travel/contact",

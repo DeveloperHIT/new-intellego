@@ -21,7 +21,7 @@ export function HitComponent({ hit, viewMode }: HitComponentProps) {
   const imageAssetRef = mainImage?.asset?._ref;
   const imageUrl = imageAssetRef
     ? urlFor(imageAssetRef).url()
-    : "assets/images/insights/insight_1.jpg";
+    : "assets/images/filteredInsights/insight_1.jpg";
 
   return (
     <>

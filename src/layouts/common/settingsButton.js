@@ -1,18 +1,14 @@
 import { m } from "framer-motion";
 import PropTypes from "prop-types";
-
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Badge, { badgeClasses } from "@mui/material/Badge";
-
 import Iconify from "@/components/Iconify";
 import { varHover } from "@/components/Animate";
-import { useSettingsContext } from "@/components/Settings";
-
-// ----------------------------------------------------------------------
+// import { useSettingsContext } from "@/components/Settings";
 
 export default function SettingsButton({ sx }) {
-  const settings = useSettingsContext();
+  // const siteConfig = useSettingsContext();
 
   return (
     <Badge
@@ -44,10 +40,10 @@ export default function SettingsButton({ sx }) {
           whileHover="hover"
           variants={varHover(1.05)}
           color="inherit"
-          aria-label="settings"
+          aria-label="siteConfig"
           onClick={settings.onToggle}
         >
-          <Iconify icon="carbon:settings" />
+          <Iconify icon="carbon:siteConfig" />
         </IconButton>
       </Box>
     </Badge>

@@ -17,6 +17,7 @@ export default defineConfig({
   dataset,
   title: "Intellego Website",
   apiVersion: "2023-11-04",
+  // TODO: Move basePath to env
   basePath: "/admin",
   plugins: [
     deskTool({

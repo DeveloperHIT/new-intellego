@@ -42,7 +42,7 @@ export default function Footer({ clientData, serviceData }) {
     { title: "Alumni", path: "/alumni" },
     { title: "Careers", path: "/careers" },
     { title: "Contact", path: "/contact" },
-    { title: "Insights", path: "/insights" },
+    { title: "Insights", path: "/filteredInsights" },
   ];
 
   const desktopList = [

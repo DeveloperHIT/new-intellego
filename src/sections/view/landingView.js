@@ -6,7 +6,7 @@ export default function LandingView({ insights }) {
   return (
     <>
       <Hero />
-      {/* TODO: Make the recent insights section smaller..too much space on y-axis */}
+      {/* TODO: Make the recent filteredInsights section smaller..too much space on y-axis */}
       <RecentInsights insights={insights} />
     </>
   );

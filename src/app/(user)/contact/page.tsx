@@ -1,8 +1,7 @@
 import ContactView from "@/sections/view/contactView";
 import { Metadata } from "next";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
-import { SanityDocument } from "@sanity/client";
-import { getContactQuery } from "@/sanity/lib/queries";
+import { getContactUsPageQuery } from "@/sanity/lib/queries";
+import { client } from "@/sanity/lib/client";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -11,9 +10,22 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const contact = await sanityFetch<SanityDocument>({
-    query: getContactQuery,
-  });
+  const contactPageData = await client.fetch(getContactUsPageQuery);
 
-  return <ContactView contact={contact} />;
+  const pageData = {
+    address: {
+      pmb: contactPageData[0].address.pmb,
+      city: contactPageData[0].address.city,
+      street: contactPageData[0].address.street,
+      state: contactPageData[0].address.state,
+      zipCode: contactPageData[0].address.zipCode,
+    },
+    contactPhoneNumber: contactPageData[0].contactPhoneNumber,
+    contactEmail: contactPageData[0].contactEmail,
+    pageTitle: contactPageData[0].pageTitle,
+  };
+
+  console.log(contactPageData);
+
+  return <ContactView contactPageData={pageData} />;
 }

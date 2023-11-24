@@ -113,3 +113,8 @@ export const getServicesQuery = groq`*[_type == "service"]{
     title,
     slug
 }`;
+
+export const getServiceLinesQuery = groq`*[_type == "serviceLine"]{
+    title,
+    slug
+}`;

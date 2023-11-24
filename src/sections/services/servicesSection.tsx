@@ -10,27 +10,27 @@ import TextMaxLine from "@/components/TextMaxLine";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Link from "@mui/material/Link";
 
-interface ServicesListItem {
+interface ServiceLine {
   title: string;
   slug: {
     current: string;
   };
 }
 
-type ServicesList = ServicesListItem[];
+type ServiceLines = ServiceLine[];
 
 interface ServicesSectionProps {
   buttonText: string;
   pageDescription: string;
   pageTitle: string;
-  servicesList: ServicesList;
+  serviceLines: ServiceLines;
 }
 
 export default function ServicesSection({
   buttonText,
   pageDescription,
   pageTitle,
-  servicesList,
+  serviceLines,
 }: ServicesSectionProps) {
   return (
     <Box
@@ -87,7 +87,7 @@ export default function ServicesSection({
                 },
               }}
             >
-              {servicesList.map((service, index) => (
+              {serviceLines.map((service, index) => (
                 <CategoryItem
                   key={index}
                   category={service.title}
@@ -135,7 +135,7 @@ function CategoryItem({ category, slug }: CategoryItemProps) {
         </TextMaxLine>
 
         <Typography variant="body2" sx={{ mt: 1, color: "text.disabled" }}>
-          Subtitle?
+          Subtitle
         </Typography>
       </Paper>
     </Link>

@@ -7,22 +7,22 @@ interface PageData {
   pageTitle: string;
 }
 
-interface ServicesListItem {
+interface ServiceLine {
   title: string;
   slug: {
     current: string;
   };
 }
 
-type ServicesList = ServicesListItem[];
+type ServicesLines = ServiceLine[];
 
 interface ServicesViewProps {
-  servicesList: ServicesList;
+  serviceLines: ServicesLines;
   pageData: PageData;
 }
 
 export default function ServicesView({
-  servicesList,
+  serviceLines,
   pageData,
 }: ServicesViewProps) {
   const { buttonText, pageDescription, pageTitle } = pageData;
@@ -33,7 +33,7 @@ export default function ServicesView({
         buttonText={buttonText}
         pageDescription={pageDescription}
         pageTitle={pageTitle}
-        servicesList={servicesList}
+        serviceLines={serviceLines}
       />
 
       {/* TODO: Add process section */}

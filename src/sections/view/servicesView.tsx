@@ -7,11 +7,24 @@ interface PageData {
   pageTitle: string;
 }
 
+interface ServicesListItem {
+  title: string;
+  slug: {
+    current: string;
+  };
+}
+
+type ServicesList = ServicesListItem[];
+
 interface ServicesViewProps {
+  servicesList: ServicesList;
   pageData: PageData;
 }
 
-export default function ServicesView({ pageData }: ServicesViewProps) {
+export default function ServicesView({
+  servicesList,
+  pageData,
+}: ServicesViewProps) {
   const { buttonText, pageDescription, pageTitle } = pageData;
 
   return (
@@ -20,7 +33,9 @@ export default function ServicesView({ pageData }: ServicesViewProps) {
         buttonText={buttonText}
         pageDescription={pageDescription}
         pageTitle={pageTitle}
+        servicesList={servicesList}
       />
+
       {/* TODO: Add process section */}
       {/* TODO: Add CTA section */}
     </>

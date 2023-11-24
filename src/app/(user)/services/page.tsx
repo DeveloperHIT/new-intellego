@@ -1,6 +1,6 @@
 import ServicesView from "@/sections/view/servicesView";
 import { client } from "@/sanity/lib/client";
-import { getServicesPageQuery } from "@/sanity/lib/queries";
+import { getServicesPageQuery, getServicesQuery } from "@/sanity/lib/queries";
 
 export default async function Page() {
   const servicesPageData = await client.fetch(getServicesPageQuery);
@@ -11,5 +11,9 @@ export default async function Page() {
     pageTitle: servicesPageData[0].pageTitle,
   };
 
-  return <ServicesView pageData={pageData} />;
+  const servicesList = await client.fetch(getServicesQuery);
+
+  console.log("Services list structure from page.tsx: ", servicesList);
+
+  return <ServicesView pageData={pageData} servicesList={servicesList} />;
 }

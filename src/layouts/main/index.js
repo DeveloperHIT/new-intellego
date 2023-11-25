@@ -20,7 +20,6 @@ export default function MainLayout({ children, clientData, serviceData }) {
 
   // Check if the current route is the admin route
   const isAdminRoute = pathname.includes("/admin");
-  console.log("isAdminRoute", isAdminRoute);
 
   if (isAdminRoute) {
     return <>{children}</>;

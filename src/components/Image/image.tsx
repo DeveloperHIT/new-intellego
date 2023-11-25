@@ -1,10 +1,21 @@
 import { forwardRef } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import {
+  LazyLoadImage,
+  LazyLoadImageProps,
+} from "react-lazy-load-image-component";
 import Box from "@mui/material/Box";
 import { alpha, useTheme } from "@mui/material/styles";
-
 import { getRatio } from "./utils";
+import { SxProps } from "@mui/material";
+
+interface ImageProps extends Omit<LazyLoadImageProps, "src"> {
+  ratio?: string;
+  overlay?: string;
+  disabledEffect?: boolean;
+  alt?: string;
+  src?: string;
+  sx?: SxProps;
+}
 
 const Image = forwardRef(
   (
@@ -28,7 +39,7 @@ const Image = forwardRef(
       useIntersectionObserver,
       sx,
       ...other
-    },
+    }: ImageProps,
     ref,
   ) => {
     const theme = useTheme();

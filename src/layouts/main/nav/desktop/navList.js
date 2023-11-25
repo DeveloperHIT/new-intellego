@@ -1,17 +1,14 @@
 import { useEffect, useCallback } from "react";
-
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Fade from "@mui/material/Fade";
 import Stack from "@mui/material/Stack";
 import Portal from "@mui/material/Portal";
 import Grid from "@mui/material/Unstable_Grid2";
-
 import Image from "@/components/Image";
 import Label from "@/components/Label";
 import { usePathname } from "@/hooks/usePathname";
 import { useBoolean } from "@/hooks/useBoolean";
-// import RouterLink from "@/routes/routerLink";
 import { useActiveLink } from "@/hooks/useActiveLink";
 
 import { NavItem } from "./navItem";

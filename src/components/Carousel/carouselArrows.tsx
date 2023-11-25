@@ -1,13 +1,19 @@
 import Stack from "@mui/material/Stack";
-import IconButton from "@mui/material/IconButton";
+import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import { alpha, styled, useTheme } from "@mui/material/styles";
-
 import { LeftIcon, RightIcon } from "./arrowIcons";
+import { SxProps } from "@mui/material";
+
+interface StyledIconButtonProps extends IconButtonProps {
+  filled?: boolean;
+  shape?: "circular" | "rounded";
+  hasChild?: boolean;
+}
 
 const StyledIconButton = styled(IconButton, {
   shouldForwardProp: (prop) =>
     prop !== "filled" && prop !== "hasChild" && prop !== "shape",
-})(({ filled, shape, hasChild, theme }) => ({
+})<StyledIconButtonProps>(({ filled, shape, hasChild, theme }) => ({
   color: "inherit",
   transition: theme.transitions.create("all", {
     duration: theme.transitions.duration.shorter,
@@ -37,6 +43,18 @@ const StyledIconButton = styled(IconButton, {
   }),
 }));
 
+interface CarouselArrowsProps {
+  shape?: "circular" | "rounded";
+  filled?: boolean;
+  icon?: string;
+  onNext?: () => void;
+  onPrev?: () => void;
+  children?: React.ReactNode;
+  leftButtonProps?: any;
+  rightButtonProps?: any;
+  sx?: SxProps;
+}
+
 export default function CarouselArrows({
   shape = "circular",
   filled = false,
@@ -47,8 +65,7 @@ export default function CarouselArrows({
   leftButtonProps,
   rightButtonProps,
   sx,
-  ...other
-}) {
+}: CarouselArrowsProps) {
   const theme = useTheme();
 
   const isRTL = theme.direction === "rtl";
@@ -57,7 +74,7 @@ export default function CarouselArrows({
 
   if (hasChild) {
     return (
-      <Stack sx={sx} {...other}>
+      <Stack sx={sx}>
         {onNext && (
           <StyledIconButton
             filled={filled}
@@ -96,13 +113,7 @@ export default function CarouselArrows({
   }
 
   return (
-    <Stack
-      direction="row"
-      alignItems="center"
-      display="inline-flex"
-      sx={sx}
-      {...other}
-    >
+    <Stack direction="row" alignItems="center" display="inline-flex" sx={sx}>
       <StyledIconButton
         filled={filled}
         shape={shape}

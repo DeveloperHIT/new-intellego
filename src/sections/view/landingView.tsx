@@ -39,10 +39,16 @@ interface Insight {
   body: any;
   isSeries: boolean;
   slug: Slug;
+  meta_description: string;
 }
 
 interface HeroData {
+  heroButtonText: string;
+  heroImage: string;
+  heroSubtitle: string;
   heroTitle: string;
+  heroTitleCapitalized: string;
+  heroTitleCapitalizedColor: string;
 }
 
 interface LandingViewProps {

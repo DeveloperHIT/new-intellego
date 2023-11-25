@@ -16,5 +16,7 @@ export default async function Home() {
     heroTitleCapitalizedColor: landingPageData[0].heroTitle[1].color.hex,
   };
 
+  console.log(insights[0].mainImage);
+
   return <LandingView insights={insights} heroData={heroData} />;
 }

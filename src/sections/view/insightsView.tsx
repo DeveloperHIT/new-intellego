@@ -31,31 +31,26 @@ export default function InsightsView({}: InsightsViewProps) {
 
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
-  // @ts-ignore
-  const handleChangeViewMode = useCallback((event, newAlignment) => {
-    if (newAlignment !== null) {
-      setViewMode(newAlignment);
-    }
-  }, []);
+  const handleChangeViewMode = useCallback(
+    (
+      event: React.MouseEvent<HTMLElement>,
+      newAlignment: "grid" | "list" | null,
+    ) => {
+      if (newAlignment !== null) {
+        setViewMode(newAlignment);
+      }
+    },
+    [],
+  );
 
   const VIEW_OPTIONS = [
     {
       value: "list",
-      icon: (
-        <Iconify
-          // @ts-ignore
-          icon="carbon:list-boxes"
-        />
-      ),
+      icon: <Iconify icon="carbon:list-boxes" />,
     },
     {
       value: "grid",
-      icon: (
-        <Iconify
-          // @ts-ignore
-          icon="carbon:grid"
-        />
-      ),
+      icon: <Iconify icon="carbon:grid" />,
     },
   ];
 

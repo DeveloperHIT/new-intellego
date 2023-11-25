@@ -17,6 +17,7 @@ import HeaderShadow from "../common/headerShadow";
 
 import NavMobile from "./nav/mobile";
 import NavDesktop from "./nav/desktop";
+// TODO: Move this to Sanity
 import { navConfig } from "./configNavigation";
 
 export default function Header({ headerOnDark }) {
@@ -60,7 +61,6 @@ export default function Header({ headerOnDark }) {
           }}
         >
           <Box sx={{ lineHeight: 0, position: "relative" }}>
-            {/* TODO: Change color based on whether background is dark */}
             <NextLink href="/">
               <Logo
                 size="xl"

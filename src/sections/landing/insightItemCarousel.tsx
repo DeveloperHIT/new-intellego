@@ -7,7 +7,57 @@ import Iconify from "@/components/Iconify";
 import { fDate } from "@/helpers/formatTime";
 import { urlFor } from "@/sanity/lib/urlFor";
 
-export default function InsightItemCarousel({ insight }) {
+interface Author {
+  about: string;
+  name: string;
+  slug: any;
+  image: any;
+  designation: string;
+  profiles: any;
+  bio: any;
+}
+
+interface MainImage {
+  _type: string;
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+  alt: string;
+}
+
+interface Slug {
+  _type: string;
+  current: string;
+}
+
+interface Insight {
+  author: Author;
+  estimatedWordCount: number;
+  _createdAt: string;
+  _updatedAt: string;
+  mainImage: MainImage;
+  tags: any;
+  series: any;
+  category: any;
+  metaDescription: string;
+  numberOfCharacters: number;
+  estimatedReadingTime: number;
+  publishedAt: string;
+  title: string;
+  body: any;
+  isSeries: boolean;
+  slug: Slug;
+  meta_description: string;
+}
+
+interface InsightItemCarouselProps {
+  insight: Insight;
+}
+
+export default function InsightItemCarousel({
+  insight,
+}: InsightItemCarouselProps) {
   const { mainImage, meta_description, publishedAt, title } = insight || {};
 
   const imageAssetRef = mainImage?.asset?._ref;

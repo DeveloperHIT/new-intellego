@@ -3,7 +3,6 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Iconify from "@/components/Iconify";
-// import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
 import Carousel, {
   useCarousel,
@@ -15,7 +14,52 @@ import InsightItem from "./insightItem";
 import InsightItemCarousel from "./insightItemCarousel";
 import Link from "@mui/material/Link";
 
-export default function RecentInsights({ insights }) {
+interface Author {
+  about: string;
+  name: string;
+  slug: any;
+  image: any;
+  designation: string;
+  profiles: any;
+  bio: any;
+}
+
+interface MainImage {
+  _type: string;
+  asset: any;
+}
+
+interface Slug {
+  _type: string;
+  current: string;
+}
+
+interface Insight {
+  author: Author;
+  estimatedWordCount: number;
+  _createdAt: string;
+  _updatedAt: string;
+  mainImage: MainImage;
+  tags: any;
+  series: any;
+  category: any;
+  metaDescription: string;
+  numberOfCharacters: number;
+  estimatedReadingTime: number;
+  publishedAt: string;
+  title: string;
+  body: any;
+  isSeries: boolean;
+  slug: Slug;
+}
+
+interface Insight {}
+
+interface RecentInsightsProps {
+  insights: Insight[];
+}
+
+export default function RecentInsights({ insights }: RecentInsightsProps) {
   const mdUp = useResponsive("up", "md");
 
   const carousel = useCarousel({
@@ -69,6 +113,7 @@ export default function RecentInsights({ insights }) {
         >
           {mdUp && (
             <Typography variant="h2" sx={{ color: "common.white", py: 10 }}>
+              {/* TODO: Move to sanity */}
               Latest Insights
             </Typography>
           )}

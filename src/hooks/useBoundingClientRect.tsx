@@ -1,7 +1,9 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, RefObject } from "react";
 
-export function useBoundingClientRect(containerRef) {
-  const [container, setContainer] = useState(null);
+export function useBoundingClientRect<T extends HTMLElement>(
+  containerRef: RefObject<T>,
+) {
+  const [container, setContainer] = useState<DOMRect | null>(null);
 
   const handleResize = useCallback(() => {
     if (containerRef.current) {

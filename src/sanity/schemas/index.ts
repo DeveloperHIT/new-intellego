@@ -23,12 +23,17 @@ import siteSettings from "./documents/settings/settings";
 import snippet from "./types/snippet";
 import tags from "./types/tags";
 import services from "@/sanity/schemas/types/pages/services";
+import landing from "@/sanity/schemas/types/pages/landing";
+import styledText from "@/sanity/schemas/types/styledText";
+import { themeColors } from "@/sanity/schemas/types/themeColors";
+import { colorSet } from "@/sanity/schemas/types/colorSet";
 
 export const index: { types: SchemaTypeDefinition[] } = {
   types: [
     // Pages
     clients,
     contact,
+    landing,
     services,
     // Types
     address,
@@ -36,6 +41,7 @@ export const index: { types: SchemaTypeDefinition[] } = {
     author,
     blockContent,
     category,
+    colorSet,
     emailAddress,
     externalArticles,
     insights,
@@ -50,6 +56,8 @@ export const index: { types: SchemaTypeDefinition[] } = {
     serviceLine,
     siteSettings,
     snippet,
+    styledText,
     tags,
+    themeColors,
   ],
 };

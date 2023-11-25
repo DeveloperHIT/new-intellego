@@ -118,3 +118,12 @@ export const getServiceLinesQuery = groq`*[_type == "serviceLine"]{
     title,
     slug
 }`;
+
+// ======================== Landing Page ================================
+
+export const getLandingPageQuery = groq`*[_type == "landing"]{
+    "heroButtonText": heroButtonText,
+    "heroImage": heroImage.asset->url,
+    "heroSubtitle": heroSubtitle,
+    "heroTitle": heroTitle,
+}`;

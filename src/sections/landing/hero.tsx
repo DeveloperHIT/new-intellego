@@ -13,7 +13,20 @@ import { HEADER } from "@/layouts/configLayout";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useBoundingClientRect } from "@/hooks/useBoundingClientRect";
 
-export default function Hero() {
+interface HeroData {
+  heroButtonText: string;
+  heroImage: string;
+  heroSubtitle: string;
+  heroTitle: string;
+  heroTitleCapitalized: string;
+  heroTitleCapitalizedColor: string;
+}
+
+interface HeroProps {
+  heroData: HeroData;
+}
+
+export default function Hero({ heroData }: HeroProps) {
   const theme = useTheme();
 
   const containerRef = useRef(null);
@@ -30,7 +43,7 @@ export default function Hero() {
       sx={{
         ...bgGradient({
           color: alpha(theme.palette.grey[900], 0.55),
-          imgUrl: "/assets/images/filteredInsights/insight_1.jpg",
+          imgUrl: heroData.heroImage,
         }),
         overflow: "hidden",
         position: "relative",
@@ -54,17 +67,22 @@ export default function Hero() {
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              {/* TODO: Put FMV on separate row */}
               <Typography variant="h1" color="common.white">
-                Healthcare fair market value
-                <Box component="span" sx={{ color: "primary.main" }}>
-                  {` SOLUTIONS`}
-                </Box>
+                {heroData.heroTitle}
+              </Typography>
+
+              <Typography
+                variant="h1"
+                sx={{
+                  color: heroData.heroTitleCapitalizedColor,
+                  textTransform: "uppercase",
+                }}
+              >
+                {heroData.heroTitleCapitalized}
               </Typography>
 
               <Typography sx={{ color: "secondary.contrastText" }}>
-                Navigating the complexities of healthcare with expertise and
-                efficiency.
+                {heroData.heroSubtitle}
               </Typography>
 
               <Button
@@ -74,7 +92,7 @@ export default function Hero() {
                 endIcon={<Iconify icon="carbon:launch" />}
                 href="/contact"
               >
-                Get Started
+                {heroData.heroButtonText}
               </Button>
             </Stack>
           </Grid>

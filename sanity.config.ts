@@ -11,6 +11,7 @@ import { index } from "@/sanity/schemas";
 import { apiVersion, dataset, projectId } from "@/sanity/env";
 import { structure } from "@/sanity/studio/desk";
 import { defaultDocumentNodeResolver } from "@/sanity/studio/desk/defaultDocumentNode";
+import { colorInput } from "@sanity/color-input";
 
 export default defineConfig({
   projectId,
@@ -25,6 +26,7 @@ export default defineConfig({
       defaultDocumentNode: defaultDocumentNodeResolver,
     }),
     codeInput(),
+    colorInput(),
     dashboardTool({
       widgets: [projectInfoWidget(), projectUsersWidget()],
     }),

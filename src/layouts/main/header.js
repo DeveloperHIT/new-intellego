@@ -12,9 +12,7 @@ import Logo from "@/components/Logo";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useOffsetTop } from "@/hooks/useOffsetTop";
 import { HEADER } from "../configLayout";
-import Searchbar from "../common/searchbar";
 import HeaderShadow from "../common/headerShadow";
-
 import NavMobile from "./nav/mobile";
 import NavDesktop from "./nav/desktop";
 // TODO: Move this to Sanity
@@ -88,11 +86,11 @@ export default function Header({ headerOnDark }) {
             alignItems="center"
             justifyContent="flex-end"
           >
-            <Stack spacing={1} direction="row" alignItems="center">
-              <Searchbar />
+            {/*<Stack spacing={1} direction="row" alignItems="center">*/}
+            {/*  <Searchbar />*/}
 
-              {/*<SettingsButton />*/}
-            </Stack>
+            {/*  /!*<SettingsButton />*!/*/}
+            {/*</Stack>*/}
 
             {mdUp && (
               <Button variant="contained" color="primary" href="/contact">

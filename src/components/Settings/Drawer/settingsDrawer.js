@@ -1,5 +1,4 @@
 "use client";
-
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Badge from "@mui/material/Badge";
@@ -8,17 +7,14 @@ import Tooltip from "@mui/material/Tooltip";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-
 import Iconify from "@/components/Iconify";
 import Scrollbar from "@/components/Scrollbar";
 import { useSettingsContext } from "@/components/Settings/Context";
-
 import BaseOptions from "./baseOptions";
 import PresetsOptions from "./presetsOptions";
 
 export default function SettingsDrawer() {
   const settings = useSettingsContext();
-  console.log("Drawer open status:", settings.open);
 
   const renderHead = (
     <Stack

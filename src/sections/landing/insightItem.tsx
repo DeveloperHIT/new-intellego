@@ -3,10 +3,15 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 
 import { fDate } from "@/helpers/formatTime";
-// import RouterLink from "@/routes/routerLink";
-import TextMaxLine from "@/components/TextMaxLine";
 
-export default function InsightItem({ insight }) {
+import TextMaxLine from "@/components/TextMaxLine";
+import { Insight } from "@/types/Insights/Insight";
+
+interface InsightItemProps {
+  insight: Insight;
+}
+
+export default function InsightItem({ insight }: InsightItemProps) {
   const { meta_description, publishedAt, title } = insight;
   return (
     <div>

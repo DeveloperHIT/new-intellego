@@ -1,5 +1,4 @@
 import { Author } from "@/types/Insights/Author/Author";
-import { SEO } from "@/types/SEO";
 import { InsightSlug } from "@/types/Insights/InsightSlug";
 import { Tag } from "@/types/Insights/Tags/Tag";
 import { InsightCategory } from "@/types/Insights/InsightCategory";
@@ -19,13 +18,6 @@ export interface ArticleHeaderData {
   estimatedReadTime: number;
 }
 
-export interface Article {
-  path: string;
-  featureArticle?: boolean;
-  preview: ArticleHeaderData;
-  seo?: SEO;
-}
-
 export interface Insight {
   slug: InsightSlug;
   estimatedWordCount: number;
@@ -41,7 +33,7 @@ export interface Insight {
   estimatedReadingTime: number;
   mainImageHeight: number;
   _updatedAt: string;
-  meta_description: string;
+  meta_description?: string;
   mainImage: MainImage;
   mainImageWidth: number;
   _createdAt: string;

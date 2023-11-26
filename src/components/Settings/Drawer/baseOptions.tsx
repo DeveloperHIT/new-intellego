@@ -2,7 +2,17 @@ import Typography from "@mui/material/Typography";
 import ListItemButton from "@mui/material/ListItemButton";
 import Iconify from "@/components/Iconify";
 
-export default function BaseOptions({ title, icons, selected, ...other }) {
+interface BsaeOptionsProps {
+  title: string;
+  icons: string[];
+  selected?: boolean;
+}
+
+export default function BaseOptions({
+  title,
+  icons,
+  selected,
+}: BsaeOptionsProps) {
   return (
     <ListItemButton
       sx={{
@@ -12,7 +22,6 @@ export default function BaseOptions({ title, icons, selected, ...other }) {
           color: "primary.main",
         }),
       }}
-      {...other}
     >
       <Typography variant="subtitle2">{title}</Typography>
       <Iconify width={28} icon={selected ? icons[1] : icons[0]} />

@@ -5,7 +5,7 @@ import { SettingsDrawer, SettingsProvider } from "@/components/Settings";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import React from "react";
-import IntellegoThemeProvider from "@/theme/intellegoThemeProvider";
+import IntellegoThemeProvider from "@/theme/customThemeProvider";
 
 interface UserLayoutProps {
   children: React.ReactNode;

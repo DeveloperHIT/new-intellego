@@ -4,13 +4,11 @@ import { ThemeProvider } from "@mui/material/styles";
 import { intellegoThemeLight } from "@/theme/index";
 import { CssBaseline } from "@mui/material";
 
-interface IntellegoThemeProviderProps {
+interface CustomThemeProviderProps {
   children: ReactNode;
 }
 
-export default function IntellegoThemeProvider(
-  props: IntellegoThemeProviderProps,
-) {
+export default function CustomThemeProvider(props: CustomThemeProviderProps) {
   const { children } = props;
 
   return (

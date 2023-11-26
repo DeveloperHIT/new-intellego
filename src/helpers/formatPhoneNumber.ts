@@ -11,7 +11,3 @@ export function formatPhoneNumber(phoneNumber?: string): string {
 
   return `(${areaCode}) ${middleThree}-${lastFour}`;
 }
-
-// Example usage:
-// const formattedNumber = formatPhoneNumber('3862813210');
-// console.log(formattedNumber); // Output: (386) 281-3210

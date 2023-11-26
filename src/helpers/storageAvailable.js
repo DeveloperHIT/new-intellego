@@ -8,15 +8,3 @@ export function localStorageAvailable() {
     return false;
   }
 }
-
-export function localStorageGetItem(key, defaultValue = "") {
-  const storageAvailable = localStorageAvailable();
-
-  let value;
-
-  if (storageAvailable) {
-    value = localStorage.getItem(key) || defaultValue;
-  }
-
-  return value;
-}

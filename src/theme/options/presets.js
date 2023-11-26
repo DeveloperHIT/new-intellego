@@ -1,3 +1,4 @@
+// TODO: Consider getting rid of this
 export const presetOptions = [
   // DEFAULT
   {

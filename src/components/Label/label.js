@@ -1,11 +1,7 @@
 import { forwardRef } from "react";
-
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
-
 import { StyledLabel } from "./styles";
-
-// ----------------------------------------------------------------------
 
 const Label = forwardRef(
   (

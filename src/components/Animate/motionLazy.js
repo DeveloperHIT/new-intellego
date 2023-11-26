@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { m, LazyMotion } from "framer-motion";
 
 // eslint-disable-next-line import/extensions
-const loadFeatures = () => import("./features.js").then((res) => res.default);
+const loadFeatures = () => import("./features.ts").then((res) => res.default);
 
 function MotionLazy({ children }) {
   return (

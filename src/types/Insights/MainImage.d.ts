@@ -4,4 +4,5 @@ export interface MainImage {
     _ref: string;
     _type: string;
   };
+  alt?: string;
 }

@@ -6,6 +6,7 @@ import Image from "@/components/Image";
 import Iconify from "@/components/Iconify";
 import { fDate } from "@/helpers/formatTime";
 import { urlFor } from "@/sanity/lib/urlFor";
+import { MainImage } from "@/types/Insights/MainImage";
 
 interface Author {
   about: string;
@@ -15,15 +16,6 @@ interface Author {
   designation: string;
   profiles: any;
   bio: any;
-}
-
-interface MainImage {
-  _type: string;
-  asset: {
-    _ref: string;
-    _type: string;
-  };
-  alt: string;
 }
 
 interface Slug {
@@ -40,7 +32,6 @@ interface Insight {
   tags: any;
   series: any;
   category: any;
-  metaDescription: string;
   numberOfCharacters: number;
   estimatedReadingTime: number;
   publishedAt: string;
@@ -48,7 +39,7 @@ interface Insight {
   body: any;
   isSeries: boolean;
   slug: Slug;
-  meta_description: string;
+  meta_description?: string;
 }
 
 interface InsightItemCarouselProps {

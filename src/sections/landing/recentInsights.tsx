@@ -13,6 +13,7 @@ import Carousel, {
 import InsightItem from "./insightItem";
 import InsightItemCarousel from "./insightItemCarousel";
 import Link from "@mui/material/Link";
+import { MainImage } from "@/types/Insights/MainImage";
 
 interface Author {
   about: string;
@@ -22,11 +23,6 @@ interface Author {
   designation: string;
   profiles: any;
   bio: any;
-}
-
-interface MainImage {
-  _type: string;
-  asset: any;
 }
 
 interface Slug {
@@ -43,7 +39,7 @@ interface Insight {
   tags: any;
   series: any;
   category: any;
-  metaDescription: string;
+  meta_description?: string;
   numberOfCharacters: number;
   estimatedReadingTime: number;
   publishedAt: string;

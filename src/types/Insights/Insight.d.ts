@@ -3,7 +3,7 @@ import { SEO } from "@/types/SEO";
 import { InsightSlug } from "@/types/Insights/InsightSlug";
 import { Tag } from "@/types/Insights/Tags/Tag";
 import { InsightCategory } from "@/types/Insights/InsightCategory";
-import { MainImage } from "@/types/Insights/mainImage";
+import { MainImage } from "@/types/Insights/MainImage";
 
 export interface ArticleHeaderData {
   author: Author;

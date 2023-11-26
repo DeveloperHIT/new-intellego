@@ -19,6 +19,7 @@ interface RecentInsightsProps {
   insights: Insight[];
 }
 
+// TODO: Add recent news in place of insights
 export default function RecentInsights({ insights }: RecentInsightsProps) {
   const mdUp = useResponsive("up", "md");
 

@@ -11,5 +11,7 @@ export default async function SingleInsightPage(props: Props) {
   const categories = await client.fetch(getCategoriesQuery);
   const insight = await client.fetch(postQuery, { slug: props.params.slug });
 
+  console.log(insight);
+
   return <InsightView categories={categories} insight={insight} />;
 }

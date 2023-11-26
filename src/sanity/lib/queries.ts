@@ -37,10 +37,8 @@ export const postQuery = groq`*[_type == "post" && slug.current == $slug][0]{
     tags,
     meta_description,
     mainImage,
-    mainImageUrl: mainImage.asset->url,
-    mainImageAlt: mainImage.alt,
     "mainImageWidth": mainImage.asset->metadata.dimensions.width,
-    "mainImageHeight": mainImage.asset->metadata.dimensions.height
+    "mainImageHeight": mainImage.asset->metadata.dimensions.height,
     slug,
     "tags": tags[]-> {title,slug},
     "author": author -> {name,slug,image,designation,profiles,bio,about},
@@ -62,7 +60,7 @@ export const getCategoriesQuery = groq`*[_type == "category"] {
   }`;
 
 export const getCategoryRelatedPostQuery = groq`*[_type == "post" && $slug in categories[]->slug.current]{
-      _createdAt,
+    _createdAt,
     title,
     body,
     "author": author -> {name,slug,image,designation,profiles,bio,about},

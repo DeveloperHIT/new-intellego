@@ -1,6 +1,8 @@
 import Box from "@mui/material/Box";
 
-export default function HeaderShadow({ sx, ...other }) {
+interface HeaderShadowProps {}
+
+export default function HeaderShadow({}: HeaderShadowProps) {
   return (
     <Box
       sx={{
@@ -15,9 +17,7 @@ export default function HeaderShadow({ sx, ...other }) {
         position: "absolute",
         width: `calc(100% - 48px)`,
         boxShadow: (theme) => theme.customShadows.z8,
-        ...sx,
       }}
-      {...other}
     />
   );
 }

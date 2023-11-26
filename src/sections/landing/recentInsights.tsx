@@ -13,43 +13,7 @@ import Carousel, {
 import InsightItem from "./insightItem";
 import InsightItemCarousel from "./insightItemCarousel";
 import Link from "@mui/material/Link";
-import { MainImage } from "@/types/Insights/MainImage";
-
-interface Author {
-  about: string;
-  name: string;
-  slug: any;
-  image: any;
-  designation: string;
-  profiles: any;
-  bio: any;
-}
-
-interface Slug {
-  _type: string;
-  current: string;
-}
-
-interface Insight {
-  author: Author;
-  estimatedWordCount: number;
-  _createdAt: string;
-  _updatedAt: string;
-  mainImage: MainImage;
-  tags: any;
-  series: any;
-  category: any;
-  meta_description?: string;
-  numberOfCharacters: number;
-  estimatedReadingTime: number;
-  publishedAt: string;
-  title: string;
-  body: any;
-  isSeries: boolean;
-  slug: Slug;
-}
-
-interface Insight {}
+import { Insight } from "@/types/Insights/Insight";
 
 interface RecentInsightsProps {
   insights: Insight[];

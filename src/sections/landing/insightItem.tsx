@@ -5,10 +5,10 @@ import Typography from "@mui/material/Typography";
 import { fDate } from "@/helpers/formatTime";
 
 import TextMaxLine from "@/components/TextMaxLine";
-import { Insight } from "@/types/Insights/Insight";
+import { InsightType } from "@/types";
 
 interface InsightItemProps {
-  insight: Insight;
+  insight: InsightType;
 }
 
 export default function InsightItem({ insight }: InsightItemProps) {

@@ -30,13 +30,13 @@ export const filteredInsights = (S: StructureBuilder) =>
                 ),
             ),
           S.listItem()
-            .title("Insights By Author")
+            .title("Insights By AuthorType")
             .child(
               S.documentTypeList("author")
-                .title("Insights by Author")
+                .title("Insights by AuthorType")
                 .child((authorId) =>
                   S.documentList()
-                    .title("Posts by Author")
+                    .title("Posts by AuthorType")
                     .filter('_type == "post" && $authorId == author._ref')
                     .params({ authorId }),
                 ),

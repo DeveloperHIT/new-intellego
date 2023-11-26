@@ -113,7 +113,7 @@ export default function Hero({ heroData }: HeroProps) {
             width: { md: `calc(100% - ${offsetLeft}px)` },
           }}
         >
-          {/*<Image*/}
+          {/*<ImageType*/}
           {/*  visibleByDefault*/}
           {/*  disabledEffect*/}
           {/*  alt="home hero"*/}

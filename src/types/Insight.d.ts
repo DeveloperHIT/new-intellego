@@ -1,11 +1,11 @@
-import { Author } from "@/types/Insights/Author/Author";
-import { InsightSlug } from "@/types/Insights/InsightSlug";
-import { Tag } from "@/types/Insights/Tags/Tag";
-import { InsightCategory } from "@/types/Insights/InsightCategory";
-import { MainImage } from "@/types/Insights/MainImage";
+import { AuthorType } from "@/types/Author";
+import { SlugType } from "@/types/Slug";
+import { TagType } from "@/types/Tag";
+import { InsightCategoryType } from "@/types/InsightCategory";
+import { ImageType } from "@/types/Image";
 
-export interface ArticleHeaderData {
-  author: Author;
+export interface ArticleHeaderDataType {
+  author: AuthorType;
   _createdAt: Date;
   publishedAt: Date;
   title: string;
@@ -18,23 +18,23 @@ export interface ArticleHeaderData {
   estimatedReadTime: number;
 }
 
-export interface Insight {
-  slug: InsightSlug;
+export interface InsightType {
+  slug: SlugType;
   estimatedWordCount: number;
   isSeries: boolean;
-  author: Author;
+  author: AuthorType;
   series: any;
   body: any;
   publishedAt: string;
-  tags: Tag[];
+  tags: TagType[];
   // TODO: This should be categories
-  category: InsightCategory[];
+  category: InsightCategoryType[];
   numberOfCharacters: number;
   estimatedReadingTime: number;
   mainImageHeight: number;
   _updatedAt: string;
   meta_description?: string;
-  mainImage: MainImage;
+  mainImage: ImageType;
   mainImageWidth: number;
   _createdAt: string;
   title: string;

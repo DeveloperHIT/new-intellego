@@ -4,7 +4,7 @@ import TitleStyle from "../../components/TitleStyle";
 /**
  * This is the index type for block content used in the post document type
  * Importing this type into the studio configuration's `index` property
- * lets you reuse it in other document types with:
+ * lets you reuse it in other document singletons with:
  *  {
  *    name: 'someName',
  *    title: 'Some title',
@@ -14,7 +14,7 @@ import TitleStyle from "../../components/TitleStyle";
 import { UserIcon } from "@sanity/icons";
 
 export default defineType({
-  title: "Block Content",
+  title: "BlockType Content",
   name: "blockContent",
   type: "array",
   of: [
@@ -105,7 +105,7 @@ export default defineType({
                   { type: "series" },
                   { type: "tags" },
                   { type: "author" },
-                  // other types you may want to link to
+                  // other singletons you may want to link to
                 ],
               },
             ],
@@ -113,8 +113,8 @@ export default defineType({
         ],
       },
     }),
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
+    // You can add additional singletons here. Note that you can't use
+    // primitive singletons such as 'string' and 'number' in the same array
     // as a block type.
     defineArrayMember({
       type: "image",

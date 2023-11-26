@@ -1,0 +1,11 @@
+export type { AddressType } from "@/types/Address";
+export type { AuthorType } from "@/types/Author";
+export type { BlockContentType } from "@/types/BlockContent";
+export type { ClientType } from "@/types/Client";
+export type { ColorType } from "@/types/Color";
+export type { ImageType } from "@/types/Image";
+export type { InsightType } from "@/types/Insight";
+export type { InsightCategoryType } from "@/types/InsightCategory";
+export type { ServiceType } from "@/types/Service";
+export type { SlugType } from "@/types/Slug";
+export type { TagType } from "@/types/Tag";

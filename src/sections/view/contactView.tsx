@@ -4,19 +4,30 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import ContactInfo from "@/sections/contact/contactInfo";
 import ContactForm from "@/sections/contact/contactForm";
-import { ContactUsPage } from "@/types/Pages/ContactUs";
+import { AddressType } from "@/types";
 
-interface ContactViewProps {
-  contactPageData: ContactUsPage;
+interface PageData {
+  contactFormFields?: any;
+  socialMediaProfiles?: any;
+  pageTitle?: string;
+  pageDescription?: string;
+  address: AddressType;
+  contactPhoneNumber?: string;
+  contactEmail?: string;
 }
 
-export default function ContactView({ contactPageData }: ContactViewProps) {
+interface ContactViewProps {
+  pageData: PageData;
+}
+
+export default function ContactView({ pageData }: ContactViewProps) {
   const {
-    address: { street, city, state, zipCode, pmb },
-    pageTitle,
-    contactEmail,
+    address: { street, city, pmb, state, zipCode },
     contactPhoneNumber,
-  } = contactPageData;
+    contactEmail,
+    pageTitle,
+  } = pageData;
+
   return (
     <>
       <Container

@@ -1,8 +1,8 @@
-export interface ImageData {
-  alt: string;
+export interface ImageType {
+  _type: string;
   asset: {
     _ref: string;
     _type: string;
   };
-  _type: string;
+  alt?: string;
 }

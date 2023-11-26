@@ -1,6 +1,6 @@
 export const colorSet = {
   name: "colorSet",
-  title: "Color Set",
+  title: "ColorType Set",
   type: "object",
   fields: [
     { name: "lighter", type: "color", title: "Lighter" },

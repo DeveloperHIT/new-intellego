@@ -6,9 +6,7 @@ import Iconify from "@/components/Iconify";
 import React from "react";
 import { useBoolean } from "@/hooks/useBoolean";
 
-interface InsightFiltersProps {}
-
-export default function InsightFilters({}: InsightFiltersProps) {
+export default function InsightFilters({}) {
   return (
     <Stack
       spacing={3}

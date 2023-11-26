@@ -1,20 +1,17 @@
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import ClientView from "@/sections/view/clientView";
+import { client } from "@/sanity/lib/client";
+import { getClientBySlugQuery } from "@/sanity/lib/queries";
 
-export default async function Page({
-  params: { slug },
-}: {
+type Props = {
   params: { slug: string };
-}) {
-  const supabase = createServerComponentClient({
-    cookies,
-  });
-  const { data: client } = await supabase
-    .from("clients")
-    .select()
-    .match({ slug })
-    .single();
+};
 
-  return <ClientView client={client} />;
+export default async function SingleClientPage(props: Props) {
+  const clientData = await client.fetch(getClientBySlugQuery, {
+    slug: props.params.slug,
+  });
+
+  console.log(clientData);
+
+  return <ClientView client={clientData} />;
 }

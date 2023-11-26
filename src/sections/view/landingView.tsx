@@ -1,7 +1,7 @@
 "use client";
 import Hero from "@/sections/landing/hero";
 import RecentInsights from "@/sections/landing/recentInsights";
-import { Insight } from "@/types/Insights/Insight";
+import { InsightType } from "@/types/Insight";
 
 interface HeroData {
   heroButtonText: string;
@@ -13,7 +13,7 @@ interface HeroData {
 }
 
 interface LandingViewProps {
-  insights: Insight[];
+  insights: InsightType[];
   heroData: HeroData;
 }
 

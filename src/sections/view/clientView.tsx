@@ -1,13 +1,17 @@
 "use client";
 import Container from "@mui/material/Container";
-
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Grid from "@mui/material/Unstable_Grid2";
 import ClientSummary from "@/sections/clients/clientSummary";
 import Typography from "@mui/material/Typography";
-import Markdown from "@/components/Markdown";
+import { ClientType } from "@/types";
+import { PortableText } from "@portabletext/react";
 
-export default function ClientView({ client }) {
+interface ClientViewProps {
+  client: ClientType;
+}
+
+export default function ClientView({ client }: ClientViewProps) {
   return (
     <Container
       sx={{
@@ -21,7 +25,7 @@ export default function ClientView({ client }) {
         links={[
           { name: "Home", href: "/" },
           { name: "Clients", href: "/clients" },
-          { name: client.type },
+          { name: client.title },
         ]}
       />
 
@@ -35,20 +39,9 @@ export default function ClientView({ client }) {
         </Grid>
 
         <Grid xs={12} md={8}>
-          <Typography variant="h3">{client.type}</Typography>
-          <br />
-          <Markdown content={client.main_header} />
-          <br />
-          <Markdown content={client.main_paragraph} />
-          <br />
-          <Markdown content={client.services_header} />
-          <br />
-          <Markdown content={client.services_paragraph} />
-          <br />
-          <Markdown content={client.why_intellego_header} />
-          <br />
-          <Markdown content={client.why_intellego_paragraph} />
-          <br />
+          <Typography variant="h3">{client.title}</Typography>
+          {/* TODO: Add serializer */}
+          <PortableText value={client.servicesDescription} />
         </Grid>
       </Grid>
     </Container>

@@ -77,7 +77,7 @@ const StyledMarkdown = styled("div", {
     },
   },
 
-  // Image
+  // ImageType
   "& img": {
     borderRadius: theme.spacing(1),
   },

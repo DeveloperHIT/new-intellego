@@ -100,6 +100,22 @@ export const getClientsPageQuery = groq`*[_type == "clients"]{
   pageTitle,
 }`;
 
+export const getClientsQuery = groq`*[_type == "clientType"] | order(title asc) {
+    title,
+    slug,
+    description,
+    typicalServices,
+    servicesDescription
+}`;
+
+export const getClientBySlugQuery = groq`*[_type == "clientType" && slug.current == $slug][0]{
+    title,
+    "slug": slug.current,
+    description,
+    typicalServices,
+    servicesDescription
+}`;
+
 // ======================== Services ================================
 
 export const getServicesPageQuery = groq`*[_type == "services"]{

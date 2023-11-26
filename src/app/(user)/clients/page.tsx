@@ -1,7 +1,7 @@
 import ClientsView from "@/sections/view/clientsView";
 import { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
-import { getClientsPageQuery } from "@/sanity/lib/queries";
+import { getClientsPageQuery, getClientsQuery } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "Clients",
@@ -18,5 +18,9 @@ export default async function Page() {
     pageTitle: clientsPageData[0].pageTitle,
   };
 
-  return <ClientsView pageData={pageData} />;
+  const clientsData = await client.fetch(getClientsQuery);
+
+  console.log(clientsData);
+
+  return <ClientsView clientsData={clientsData} pageData={pageData} />;
 }

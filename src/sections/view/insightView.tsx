@@ -10,13 +10,13 @@ import InsightSocialsShare from "@/sections/insights/insight/insightSocialsShare
 import InsightSidebar from "@/sections/insights/insight/insightSidebar";
 import InsightTags from "@/sections/insights/insight/insightTags";
 import { PortableTextImage } from "@/components/PortableText/PortableTextImage";
-import { InsightCategory } from "@/types/Insights/InsightCategory";
-import { Insight } from "@/types/Insights/Insight";
+import { InsightCategoryType } from "@/types/InsightCategory";
+import { InsightType } from "@/types/Insight";
 import List from "@mui/material/List";
 import { ListItem } from "@mui/material";
 
 // https://www.npmjs.com/package/@portabletext/react
-// TODO: Add types
+// TODO: Add singletons
 
 const components: PortableTextComponents = {
   block: {
@@ -124,8 +124,8 @@ const components: PortableTextComponents = {
 };
 
 interface InsightViewProps {
-  categories: InsightCategory[];
-  insight: Insight;
+  categories: InsightCategoryType[];
+  insight: InsightType;
 }
 
 export default function InsightView({ categories, insight }: InsightViewProps) {

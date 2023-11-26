@@ -2,7 +2,7 @@ import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "emailAddress",
-  title: "Email Address",
+  title: "Email AddressType",
   type: "object",
   fields: [
     defineField({

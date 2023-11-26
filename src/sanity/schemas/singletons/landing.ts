@@ -28,7 +28,7 @@ export default defineType({
     }),
     defineField({
       name: "heroImage",
-      title: "Hero Image",
+      title: "Hero ImageType",
       type: "image",
       description: "The image displayed in the hero.",
     }),

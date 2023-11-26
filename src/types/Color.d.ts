@@ -1,4 +1,4 @@
-export interface Color {
+export interface ColorType {
   lighter?: string;
   light?: string;
   main: string;

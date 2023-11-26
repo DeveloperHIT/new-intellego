@@ -1,6 +1,8 @@
-export interface Author {
+import { Slug } from "@/types/index";
+
+export interface AuthorType {
   name: string;
-  slug: AuthorSlug;
+  slug: Slug;
   image: string;
   designation: string;
   profiles: any;

@@ -4,13 +4,13 @@ import TextMaxLine from "@/components/TextMaxLine";
 
 import InsightTimeBlock from "@/sections/insights/insight/insightTimeBlock";
 import { Link, Typography } from "@mui/material";
-import { ArticleHeaderData } from "@/types/Insights/Insight";
+import { ArticleHeaderDataType } from "@/types/Insight";
 import { urlFor } from "@/sanity/lib/urlFor";
 
 // import CustomLink from "@/routes/routerLink";
 
 interface InsightItemProps {
-  insight: ArticleHeaderData;
+  insight: ArticleHeaderDataType;
   path?: string;
 }
 

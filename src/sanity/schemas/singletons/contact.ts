@@ -23,7 +23,7 @@ export default defineType({
     }),
     defineField({
       name: "address",
-      title: "Physical Address",
+      title: "Physical AddressType",
       description: "Enter the components of the business address.",
       type: "reference",
       to: [{ type: "address" }],
@@ -37,7 +37,7 @@ export default defineType({
     }),
     defineField({
       name: "contactEmail",
-      title: "Contact Email Address",
+      title: "Contact Email AddressType",
       type: "string",
       description: "The email address for general inquiries.",
     }),

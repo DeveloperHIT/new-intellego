@@ -3,11 +3,15 @@ import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-
 import { _socials } from "@/_mock";
 import Iconify from "@/components/Iconify";
+import { ClientType } from "@/types";
 
-export default function ClientSummary({ client }) {
+interface ClientSummaryProps {
+  client: ClientType;
+}
+
+export default function ClientSummary({ client }: ClientSummaryProps) {
   return (
     <Stack
       spacing={3}
@@ -18,9 +22,9 @@ export default function ClientSummary({ client }) {
           summary
         </Typography>
 
-        <Typography variant="h6">{client.type}</Typography>
+        <Typography variant="h6">{client.title}</Typography>
 
-        <Typography variant="body2">{client.client_description}</Typography>
+        <Typography variant="body2">{client.description}</Typography>
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />

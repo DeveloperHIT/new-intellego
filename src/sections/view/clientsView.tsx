@@ -1,5 +1,6 @@
 "use client";
 import ClientsSection from "@/sections/clients/clientsSection";
+import { ClientType } from "@/types";
 
 interface PageData {
   buttonText: string;
@@ -9,9 +10,13 @@ interface PageData {
 
 interface ClientsViewProps {
   pageData: PageData;
+  clientsData: ClientType[];
 }
 
-export default function ClientsView({ pageData }: ClientsViewProps) {
+export default function ClientsView({
+  clientsData,
+  pageData,
+}: ClientsViewProps) {
   const { buttonText, pageDescription, pageTitle } = pageData;
   return (
     <>
@@ -19,6 +24,7 @@ export default function ClientsView({ pageData }: ClientsViewProps) {
         buttonText={buttonText}
         pageDescription={pageDescription}
         pageTitle={pageTitle}
+        clientsData={clientsData}
       />
     </>
   );

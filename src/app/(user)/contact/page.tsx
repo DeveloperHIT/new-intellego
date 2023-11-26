@@ -25,5 +25,5 @@ export default async function Page() {
     pageTitle: contactPageData[0].pageTitle,
   };
 
-  return <ContactView contactPageData={pageData} />;
+  return <ContactView pageData={pageData} />;
 }

@@ -1,5 +1,6 @@
 import { StructureBuilder } from "sanity/desk";
-import { serviceLines } from "@/sanity/studio/desk/intellego-manager/serviceLines";
+import { serviceLines } from "@/sanity/studio/desk/intellego-manager/service-lines/serviceLines";
+import { clientTypes } from "@/sanity/studio/desk/intellego-manager/client-types/clientTypes";
 
 export const intellegoConfig = (S: StructureBuilder) =>
   S.listItem()
@@ -7,5 +8,5 @@ export const intellegoConfig = (S: StructureBuilder) =>
     .child(
       S.list()
         .title("Intellego Config")
-        .items([serviceLines(S)]),
+        .items([clientTypes(S), serviceLines(S)]),
     );

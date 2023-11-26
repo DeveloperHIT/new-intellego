@@ -1,4 +1,4 @@
-export interface Address {
+export interface AddressType {
   street: string;
   pmb: string;
   city: string;

@@ -10,12 +10,12 @@ import {
 import Iconify from "@/components/Iconify";
 import NextLink from "next/link";
 import Chip from "@mui/material/Chip";
-import { InsightCategory } from "@/types/Insights/InsightCategory";
-import { Tag } from "@/types/Insights/Tags/Tag";
+import { InsightCategoryType } from "@/types/InsightCategory";
+import { TagType } from "@/types/Tag";
 
 interface InsightSidebarProps {
-  categories: InsightCategory[];
-  tags?: Tag[];
+  categories: InsightCategoryType[];
+  tags?: TagType[];
 }
 
 export default function InsightSidebar({

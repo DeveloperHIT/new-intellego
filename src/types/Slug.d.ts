@@ -1,4 +1,4 @@
-export interface InsightSlug {
+export interface SlugType {
   current: string;
   _type: string;
 }

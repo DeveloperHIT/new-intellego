@@ -13,10 +13,10 @@ import Carousel, {
 import InsightItem from "./insightItem";
 import InsightItemCarousel from "./insightItemCarousel";
 import Link from "@mui/material/Link";
-import { Insight } from "@/types/Insights/Insight";
+import { InsightType } from "@/types";
 
 interface RecentInsightsProps {
-  insights: Insight[];
+  insights: InsightType[];
 }
 
 // TODO: Add recent news in place of insights

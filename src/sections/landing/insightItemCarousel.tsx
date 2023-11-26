@@ -1,49 +1,13 @@
 import { Box, Fab, Link, Stack, Typography } from "@mui/material";
-
 import { alpha, useTheme } from "@mui/material/styles";
-
 import Image from "@/components/Image";
 import Iconify from "@/components/Iconify";
 import { fDate } from "@/helpers/formatTime";
 import { urlFor } from "@/sanity/lib/urlFor";
-import { MainImage } from "@/types/Insights/MainImage";
-
-interface Author {
-  about: string;
-  name: string;
-  slug: any;
-  image: any;
-  designation: string;
-  profiles: any;
-  bio: any;
-}
-
-interface Slug {
-  _type: string;
-  current: string;
-}
-
-interface Insight {
-  author: Author;
-  estimatedWordCount: number;
-  _createdAt: string;
-  _updatedAt: string;
-  mainImage: MainImage;
-  tags: any;
-  series: any;
-  category: any;
-  numberOfCharacters: number;
-  estimatedReadingTime: number;
-  publishedAt: string;
-  title: string;
-  body: any;
-  isSeries: boolean;
-  slug: Slug;
-  meta_description?: string;
-}
+import { InsightType } from "@/types";
 
 interface InsightItemCarouselProps {
-  insight: Insight;
+  insight: InsightType;
 }
 
 export default function InsightItemCarousel({

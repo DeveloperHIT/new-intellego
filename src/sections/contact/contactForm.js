@@ -5,9 +5,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Stack from "@mui/material/Stack";
 import LoadingButton from "@mui/lab/LoadingButton";
 import FormHelperText from "@mui/material/FormHelperText";
-import ToggleButton, { toggleButtonClasses } from "@mui/material/ToggleButton";
-
-import { _tags } from "@/_mock";
 
 import FormProvider, { RhfTextField } from "@/components/HookForm";
 
@@ -29,7 +26,6 @@ export default function ContactForm() {
     phoneNumber: "",
     company: "",
     website: "",
-    // budget: [2000, 10000],
     message: "",
   };
 
@@ -45,20 +41,15 @@ export default function ContactForm() {
     formState: { isSubmitting },
   } = methods;
 
-  const onSubmit = handleSubmit(async (data) => {
+  // TODO: Add form submission logic
+  const onSubmit = handleSubmit(async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
       reset();
-      console.log("DATA", data);
     } catch (error) {
       console.error(error);
     }
   });
-
-  const getSelected = (selectedItems, item) =>
-    selectedItems.includes(item)
-      ? selectedItems.filter((value) => value !== item)
-      : [...selectedItems, item];
 
   return (
     <FormProvider methods={methods} onSubmit={onSubmit}>
@@ -66,40 +57,8 @@ export default function ContactForm() {
         <Controller
           name="services"
           control={control}
-          render={({ field, fieldState: { error } }) => (
+          render={({ fieldState: { error } }) => (
             <div>
-              <Stack direction="row" flexWrap="wrap" spacing={1}>
-                {_tags.slice(0, 5).map((service) => (
-                  <ToggleButton
-                    {...field}
-                    key={service}
-                    color="standard"
-                    selected={field.value.includes(service)}
-                    onChange={() =>
-                      field.onChange(getSelected(field.value, service))
-                    }
-                    sx={{
-                      py: 0.5,
-                      px: 2,
-                      typography: "body2",
-                      [`&.${toggleButtonClasses.selected}`]: {
-                        bgcolor: "text.primary",
-                        borderColor: "transparent",
-                        color: (theme) =>
-                          theme.palette.mode === "light"
-                            ? "common.white"
-                            : "grey.800",
-                        "&:hover": {
-                          bgcolor: "text.primary",
-                        },
-                      },
-                    }}
-                  >
-                    {service}
-                  </ToggleButton>
-                ))}
-              </Stack>
-
               {!!error && (
                 <FormHelperText error sx={{ px: 2 }}>
                   {error?.message}

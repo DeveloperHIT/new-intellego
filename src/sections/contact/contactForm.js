@@ -90,20 +90,6 @@ export default function ContactForm() {
           <RhfTextField name="website" label="Website" />
         </Stack>
 
-        {/*<Stack spacing={5} sx={{ py: 2, width: 1 }}>*/}
-        {/*  <Typography variant="overline" sx={{ color: "text.disabled" }}>*/}
-        {/*    Your Budget*/}
-        {/*  </Typography>*/}
-
-        {/*  <RhfSlider*/}
-        {/*    name="budget"*/}
-        {/*    valueLabelDisplay="on"*/}
-        {/*    max={20000}*/}
-        {/*    step={1000}*/}
-        {/*    valueLabelFormat={(value) => fCurrency(value)}*/}
-        {/*  />*/}
-        {/*</Stack>*/}
-
         <RhfTextField name="message" label="Message" multiline rows={4} />
       </Stack>
 

@@ -1,5 +1,6 @@
 "use client";
 import ServicesSection from "@/sections/services/servicesSection";
+import { ServiceLineType } from "@/types";
 
 interface PageData {
   buttonText: string;
@@ -7,21 +8,12 @@ interface PageData {
   pageTitle: string;
 }
 
-interface ServiceLine {
-  title: string;
-  slug: {
-    current: string;
-  };
-}
-
-type ServicesLines = ServiceLine[];
-
 interface ServicesViewProps {
-  serviceLines: ServicesLines;
+  serviceLines: ServiceLineType[];
   pageData: PageData;
 }
 
-export default function ServicesView({
+export default function ServiceLinesView({
   serviceLines,
   pageData,
 }: ServicesViewProps) {

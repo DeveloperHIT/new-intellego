@@ -11,7 +11,5 @@ export default async function SingleClientPage(props: Props) {
     slug: props.params.slug,
   });
 
-  console.log(clientData);
-
   return <ClientView client={clientData} />;
 }

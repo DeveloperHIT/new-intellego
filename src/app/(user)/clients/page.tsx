@@ -20,7 +20,5 @@ export default async function Page() {
 
   const clientsData = await client.fetch(getClientsQuery);
 
-  console.log(clientsData);
-
   return <ClientsView clientsData={clientsData} pageData={pageData} />;
 }

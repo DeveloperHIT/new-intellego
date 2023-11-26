@@ -9,21 +9,13 @@ import Iconify from "@/components/Iconify";
 import TextMaxLine from "@/components/TextMaxLine";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Link from "@mui/material/Link";
-
-interface ServiceLine {
-  title: string;
-  slug: {
-    current: string;
-  };
-}
-
-type ServiceLines = ServiceLine[];
+import { ServiceLineType } from "@/types";
 
 interface ServicesSectionProps {
   buttonText: string;
   pageDescription: string;
   pageTitle: string;
-  serviceLines: ServiceLines;
+  serviceLines: ServiceLineType[];
 }
 
 export default function ServicesSection({
@@ -92,6 +84,7 @@ export default function ServicesSection({
                   key={index}
                   category={service.title}
                   slug={service.slug.current}
+                  description={service.description}
                 />
               ))}
             </Box>
@@ -104,10 +97,11 @@ export default function ServicesSection({
 
 interface CategoryItemProps {
   category: string;
+  description?: string;
   slug: string;
 }
 
-function CategoryItem({ category, slug }: CategoryItemProps) {
+function CategoryItem({ category, description, slug }: CategoryItemProps) {
   return (
     <Link href={`/services/${slug}`} underline="none">
       <Paper
@@ -135,7 +129,7 @@ function CategoryItem({ category, slug }: CategoryItemProps) {
         </TextMaxLine>
 
         <Typography variant="body2" sx={{ mt: 1, color: "text.disabled" }}>
-          Subtitle
+          {description}
         </Typography>
       </Paper>
     </Link>

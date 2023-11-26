@@ -6,6 +6,7 @@ export type { ColorType } from "@/types/Color";
 export type { ImageType } from "@/types/Image";
 export type { InsightType } from "@/types/Insight";
 export type { InsightCategoryType } from "@/types/InsightCategory";
+export type { ServiceLineType } from "@/types/ServiceLine";
 export type { ServiceType } from "@/types/Service";
 export type { SlugType } from "@/types/Slug";
 export type { TagType } from "@/types/Tag";

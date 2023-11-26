@@ -30,5 +30,10 @@ export default defineType({
       type: "array",
       of: [{ type: "reference", to: [{ type: "service" }] }],
     }),
+    defineField({
+      name: "servicesDescription",
+      title: "Services Description",
+      type: "blockContent",
+    }),
   ],
 });

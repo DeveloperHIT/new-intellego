@@ -1,4 +1,4 @@
-import ServicesView from "@/sections/view/servicesView";
+import ServiceLinesView from "@/sections/view/serviceLinesView";
 import { client } from "@/sanity/lib/client";
 import {
   getServiceLinesQuery,
@@ -14,9 +14,7 @@ export default async function Page() {
     pageTitle: servicesPageData[0].pageTitle,
   };
 
-  const serviceLines = await client.fetch(getServiceLinesQuery);
+  const servicesData = await client.fetch(getServiceLinesQuery);
 
-  console.log("Services list structure from page.tsx: ", serviceLines);
-
-  return <ServicesView pageData={pageData} serviceLines={serviceLines} />;
+  return <ServiceLinesView pageData={pageData} serviceLines={servicesData} />;
 }

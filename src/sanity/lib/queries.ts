@@ -124,14 +124,27 @@ export const getServicesPageQuery = groq`*[_type == "services"]{
     pageTitle,
 }`;
 
-export const getServicesQuery = groq`*[_type == "service"]{
+export const getServicesBySlugQuery = groq`*[_type == "serviceLine" && slug.current == $slug][0]{
     title,
-    slug
+    slug,
+    description,
+    servicesDescription,
+    "services": services[]->{
+        title,
+        slug,
+        description,
+    }
 }`;
 
-export const getServiceLinesQuery = groq`*[_type == "serviceLine"]{
+export const getServiceLinesQuery = groq`*[_type == "serviceLine"] | order(title asc) {
     title,
-    slug
+    slug,
+    description,
+   "services": services[]->{
+        title,
+        slug,
+        description,
+    }
 }`;
 
 // ======================== Landing Page ================================

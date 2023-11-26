@@ -1,46 +1,7 @@
 "use client";
 import Hero from "@/sections/landing/hero";
 import RecentInsights from "@/sections/landing/recentInsights";
-
-interface Author {
-  about: string;
-  name: string;
-  slug: any;
-  image: any;
-  designation: string;
-  profiles: any;
-  bio: any;
-}
-
-interface MainImage {
-  _type: string;
-  asset: any;
-}
-
-interface Slug {
-  _type: string;
-  current: string;
-}
-
-interface Insight {
-  author: Author;
-  estimatedWordCount: number;
-  _createdAt: string;
-  _updatedAt: string;
-  mainImage: MainImage;
-  tags: any;
-  series: any;
-  category: any;
-  metaDescription: string;
-  numberOfCharacters: number;
-  estimatedReadingTime: number;
-  publishedAt: string;
-  title: string;
-  body: any;
-  isSeries: boolean;
-  slug: Slug;
-  meta_description: string;
-}
+import { Insight } from "@/types/Insights/Insight";
 
 interface HeroData {
   heroButtonText: string;

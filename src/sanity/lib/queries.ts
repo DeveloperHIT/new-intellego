@@ -98,6 +98,11 @@ export const getServiceLinesQuery = groq`*[_type == "serviceLine"] | order(title
     }
 }`;
 
+export const getServiceBySlugQuery = groq`*[_type == "service" && slug.current == $slug][0]{
+    title,
+    description
+}`;
+
 export const getLandingPageQuery = groq`*[_type == "landing"]{
     "heroButtonText": heroButtonText,
     "heroImage": heroImage.asset->url,

@@ -1,0 +1,387 @@
+/Users/alexanderkajan/WebstormProjects/new-intellego
+├── README.md
+├── next-env.d.ts
+├── next.config.js
+├── output.txt
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── public
+├── sanity.config.ts
+├── src
+|  ├── _mock
+|  |  ├── _others.js
+|  |  └── index.js
+|  ├── algolia
+|  |  ├── components
+|  |  |  ├── AuthorRefinementList.tsx
+|  |  |  ├── CategoryRefinementList.tsx
+|  |  |  ├── CustomInfiniteHits.tsx
+|  |  |  ├── CustomSortBy.tsx
+|  |  |  ├── HitComponent.tsx
+|  |  |  ├── LocationRefinementList.tsx
+|  |  |  ├── PostDate.tsx
+|  |  |  └── TagsRefinementList.tsx
+|  |  ├── types
+|  |  |  └── Post.ts
+|  |  └── utils
+|  |     └── searchClient.ts
+|  ├── app
+|  |  ├── (admin)
+|  |  |  ├── admin
+|  |  |  |  └── [[...index]]
+|  |  |  └── layout.tsx
+|  |  ├── (user)
+|  |  |  ├── about
+|  |  |  |  └── page.tsx
+|  |  |  ├── careers
+|  |  |  |  └── page.tsx
+|  |  |  ├── clients
+|  |  |  |  ├── [slug]
+|  |  |  |  └── page.tsx
+|  |  |  ├── contact
+|  |  |  |  └── page.tsx
+|  |  |  ├── insights
+|  |  |  |  ├── [slug]
+|  |  |  |  ├── categories
+|  |  |  |  └── page.tsx
+|  |  |  ├── layout.tsx
+|  |  |  ├── page.tsx
+|  |  |  ├── search
+|  |  |  |  └── page.tsx
+|  |  |  └── services
+|  |  |     ├── [serviceLineSlug]
+|  |  |     └── page.tsx
+|  |  ├── api
+|  |  |  ├── increment-views
+|  |  |  |  └── route.ts
+|  |  |  └── search
+|  |  |     └── route.ts
+|  |  ├── favicon.ico
+|  |  └── layout.jsx
+|  ├── components
+|  |  ├── Animate
+|  |  |  ├── features.ts
+|  |  |  ├── index.ts
+|  |  |  ├── motionLazy.js
+|  |  |  └── variants
+|  |  |     ├── actions.js
+|  |  |     ├── index.ts
+|  |  |     └── transition.js
+|  |  ├── Carousel
+|  |  |  ├── arrowIcons.js
+|  |  |  ├── carouselArrows.tsx
+|  |  |  ├── carouselDots.js
+|  |  |  ├── index.ts
+|  |  |  └── useCarousel.js
+|  |  ├── CustomBreadcrumbs
+|  |  |  ├── customBreadcrumbs.tsx
+|  |  |  ├── index.ts
+|  |  |  └── linkItem.js
+|  |  ├── HookForm
+|  |  |  ├── formProvider.js
+|  |  |  ├── index.ts
+|  |  |  ├── rhfAutocomplete.js
+|  |  |  ├── rhfCheckbox.js
+|  |  |  ├── rhfCode.js
+|  |  |  ├── rhfRadioGroup.js
+|  |  |  ├── rhfSelect.js
+|  |  |  ├── rhfSlider.js
+|  |  |  ├── rhfSwitch.js
+|  |  |  └── rhfTextField.js
+|  |  ├── Iconify
+|  |  |  ├── ArrowDownIcon.tsx
+|  |  |  ├── CheckboxCheckedIcon.tsx
+|  |  |  ├── CheckboxIcon.tsx
+|  |  |  ├── CheckboxIndeterminateIcon.tsx
+|  |  |  ├── Iconify.tsx
+|  |  |  └── index.ts
+|  |  ├── Image
+|  |  |  ├── image.tsx
+|  |  |  ├── index.ts
+|  |  |  └── utils.ts
+|  |  ├── Label
+|  |  |  ├── index.ts
+|  |  |  ├── label.js
+|  |  |  └── styles.js
+|  |  ├── Logo
+|  |  |  └── Logo.tsx
+|  |  ├── Markdown
+|  |  |  ├── index.ts
+|  |  |  ├── markdown.js
+|  |  |  └── styles.js
+|  |  ├── NavSection
+|  |  |  ├── Vertical
+|  |  |  |  ├── index.js
+|  |  |  |  ├── navItem.js
+|  |  |  |  ├── navList.js
+|  |  |  |  ├── navSectionVertical.js
+|  |  |  |  └── styles.js
+|  |  |  ├── config.js
+|  |  |  └── index.ts
+|  |  ├── NextLink
+|  |  |  └── NextLink.tsx
+|  |  ├── PortableText
+|  |  |  └── PortableTextImage.tsx
+|  |  ├── ScrollProgress
+|  |  |  ├── index.ts
+|  |  |  └── scrollProgress.js
+|  |  ├── Scrollbar
+|  |  |  ├── index.ts
+|  |  |  ├── scrollbar.tsx
+|  |  |  └── styles.js
+|  |  ├── Search
+|  |  |  ├── CustomSearchBox.tsx
+|  |  |  └── Search.tsx
+|  |  ├── Settings
+|  |  |  ├── Context
+|  |  |  |  ├── index.ts
+|  |  |  |  ├── settingsContext.js
+|  |  |  |  └── settingsProvider.js
+|  |  |  ├── Drawer
+|  |  |  |  ├── baseOptions.tsx
+|  |  |  |  ├── index.ts
+|  |  |  |  ├── presetsOptions.js
+|  |  |  |  └── settingsDrawer.js
+|  |  |  └── index.ts
+|  |  ├── SvgColor
+|  |  |  ├── index.ts
+|  |  |  └── svgColor.js
+|  |  └── TextMaxLine
+|  |     ├── index.ts
+|  |     ├── textMaxLine.tsx
+|  |     └── useTypography.js
+|  ├── constants
+|  |  └── metaData.tsx
+|  ├── helpers
+|  |  ├── boxShadow.ts
+|  |  ├── formatIsoDate.js
+|  |  ├── formatPhoneNumber.ts
+|  |  ├── formatTime.js
+|  |  ├── hexToRgb.ts
+|  |  ├── pxToRem.ts
+|  |  ├── rgba.ts
+|  |  ├── slugToTitle.ts
+|  |  └── storageAvailable.js
+|  ├── hooks
+|  |  ├── useActiveLink.js
+|  |  ├── useBoolean.js
+|  |  ├── useBoundingClientRect.tsx
+|  |  ├── useLocalStorage.js
+|  |  ├── useOffsetTop.js
+|  |  ├── usePathname.js
+|  |  └── useResponsive.tsx
+|  ├── layouts
+|  |  ├── common
+|  |  |  ├── headerShadow.tsx
+|  |  |  ├── searchbar.js
+|  |  |  └── settingsButton.js
+|  |  ├── configLayout.ts
+|  |  └── main
+|  |     ├── configNavigation.ts
+|  |     ├── footer.js
+|  |     ├── header.tsx
+|  |     ├── index.js
+|  |     └── nav
+|  |        ├── desktop
+|  |        └── mobile
+|  ├── sanity
+|  |  ├── components
+|  |  |  ├── ExternalLinkRenderer.jsx
+|  |  |  ├── JsonPreview.tsx
+|  |  |  └── TitleStyle.jsx
+|  |  ├── env.ts
+|  |  ├── lib
+|  |  |  ├── client.ts
+|  |  |  ├── image.ts
+|  |  |  ├── queries.ts
+|  |  |  ├── sanity-client-config.ts
+|  |  |  ├── sanityFetch.ts
+|  |  |  └── urlFor.ts
+|  |  ├── plugins
+|  |  |  └── settings.tsx
+|  |  ├── queries
+|  |  |  ├── hero.ts
+|  |  |  ├── index.ts
+|  |  |  ├── insights.ts
+|  |  |  └── recentInsights.ts
+|  |  ├── schemas
+|  |  |  ├── about.ts
+|  |  |  ├── addressType.ts
+|  |  |  ├── author.ts
+|  |  |  ├── blockContent.ts
+|  |  |  ├── buttonTextField.ts
+|  |  |  ├── careers.ts
+|  |  |  ├── category.ts
+|  |  |  ├── clientType.ts
+|  |  |  ├── colorSet.ts
+|  |  |  ├── documents
+|  |  |  |  ├── home.ts
+|  |  |  |  └── navigation.ts
+|  |  |  ├── emailAddress.ts
+|  |  |  ├── externalArticles.ts
+|  |  |  ├── formType.ts
+|  |  |  ├── heroType.ts
+|  |  |  ├── imageGallery.ts
+|  |  |  ├── imageType.ts
+|  |  |  ├── index.ts
+|  |  |  ├── insights.ts
+|  |  |  ├── legal.ts
+|  |  |  ├── objects
+|  |  |  |  ├── link.ts
+|  |  |  |  └── navItem.ts
+|  |  |  ├── openSource.ts
+|  |  |  ├── pageDescriptionField.ts
+|  |  |  ├── pageTitleField.ts
+|  |  |  ├── pageType.ts
+|  |  |  ├── phoneNumber.ts
+|  |  |  ├── post.ts
+|  |  |  ├── profiles.ts
+|  |  |  ├── promotionType.ts
+|  |  |  ├── recentInsightsType.ts
+|  |  |  ├── series.ts
+|  |  |  ├── service.ts
+|  |  |  ├── serviceLine.ts
+|  |  |  ├── singletons
+|  |  |  |  ├── clients.ts
+|  |  |  |  ├── contact.ts
+|  |  |  |  ├── landing.ts
+|  |  |  |  ├── services.ts
+|  |  |  |  └── settings.ts
+|  |  |  ├── siteConfig.ts
+|  |  |  ├── snippet.ts
+|  |  |  ├── styledText.ts
+|  |  |  ├── tags.ts
+|  |  |  ├── textWithIllustration.ts
+|  |  |  ├── themeColors.ts
+|  |  |  └── videoType.ts
+|  |  └── studio
+|  |     └── desk
+|  |        ├── defaultDocumentNode.ts
+|  |        ├── index.ts
+|  |        ├── insights
+|  |        ├── intellego-manager
+|  |        └── site-manager
+|  ├── sections
+|  |  ├── about
+|  |  |  └── aboutSection.js
+|  |  ├── careers
+|  |  |  ├── careerFilters.tsx
+|  |  |  └── careersSection.tsx
+|  |  ├── clients
+|  |  |  ├── clientSummary.tsx
+|  |  |  └── clientsSection.tsx
+|  |  ├── contact
+|  |  |  ├── contactForm.js
+|  |  |  └── contactInfo.tsx
+|  |  ├── insights
+|  |  |  ├── category.jsx
+|  |  |  ├── featuredInsights.js
+|  |  |  ├── insight
+|  |  |  |  ├── insightAuthor.tsx
+|  |  |  |  ├── insightItem.tsx
+|  |  |  |  ├── insightItemMobile.js
+|  |  |  |  ├── insightSearchMobile.js
+|  |  |  |  ├── insightSidebar.tsx
+|  |  |  |  ├── insightSocialsShare.tsx
+|  |  |  |  ├── insightTags.tsx
+|  |  |  |  ├── insightTimeBlock.js
+|  |  |  |  └── trendingTopicItem.js
+|  |  |  ├── insightFilters.tsx
+|  |  |  ├── insights.tsx
+|  |  |  ├── insightsSidebar.tsx
+|  |  |  ├── label.tsx
+|  |  |  ├── latestInsights.js
+|  |  |  └── trendingTopics.js
+|  |  ├── landing
+|  |  |  ├── hero.tsx
+|  |  |  ├── insightItem.tsx
+|  |  |  ├── insightItemCarousel.tsx
+|  |  |  └── recentInsights.tsx
+|  |  ├── services
+|  |  |  ├── serviceLineSummary.tsx
+|  |  |  └── servicesSection.tsx
+|  |  └── view
+|  |     ├── aboutView.js
+|  |     ├── careersView.tsx
+|  |     ├── categoriesView.js
+|  |     ├── clientView.tsx
+|  |     ├── clientsView.tsx
+|  |     ├── contactView.tsx
+|  |     ├── insightView.tsx
+|  |     ├── insightsView.tsx
+|  |     ├── landingView.tsx
+|  |     ├── searchView.tsx
+|  |     ├── serviceLineView.tsx
+|  |     ├── serviceLinesView.tsx
+|  |     └── serviceView.tsx
+|  ├── theme
+|  |  ├── components
+|  |  |  ├── accordion.ts
+|  |  |  ├── accordionSummary.ts
+|  |  |  ├── appBar.ts
+|  |  |  ├── backdrop.ts
+|  |  |  ├── badge.ts
+|  |  |  ├── breadcrumbs.ts
+|  |  |  ├── button.ts
+|  |  |  ├── buttonGroup.ts
+|  |  |  ├── card.ts
+|  |  |  ├── cardContent.ts
+|  |  |  ├── cardHeader.ts
+|  |  |  ├── checkbox.tsx
+|  |  |  ├── chip.tsx
+|  |  |  ├── cssBaseline.ts
+|  |  |  ├── fab.ts
+|  |  |  ├── filledInput.ts
+|  |  |  ├── formControl.ts
+|  |  |  ├── formControlLabel.ts
+|  |  |  ├── formLabel.ts
+|  |  |  ├── formhelperText.ts
+|  |  |  ├── index.ts
+|  |  |  ├── input.ts
+|  |  |  ├── inputBase.ts
+|  |  |  ├── link.ts
+|  |  |  ├── nativeSelect.tsx
+|  |  |  ├── outlinedInput.ts
+|  |  |  ├── paper.ts
+|  |  |  ├── select.tsx
+|  |  |  ├── stack.ts
+|  |  |  ├── switch.ts
+|  |  |  ├── tab.ts
+|  |  |  ├── tabs.ts
+|  |  |  ├── textfield.ts
+|  |  |  ├── toggleButton.ts
+|  |  |  ├── toggleButtonGroup.ts
+|  |  |  └── typography.ts
+|  |  ├── config.js
+|  |  ├── css.ts
+|  |  ├── customThemeProvider.tsx
+|  |  ├── foundations
+|  |  |  ├── index.ts
+|  |  |  ├── palette.ts
+|  |  |  ├── shadows.ts
+|  |  |  └── typography.ts
+|  |  ├── globals.css
+|  |  ├── index.ts
+|  |  └── options
+|  |     └── presets.js
+|  └── types
+|     ├── Address.d.ts
+|     ├── Author.d.ts
+|     ├── BlockContent.d.ts
+|     ├── Client.d.ts
+|     ├── Color.d.ts
+|     ├── Image.d.ts
+|     ├── Insight.d.ts
+|     ├── InsightCategory.d.ts
+|     ├── Service.d.ts
+|     ├── ServiceLine.d.ts
+|     ├── Slug.d.ts
+|     ├── Tag.d.ts
+|     └── index.ts
+├── tailwind.config.js
+└── tsconfig.json
+
+directory: 6570 file: 64530
+
+ignored: directory (61)

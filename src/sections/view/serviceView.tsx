@@ -2,10 +2,21 @@
 import Container from "@mui/material/Container";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Grid from "@mui/material/Unstable_Grid2";
+import ServiceSummary from "@/sections/services/serviceSummary";
+import Typography from "@mui/material/Typography";
 
-interface ServiceViewProps {}
+interface ServiceData {
+  title: string;
+  description: string;
+}
 
-export default function ServiceView({}: ServiceViewProps) {
+interface ServiceViewProps {
+  serviceData: ServiceData;
+}
+
+export default function ServiceView({ serviceData }: ServiceViewProps) {
+  const { title } = serviceData;
+
   return (
     <>
       <Container>
@@ -14,9 +25,9 @@ export default function ServiceView({}: ServiceViewProps) {
           links={[
             { name: "Home", href: "/" },
             { name: "Services", href: "/services" },
-            // TODO: how to make this dynamic so it remembers the route (e.g., clicking services, valuation, business valuation works, but then it doesn't remember when clicking back?
+            // TODO: This should say valuation, litigation support, etc.
             { name: "Service", href: "/services/service" },
-            { name: "test" },
+            { name: title },
           ]}
         />
         <Grid
@@ -25,14 +36,14 @@ export default function ServiceView({}: ServiceViewProps) {
           direction={{ md: "row-reverse" }}
         >
           <Grid xs={12} md={4}>
-            {/*<ServiceLineSummary serviceLineData={serviceLineData} />*/}
+            {/* eslint-disable-next-line react/jsx-no-undef */}
+            <ServiceSummary serviceData={serviceData} />
           </Grid>
 
           <Grid xs={12} md={8}>
-            TODO: Add Service Page
-            {/*<Typography variant="h3">{serviceLineData.title}</Typography>*/}
+            <Typography variant="h3">{title}</Typography>
             {/* TODO: Add serializer */}
-            {/*<PortableText value={serviceLineData.servicesDescription} />*/}
+            {/*<PortableText value={description} />*/}
           </Grid>
         </Grid>
       </Container>

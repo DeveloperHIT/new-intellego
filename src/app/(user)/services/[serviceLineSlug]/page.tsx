@@ -11,7 +11,5 @@ export default async function SingleServiceLinePage(props: Props) {
     slug: props.params.serviceLineSlug,
   });
 
-  console.log(serviceLineData);
-
   return <ServiceLineView serviceLineData={serviceLineData} />;
 }

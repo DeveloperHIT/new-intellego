@@ -16,10 +16,12 @@ import { useBoundingClientRect } from "@/hooks/useBoundingClientRect";
 interface HeroData {
   heroButtonText: string;
   heroImage: string;
+  heroImageAlt: string;
+  heroImageUrl: string;
   heroSubtitle: string;
   heroTitle: string;
-  heroTitleCapitalized: string;
-  heroTitleCapitalizedColor: string;
+  pageDescription: string;
+  pageTitle: string;
 }
 
 interface HeroProps {
@@ -37,13 +39,17 @@ export default function Hero({ heroData }: HeroProps) {
 
   const offsetLeft = container?.left;
 
+  const titleWords = heroData.heroTitle.split(" ");
+  const lastWord = titleWords.pop();
+  const initialTitle = titleWords.join(" ");
+
   return (
     <Box
       // TODO: Test out other gradients to make the bg more vibrant
       sx={{
         ...bgGradient({
           color: alpha(theme.palette.grey[900], 0.55),
-          imgUrl: heroData.heroImage,
+          imgUrl: heroData.heroImageUrl,
         }),
         overflow: "hidden",
         position: "relative",
@@ -68,17 +74,15 @@ export default function Hero({ heroData }: HeroProps) {
               }}
             >
               <Typography variant="h1" color="common.white">
-                {heroData.heroTitle}
-              </Typography>
-
-              <Typography
-                variant="h1"
-                sx={{
-                  color: heroData.heroTitleCapitalizedColor,
-                  textTransform: "uppercase",
-                }}
-              >
-                {heroData.heroTitleCapitalized}
+                {initialTitle}
+                <Box
+                  sx={{
+                    color: "primary.main",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {lastWord}
+                </Box>
               </Typography>
 
               <Typography sx={{ color: "secondary.contrastText" }}>

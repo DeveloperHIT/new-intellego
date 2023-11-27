@@ -1,10 +1,19 @@
 import { alpha } from "@mui/material";
 
-export function bgBlur(props) {
-  const color = props?.color || "#000000";
-  const blur = props?.blur || 6;
-  const opacity = props?.opacity || 0.8;
-  const imgUrl = props?.imgUrl;
+interface BgBlurProps {
+  color?: string;
+  blur?: number;
+  opacity?: number;
+  imgUrl?: string;
+}
+
+export function bgBlur({
+  color = "#000000",
+  blur = 6,
+  opacity = 0.8,
+  imgUrl,
+}: BgBlurProps) {
+  const backgroundColor = alpha(color, opacity);
 
   if (imgUrl) {
     return {
@@ -20,7 +29,7 @@ export function bgBlur(props) {
         height: "100%",
         backdropFilter: `blur(${blur}px)`,
         WebkitBackdropFilter: `blur(${blur}px)`,
-        backgroundColor: alpha(color, opacity),
+        backgroundColor: backgroundColor,
       },
     };
   }
@@ -28,11 +37,19 @@ export function bgBlur(props) {
   return {
     backdropFilter: `blur(${blur}px)`,
     WebkitBackdropFilter: `blur(${blur}px)`,
-    backgroundColor: alpha(color, opacity),
+    backgroundColor: backgroundColor,
   };
 }
 
-export function bgGradient(props) {
+interface BgGradientProps {
+  direction?: string;
+  startColor?: string;
+  endColor?: string;
+  imgUrl?: string;
+  color?: string;
+}
+
+export function bgGradient(props: BgGradientProps) {
   const direction = props?.direction || "to bottom";
   const startColor = props?.startColor;
   const endColor = props?.endColor;

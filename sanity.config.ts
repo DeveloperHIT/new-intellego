@@ -7,11 +7,11 @@ import {
   projectUsersWidget,
   projectInfoWidget,
 } from "@sanity/dashboard";
-import { index } from "@/sanity/schemas";
 import { apiVersion, dataset, projectId } from "@/sanity/env";
-import { structure } from "@/sanity/studio/desk";
-import { defaultDocumentNodeResolver } from "@/sanity/studio/desk/defaultDocumentNode";
 import { colorInput } from "@sanity/color-input";
+import { index } from "@/sanity/schemas";
+import { defaultDocumentNodeResolver } from "@/sanity/studio/desk/defaultDocumentNode";
+import { structure } from "@/sanity/studio/desk";
 
 export default defineConfig({
   projectId,

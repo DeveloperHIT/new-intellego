@@ -15,10 +15,9 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
 
 import { _socials } from "@/_mock";
-import Logo from "@/components/Logo";
+import Logo from "@/components/Logo/Logo";
 import Iconify from "@/components/Iconify";
 import { usePathname } from "@/hooks/usePathname";
-// import RouterLink from "@/routes/routerLink";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useBoolean } from "@/hooks/useBoolean";
 import { navConfig } from "@/theme/config";
@@ -37,6 +36,7 @@ export default function Footer({ clientData, serviceData }) {
     path: `/services/${entry.slug}`,
   }));
 
+  // TODO: Move to sanity
   const additionalLinks = [
     { title: "About", path: "/about" },
     { title: "Alumni", path: "/alumni" },
@@ -128,6 +128,7 @@ export default function Footer({ clientData, serviceData }) {
               <Stack spacing={2}>
                 <Typography variant="h6">Social</Typography>
                 <Stack direction="row" alignItems="center">
+                  {/* TODO: Move to sanity */}
                   {_socials.map((social) => (
                     <IconButton
                       key={social.value}

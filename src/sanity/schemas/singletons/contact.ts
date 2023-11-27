@@ -1,5 +1,7 @@
 import { defineType, defineField } from "sanity";
 import { Email } from "@mui/icons-material";
+import { pageTitleField } from "@/sanity/schemas/pageTitleField";
+import { pageDescriptionField } from "@/sanity/schemas/pageDescriptionField";
 
 export default defineType({
   name: "contact",
@@ -7,23 +9,11 @@ export default defineType({
   type: "document",
   icon: Email,
   fields: [
-    defineField({
-      name: "pageTitle",
-      title: "Page Title",
-      type: "string",
-      description:
-        'The main title displayed on the contact page, usually "Contact Us".',
-    }),
-    defineField({
-      name: "pageDescription",
-      title: "Page Description",
-      type: "text",
-      description:
-        "A short summary that describes the purpose of the contact page, also used for SEO.",
-    }),
+    pageTitleField,
+    pageDescriptionField,
     defineField({
       name: "address",
-      title: "Physical AddressType",
+      title: "Physical Address",
       description: "Enter the components of the business address.",
       type: "reference",
       to: [{ type: "address" }],
@@ -37,7 +27,7 @@ export default defineType({
     }),
     defineField({
       name: "contactEmail",
-      title: "Contact Email AddressType",
+      title: "Contact Email Address",
       type: "string",
       description: "The email address for general inquiries.",
     }),
@@ -107,16 +97,4 @@ export default defineType({
       ],
     }),
   ],
-  preview: {
-    select: {
-      title: "pageTitle",
-      subtitle: "pageDescription",
-    },
-    prepare({ title, subtitle }) {
-      return {
-        title,
-        subtitle: subtitle ? subtitle : "No description",
-      };
-    },
-  },
 });

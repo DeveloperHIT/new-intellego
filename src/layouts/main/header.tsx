@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 import NextLink from "next/link";
 import { useTheme } from "@mui/material/styles";
 import { bgBlur } from "@/theme/css";
-import Logo from "@/components/Logo";
+import Logo from "@/components/Logo/Logo";
 import { useResponsive } from "@/hooks/useResponsive";
 import { useOffsetTop } from "@/hooks/useOffsetTop";
 import { HEADER } from "../configLayout";
@@ -18,38 +18,49 @@ import NavDesktop from "./nav/desktop";
 // TODO: Move this to Sanity
 import { navConfig } from "./configNavigation";
 
-export default function Header({ headerOnDark }) {
+interface HeaderProps {
+  headerOnDark?: string[];
+}
+
+export default function Header({ headerOnDark }: HeaderProps) {
   const theme = useTheme();
 
   const offset = useOffsetTop();
 
   const mdUp = useResponsive("up", "md");
 
+  const toolbarStyles = {
+    height: {
+      xs: HEADER.H_MOBILE,
+      md: HEADER.H_DESKTOP,
+    },
+    transition: theme.transitions.create(["height", "background-color"], {
+      easing: theme.transitions.easing.easeInOut,
+      duration: theme.transitions.duration.shorter,
+    }),
+    ...(headerOnDark && {
+      color: "common.white",
+    }),
+    ...(offset && {
+      color: "text.primary",
+      height: {
+        md: HEADER.H_DESKTOP - 16,
+      },
+    }),
+  };
+
+  if (offset) {
+    const blurStyles = bgBlur({
+      color: theme.palette.background.default,
+      blur: 8,
+      opacity: 0.5,
+    });
+    Object.assign(toolbarStyles, blurStyles);
+  }
+
   return (
     <AppBar>
-      <Toolbar
-        disableGutters
-        sx={{
-          height: {
-            xs: HEADER.H_MOBILE,
-            md: HEADER.H_DESKTOP,
-          },
-          transition: theme.transitions.create(["height", "background-color"], {
-            easing: theme.transitions.easing.easeInOut,
-            duration: theme.transitions.duration.shorter,
-          }),
-          ...(headerOnDark && {
-            color: "common.white",
-          }),
-          ...(offset && {
-            ...bgBlur({ color: theme.palette.background.default }),
-            color: "text.primary",
-            height: {
-              md: HEADER.H_DESKTOP - 16,
-            },
-          }),
-        }}
-      >
+      <Toolbar disableGutters sx={toolbarStyles}>
         <Container
           sx={{
             height: 1,

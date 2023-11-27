@@ -1,5 +1,6 @@
-import { defineType, defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 import { Newspaper } from "@mui/icons-material";
+import image from "@/sanity/schemas/imageType";
 
 export default defineType({
   name: "landing",
@@ -8,11 +9,42 @@ export default defineType({
   icon: Newspaper,
   fields: [
     defineField({
+      name: "pageTitle",
+      title: "Page Title",
+      type: "string",
+      description: "Page title for slug purposes",
+    }),
+    defineField({
+      name: "pageDescription",
+      title: "Page Description",
+      type: "string",
+      description: "Page description for SEO purposes",
+    }),
+    defineField({
+      name: "heroImage",
+      title: "Hero Image",
+      type: "image",
+      description: "The image displayed in the hero.",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          title: "Alternative Text",
+          type: "string",
+          description: "Important for SEO and accessiblity.",
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ],
+    }),
+    defineField({
       name: "heroTitle",
       title: "Hero Title",
-      type: "array",
+      type: "string",
       description: "The main title displayed in the hero.",
-      of: [{ type: "styledText" }],
     }),
     defineField({
       name: "heroSubtitle",
@@ -25,12 +57,6 @@ export default defineType({
       title: "Hero Button Text",
       type: "string",
       description: "The text displayed in the hero button.",
-    }),
-    defineField({
-      name: "heroImage",
-      title: "Hero ImageType",
-      type: "image",
-      description: "The image displayed in the hero.",
     }),
   ],
 });

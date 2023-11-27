@@ -1,37 +1,51 @@
 import { type SchemaTypeDefinition } from "sanity";
 
-import about from "./singletons/about";
-import address from "./singletons/address";
-import author from "./singletons/author";
-import blockContent from "./singletons/blockContent";
-import category from "./singletons/category";
+import about from "./about";
+import { addressType } from "@/sanity/schemas/addressType";
+import author from "./author";
+import blockContent from "./blockContent";
+import category from "./category";
+import { colorSet } from "@/sanity/schemas/colorSet";
 import contact from "./singletons/contact";
 import clients from "@/sanity/schemas/singletons/clients";
-import clientType from "@/sanity/schemas/singletons/clientType";
-import emailAddress from "./singletons/emailAddress";
-import externalArticles from "./singletons/externalArticles";
-import insights from "./documents/insights/insights";
-import legal from "./singletons/legal";
-import navigation from "./documents/settings/navigation";
-import openSource from "./singletons/openSource";
-import phoneNumber from "./singletons/phoneNumber";
-import post from "./singletons/post";
-import profiles from "./singletons/profiles";
-import series from "./singletons/series";
-import service from "@/sanity/schemas/singletons/service";
-import serviceLine from "@/sanity/schemas/singletons/serviceLine";
-import siteSettings from "./documents/settings/settings";
-import snippet from "./singletons/snippet";
-import tags from "./singletons/tags";
-import services from "@/sanity/schemas/singletons/services";
+import clientType from "@/sanity/schemas/clientType";
+import emailAddress from "./emailAddress";
+import externalArticles from "./externalArticles";
+import insights from "./insights";
 import landing from "@/sanity/schemas/singletons/landing";
-import styledText from "@/sanity/schemas/singletons/styledText";
-import { themeColors } from "@/sanity/schemas/singletons/themeColors";
-import { colorSet } from "@/sanity/schemas/singletons/colorSet";
+import legal from "./legal";
+import link from "@/sanity/schemas/objects/link";
+import navigation from "./documents/navigation";
+import navItem from "./objects/navItem";
+import openSource from "./openSource";
+import phoneNumber from "./phoneNumber";
+import post from "./post";
+import profiles from "./profiles";
+import series from "./series";
+import service from "@/sanity/schemas/service";
+import serviceLine from "@/sanity/schemas/serviceLine";
+import services from "@/sanity/schemas/singletons/services";
+import siteConfig from "@/sanity/schemas/siteConfig";
+import snippet from "./snippet";
+import styledText from "@/sanity/schemas/styledText";
+import tags from "./tags";
+import { themeColors } from "@/sanity/schemas/themeColors";
+import { pageType } from "@/sanity/schemas/pageType";
+import { heroType } from "@/sanity/schemas/heroType";
+import { promotionType } from "@/sanity/schemas/promotionType";
+import { textWithIllustrationType } from "@/sanity/schemas/textWithIllustration";
+import { formType } from "@/sanity/schemas/formType";
+import { videoType } from "@/sanity/schemas/videoType";
+import { recentInsightsType } from "@/sanity/schemas/recentInsightsType";
+import { imageGalleryType } from "@/sanity/schemas/imageGallery";
+import settings from "@/sanity/schemas/singletons/settings";
+import image from "@/sanity/schemas/imageType";
 
 export const index: { types: SchemaTypeDefinition[] } = {
   types: [
-    // Pages
+    navigation,
+    link,
+    navItem,
     clients,
     clientType,
     contact,
@@ -39,28 +53,35 @@ export const index: { types: SchemaTypeDefinition[] } = {
     service,
     serviceLine,
     services,
-    // Insights
     author,
     category,
     insights,
     post,
     series,
     tags,
-    // Types
-    address,
+    settings,
     about,
     blockContent,
     colorSet,
     emailAddress,
     externalArticles,
     legal,
-    navigation,
     openSource,
     phoneNumber,
     profiles,
-    siteSettings,
+    siteConfig,
     snippet,
     styledText,
     themeColors,
+    pageType,
+    heroType,
+    promotionType,
+    textWithIllustrationType,
+    formType,
+    videoType,
+    recentInsightsType,
+    addressType,
+    image,
+    imageGalleryType,
   ],
 };

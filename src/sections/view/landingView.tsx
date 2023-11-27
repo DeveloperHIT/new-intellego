@@ -6,10 +6,12 @@ import { InsightType } from "@/types/Insight";
 interface HeroData {
   heroButtonText: string;
   heroImage: string;
+  heroImageAlt: string;
+  heroImageUrl: string;
   heroSubtitle: string;
   heroTitle: string;
-  heroTitleCapitalized: string;
-  heroTitleCapitalizedColor: string;
+  pageDescription: string;
+  pageTitle: string;
 }
 
 interface LandingViewProps {
@@ -21,7 +23,6 @@ export default function LandingView({ insights, heroData }: LandingViewProps) {
   return (
     <>
       <Hero heroData={heroData} />
-      {/* TODO: Make the recent filteredInsights section smaller..too much space on y-axis */}
       <RecentInsights insights={insights} />
     </>
   );

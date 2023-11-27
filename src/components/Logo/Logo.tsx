@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, SxProps } from "@mui/material";
 
-const getSizeWidth = (size) => {
+const getSizeWidth = (size: string) => {
   switch (size) {
     case "xs":
       return 4;
@@ -19,7 +19,13 @@ const getSizeWidth = (size) => {
   }
 };
 
-const Logo = ({ size = "md", color, sx }) => {
+interface LogoProps {
+  size?: string;
+  color?: string;
+  sx?: SxProps;
+}
+
+const Logo = ({ size = "md", color, sx }: LogoProps) => {
   return (
     <Box
       sx={{

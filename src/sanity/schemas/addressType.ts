@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
 
-export default defineType({
+export const addressType = defineType({
   name: "address",
   title: "Address",
   type: "document",
@@ -9,22 +9,18 @@ export default defineType({
       name: "street",
       title: "Street",
       type: "string",
-      description: "Enter the street address (e.g., 382 NE 191st St).",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "pmb",
-      title: "PMB Number",
+      title: "PMB/Suite/Other",
       type: "string",
-      description:
-        "Enter the Private Mailbox number if applicable (e.g., PMB 59304).",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "city",
       title: "City",
       type: "string",
-      description: "Enter the city (e.g., Miami).",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -38,7 +34,6 @@ export default defineType({
       name: "zipCode",
       title: "Zip Code",
       type: "string",
-      description: "Enter the ZIP code (e.g., 33179-3899).",
       validation: (Rule) => Rule.required(),
     }),
   ],

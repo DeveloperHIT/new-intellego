@@ -1,23 +1,26 @@
 "use client";
 import { useEffect } from "react";
-
 import List from "@mui/material/List";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
-
-import Logo from "@/components/Logo";
+import Logo from "@/components/Logo/Logo";
 import Iconify from "@/components/Iconify";
 import { usePathname } from "@/hooks/usePathname";
 import Scrollbar from "@/components/Scrollbar";
 import { useBoolean } from "@/hooks/useBoolean";
-
 import { NAV } from "@/layouts/configLayout";
-
 import NavList from "./navList";
 
-export default function NavMobile({ data }) {
+interface NavMobileProps {
+  data: {
+    title: string;
+    path: string;
+  }[];
+}
+
+export default function NavMobile({ data }: NavMobileProps) {
   const pathname = usePathname();
 
   const mobileOpen = useBoolean();
@@ -55,7 +58,12 @@ export default function NavMobile({ data }) {
           </List>
 
           <Stack spacing={1.5} sx={{ p: 3 }}>
-            <Button fullWidth variant="contained" color="inherit">
+            <Button
+              fullWidth
+              variant="contained"
+              color="inherit"
+              href="/contact"
+            >
               Contact Us
             </Button>
           </Stack>

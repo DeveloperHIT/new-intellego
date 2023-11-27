@@ -1,22 +1,15 @@
 import LandingView from "@/sections/view/landingView";
-import { getLandingPageQuery, postsQuery } from "@/sanity/lib/queries";
 import { client } from "@/sanity/lib/client";
+import { postsQuery } from "@/sanity/queries/insights";
+import { getHeroQuery } from "@/sanity/queries/hero";
 
 export default async function Home() {
   const insights = await client.fetch(postsQuery);
 
-  const landingPageData = await client.fetch(getLandingPageQuery);
-
+  const heroDataArray = await client.fetch(getHeroQuery);
   const heroData = {
-    heroButtonText: landingPageData[0].heroButtonText,
-    heroImage: landingPageData[0].heroImage,
-    heroSubtitle: landingPageData[0].heroSubtitle,
-    heroTitle: landingPageData[0].heroTitle[0].text,
-    heroTitleCapitalized: landingPageData[0].heroTitle[1].text,
-    heroTitleCapitalizedColor: landingPageData[0].heroTitle[1].color.hex,
+    ...heroDataArray[0],
   };
-
-  console.log(insights[0].mainImage);
 
   return <LandingView insights={insights} heroData={heroData} />;
 }

@@ -1,8 +1,17 @@
 import Stack from "@mui/material/Stack";
 
 import NavList from "./navList";
+import { SxProps } from "@mui/material";
 
-export default function NavDesktop({ data, sx }) {
+interface NavDesktopProps {
+  data: {
+    title: string;
+    path: string;
+  }[];
+  sx?: SxProps;
+}
+
+export default function NavDesktop({ data, sx }: NavDesktopProps) {
   return (
     <Stack
       component="nav"

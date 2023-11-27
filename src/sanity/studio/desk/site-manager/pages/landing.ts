@@ -1,10 +1,10 @@
 import { StructureBuilder } from "sanity/desk";
-import { Newspaper } from "@mui/icons-material";
+import { Home } from "@mui/icons-material";
 
 export const landing = (S: StructureBuilder) =>
   S.listItem()
     .title("Landing")
-    .icon(Newspaper)
+    .icon(Home)
     .child(
       S.document().title("Landing").schemaType("landing").documentId("landing"),
     );

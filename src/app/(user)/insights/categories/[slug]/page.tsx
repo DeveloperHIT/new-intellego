@@ -4,10 +4,10 @@ import { SanityDocument } from "@sanity/client";
 import {
   getCategoriesQuery,
   getCategoryRelatedPostQuery,
-  postsQuery,
 } from "@/sanity/lib/queries";
 import { slugToTitle } from "@/helpers/slugToTitle";
 import CategoriesView from "@/sections/view/categoriesView";
+import { queries } from "@/sanity/queries";
 
 interface Props {
   params: {
@@ -39,7 +39,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   });
 
   const allInsights = await sanityFetch<SanityDocument>({
-    query: postsQuery,
+    query: queries.postsQuery,
   });
 
   const filteredInsights = await sanityFetch<SanityDocument>({

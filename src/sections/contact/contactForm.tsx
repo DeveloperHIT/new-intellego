@@ -1,15 +1,13 @@
 import * as Yup from "yup";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { useForm as useFormspree } from "@formspree/react";
 import Stack from "@mui/material/Stack";
 import LoadingButton from "@mui/lab/LoadingButton";
-import FormHelperText from "@mui/material/FormHelperText";
-
 import FormProvider, { RhfTextField } from "@/components/HookForm";
+import React from "react";
 
 interface FormValues {
-  services?: string[];
   email: string;
   company: string;
   website?: string;
@@ -20,9 +18,12 @@ interface FormValues {
 }
 
 export default function ContactForm() {
+  const [formspreeState, formSubmit] = useFormspree(
+    process.env.NEXT_PUBLIC_CONTACT_FORM as string,
+  );
+
   // Validation Schema
   const ContactSchema = Yup.object().shape({
-    services: Yup.array(),
     email: Yup.string()
       .required("Email is required")
       .email("That is not an email"),
@@ -52,39 +53,33 @@ export default function ContactForm() {
 
   const {
     reset,
-    control,
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
 
-  // TODO: Add form submission logic
-  const onSubmit = handleSubmit(async (data) => {
+  const onSubmit = async (data: FormValues) => {
+    // Convert the data to the format that formspree expects
+    const submittedData = {
+      ...data,
+      _subject: "New Contact Request",
+      _format: "plain",
+    };
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      console.log(data);
-      reset();
+      await formSubmit(submittedData);
+      reset(defaultValues);
     } catch (error) {
-      console.error(error);
+      console.error("Form submission error", error);
     }
-  });
+  };
+
+  if (formspreeState.succeeded) {
+    return <p>Thank you for your submission!</p>;
+  }
 
   return (
-    <FormProvider methods={methods} onSubmit={onSubmit}>
+    <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={2.5} alignItems="flex-start">
-        <Controller
-          name="services"
-          control={control}
-          render={({ fieldState: { error } }) => (
-            <div>
-              {!!error && (
-                <FormHelperText error sx={{ px: 2 }}>
-                  {error?.message}
-                </FormHelperText>
-              )}
-            </div>
-          )}
-        />
-
         <Stack
           spacing={{ xs: 2.5, md: 2 }}
           direction={{ xs: "column", md: "row" }}

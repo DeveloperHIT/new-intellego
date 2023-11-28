@@ -4,8 +4,8 @@ import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Grid from "@mui/material/Unstable_Grid2";
 import ServiceSummary from "@/sections/services/serviceSummary";
 import Typography from "@mui/material/Typography";
-import {PortableText} from "@portabletext/react";
-import {BlockContentType} from "@/types";
+import { PortableText } from "@portabletext/react";
+import { BlockContentType, ServiceLineType } from "@/types";
 
 interface ServiceData {
   title: string;
@@ -14,10 +14,13 @@ interface ServiceData {
 
 interface ServiceViewProps {
   serviceData: ServiceData;
+  serviceLineData: ServiceLineType;
 }
 
-export default function ServiceView({ serviceData }: ServiceViewProps) {
-
+export default function ServiceView({
+  serviceData,
+  serviceLineData,
+}: ServiceViewProps) {
   return (
     <>
       <Container>
@@ -27,7 +30,10 @@ export default function ServiceView({ serviceData }: ServiceViewProps) {
             { name: "Home", href: "/" },
             { name: "Services", href: "/services" },
             // TODO: This should say valuation, litigation support, etc.
-            { name: "Service", href: "/services/service" },
+            {
+              name: serviceLineData.title,
+              href: `/services/${serviceLineData.slug}`,
+            },
             { name: serviceData.title },
           ]}
         />

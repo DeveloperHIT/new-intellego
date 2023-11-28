@@ -4,10 +4,12 @@ import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Grid from "@mui/material/Unstable_Grid2";
 import ServiceSummary from "@/sections/services/serviceSummary";
 import Typography from "@mui/material/Typography";
+import {PortableText} from "@portabletext/react";
+import {BlockContentType} from "@/types";
 
 interface ServiceData {
   title: string;
-  description: string;
+  description: BlockContentType;
 }
 
 interface ServiceViewProps {
@@ -15,7 +17,6 @@ interface ServiceViewProps {
 }
 
 export default function ServiceView({ serviceData }: ServiceViewProps) {
-  const { title } = serviceData;
 
   return (
     <>
@@ -27,7 +28,7 @@ export default function ServiceView({ serviceData }: ServiceViewProps) {
             { name: "Services", href: "/services" },
             // TODO: This should say valuation, litigation support, etc.
             { name: "Service", href: "/services/service" },
-            { name: title },
+            { name: serviceData.title },
           ]}
         />
         <Grid
@@ -41,9 +42,9 @@ export default function ServiceView({ serviceData }: ServiceViewProps) {
           </Grid>
 
           <Grid xs={12} md={8}>
-            <Typography variant="h3">{title}</Typography>
+            <Typography variant="h3">{serviceData.title}</Typography>
             {/* TODO: Add serializer */}
-            {/*<PortableText value={description} />*/}
+            <PortableText value={serviceData.description} />
           </Grid>
         </Grid>
       </Container>

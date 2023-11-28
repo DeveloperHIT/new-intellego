@@ -4,10 +4,11 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { _socials } from "@/_mock";
 import Iconify from "@/components/Iconify";
+import {BlockContentType} from "@/types";
 
 interface ServiceType {
   title: string;
-  description: string;
+  description: BlockContentType;
 }
 
 interface ServiceSummaryProps {
@@ -15,7 +16,7 @@ interface ServiceSummaryProps {
 }
 
 export default function ServiceSummary({ serviceData }: ServiceSummaryProps) {
-  const { title, description } = serviceData;
+  const { title } = serviceData;
 
   return (
     <Stack
@@ -29,14 +30,14 @@ export default function ServiceSummary({ serviceData }: ServiceSummaryProps) {
 
         <Typography variant="h6">{title}</Typography>
 
-        <Typography variant="body2">{description}</Typography>
+        <Typography variant="body2">Add another text section to sanity for this</Typography>
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />
 
       <Stack spacing={1}>
         <Typography variant="overline" sx={{ color: "text.disabled" }}>
-          Typical Services
+          Typical Engagements
         </Typography>
 
         {/*{serviceLineData.services?.map((service) => (*/}

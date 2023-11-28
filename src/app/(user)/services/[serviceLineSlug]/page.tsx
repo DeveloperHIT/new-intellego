@@ -13,3 +13,4 @@ export default async function SingleServiceLinePage(props: Props) {
 
   return <ServiceLineView serviceLineData={serviceLineData} />;
 }
+

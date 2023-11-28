@@ -73,8 +73,11 @@ export default function ContactForm() {
     }
   };
 
+  // TODO: Update state of "Ready to Get Started?" in parent component after form is submitted
   if (formspreeState.succeeded) {
-    return <p>Thank you for your submission!</p>;
+    return <p>
+        Thank you for your interest in Intellego. We will be in touch shortly.
+    </p>
   }
 
   return (

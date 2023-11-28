@@ -106,6 +106,7 @@ function CategoryItem({ category, description, slug }: CategoryItemProps) {
       <Paper
         variant="outlined"
         sx={{
+            minHeight: 200,
           p: 3,
           borderRadius: 1.5,
           cursor: "pointer",

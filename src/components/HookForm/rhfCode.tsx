@@ -3,7 +3,11 @@ import { Controller, useFormContext } from "react-hook-form";
 
 import FormHelperText from "@mui/material/FormHelperText";
 
-export default function RhfCode({ name, ...other }) {
+interface RhfCodeProps {
+  name: string;
+}
+
+export default function RhfCode({ name, ...other }: RhfCodeProps) {
   const { control } = useFormContext();
 
   return (

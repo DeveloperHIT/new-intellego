@@ -1,63 +1,28 @@
 import { Controller, useFormContext } from "react-hook-form";
-
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
-import Select from "@mui/material/Select";
-import Checkbox from "@mui/material/Checkbox";
-import MenuItem from "@mui/material/MenuItem";
-import TextField from "@mui/material/TextField";
-import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
 import OutlinedInput from "@mui/material/OutlinedInput";
+import MenuItem from "@mui/material/MenuItem";
+import Checkbox from "@mui/material/Checkbox";
 import FormHelperText from "@mui/material/FormHelperText";
+import { SxProps } from "@mui/material";
 
-export function RhfSelect({
-  name,
-  native,
-  maxHeight = 220,
-  helperText,
-  children,
-  PaperPropsSx,
-  ...other
-}) {
-  const { control } = useFormContext();
-
-  return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field, fieldState: { error } }) => (
-        <TextField
-          {...field}
-          select
-          fullWidth
-          SelectProps={{
-            native,
-            MenuProps: {
-              PaperProps: {
-                sx: {
-                  ...(!native && {
-                    maxHeight:
-                      typeof maxHeight === "number" ? maxHeight : "unset",
-                  }),
-                  ...PaperPropsSx,
-                },
-              },
-            },
-            sx: { textTransform: "capitalize" },
-          }}
-          error={!!error}
-          helperText={error ? error?.message : helperText}
-          {...other}
-        >
-          {children}
-        </TextField>
-      )}
-    />
-  );
+interface RhfMultiSelectProps {
+  name: string;
+  chip?: boolean;
+  label?: string;
+  options: { label: string; value: string }[];
+  checkbox?: boolean;
+  placeholder?: string;
+  helperText?: string;
+  sx?: SxProps;
+  [key: string]: any;
 }
 
-export function RhfMultiSelect({
+export default function RhfMultiSelect({
   name,
   chip,
   label,
@@ -67,10 +32,10 @@ export function RhfMultiSelect({
   helperText,
   sx,
   ...other
-}) {
+}: RhfMultiSelectProps) {
   const { control } = useFormContext();
 
-  const renderValues = (selectedIds) => {
+  const renderValues = (selectedIds: string[]) => {
     const selectedItems = options.filter((item) =>
       selectedIds.includes(item.value),
     );

@@ -1,8 +1,24 @@
 import { Controller, useFormContext } from "react-hook-form";
-
 import TextField from "@mui/material/TextField";
 
-export default function RhfTextField({ name, helperText, type, ...other }) {
+interface RhfTextFieldProps {
+  name: string;
+  helperText?: string;
+  label: string;
+  multiline?: boolean;
+  rows?: number;
+  type?: string;
+}
+
+export default function RhfTextField({
+  name,
+  helperText,
+  label,
+  multiline,
+  rows,
+  type,
+  ...other
+}: RhfTextFieldProps) {
   const { control } = useFormContext();
 
   return (
@@ -22,6 +38,9 @@ export default function RhfTextField({ name, helperText, type, ...other }) {
               field.onChange(event.target.value);
             }
           }}
+          multiline={multiline}
+          label={label}
+          rows={rows}
           error={!!error}
           helperText={error ? error?.message : helperText}
           {...other}

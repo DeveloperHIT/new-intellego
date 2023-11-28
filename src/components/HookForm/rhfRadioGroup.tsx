@@ -1,11 +1,19 @@
 import { Controller, useFormContext } from "react-hook-form";
-
 import Radio from "@mui/material/Radio";
 import FormLabel from "@mui/material/FormLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControlLabel from "@mui/material/FormControlLabel";
+
+interface RhfRadioGroupProps {
+  row?: boolean;
+  name: string;
+  label?: string;
+  options: { value: string; label: string }[];
+  spacing?: number;
+  helperText?: string;
+}
 
 export default function RhfRadioGroup({
   row,
@@ -15,7 +23,7 @@ export default function RhfRadioGroup({
   spacing,
   helperText,
   ...other
-}) {
+}: RhfRadioGroupProps) {
   const { control } = useFormContext();
 
   const labelledby = label ? `${name}-${label}` : "";

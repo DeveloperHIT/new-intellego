@@ -8,7 +8,19 @@ import FormHelperText from "@mui/material/FormHelperText";
 
 import FormProvider, { RhfTextField } from "@/components/HookForm";
 
+interface FormValues {
+  services?: string[];
+  email: string;
+  company: string;
+  website?: string;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  message: string;
+}
+
 export default function ContactForm() {
+  // Validation Schema
   const ContactSchema = Yup.object().shape({
     services: Yup.array(),
     email: Yup.string()
@@ -16,20 +28,24 @@ export default function ContactForm() {
       .email("That is not an email"),
     company: Yup.string().required("Company is required"),
     website: Yup.string(),
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    phoneNumber: Yup.string().required("Phone number is required"),
+    message: Yup.string().required("Message is required"),
   });
 
   const defaultValues = {
     services: [],
-    firstName: "",
-    lastName: "",
     email: "",
-    phoneNumber: "",
     company: "",
     website: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
     message: "",
   };
 
-  const methods = useForm({
+  const methods = useForm<FormValues>({
     resolver: yupResolver(ContactSchema),
     defaultValues,
   });
@@ -42,9 +58,10 @@ export default function ContactForm() {
   } = methods;
 
   // TODO: Add form submission logic
-  const onSubmit = handleSubmit(async () => {
+  const onSubmit = handleSubmit(async (data) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
+      console.log(data);
       reset();
     } catch (error) {
       console.error(error);

@@ -79,16 +79,16 @@
 |  |  |  ├── index.ts
 |  |  |  └── linkItem.js
 |  |  ├── HookForm
-|  |  |  ├── formProvider.js
+|  |  |  ├── formProvider.tsx
 |  |  |  ├── index.ts
-|  |  |  ├── rhfAutocomplete.js
-|  |  |  ├── rhfCheckbox.js
-|  |  |  ├── rhfCode.js
-|  |  |  ├── rhfRadioGroup.js
-|  |  |  ├── rhfSelect.js
-|  |  |  ├── rhfSlider.js
-|  |  |  ├── rhfSwitch.js
-|  |  |  └── rhfTextField.js
+|  |  |  ├── rhfAutocomplete.tsx
+|  |  |  ├── rhfCheckbox.tsx
+|  |  |  ├── rhfCode.tsx
+|  |  |  ├── rhfRadioGroup.tsx
+|  |  |  ├── rhfSelect.tsx
+|  |  |  ├── rhfSlider.tsx
+|  |  |  ├── rhfSwitch.tsx
+|  |  |  └── rhfTextField.tsx
 |  |  ├── Iconify
 |  |  |  ├── ArrowDownIcon.tsx
 |  |  |  ├── CheckboxCheckedIcon.tsx
@@ -272,7 +272,7 @@
 |  |  |  ├── clientSummary.tsx
 |  |  |  └── clientsSection.tsx
 |  |  ├── contact
-|  |  |  ├── contactForm.js
+|  |  |  ├── contactForm.tsx
 |  |  |  └── contactInfo.tsx
 |  |  ├── insights
 |  |  |  ├── category.jsx

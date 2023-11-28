@@ -1,40 +1,31 @@
 import { Controller, useFormContext } from "react-hook-form";
-
-import Checkbox from "@mui/material/Checkbox";
-import FormGroup from "@mui/material/FormGroup";
-import FormLabel from "@mui/material/FormLabel";
 import FormControl from "@mui/material/FormControl";
-import FormHelperText from "@mui/material/FormHelperText";
+import FormLabel from "@mui/material/FormLabel";
+import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel, {
   formControlLabelClasses,
 } from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import FormHelperText from "@mui/material/FormHelperText";
+import { SxProps } from "@mui/material";
 
-export function RhfCheckbox({ name, helperText, ...other }) {
-  const { control } = useFormContext();
-
-  return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field, fieldState: { error } }) => (
-        <div>
-          <FormControlLabel
-            control={<Checkbox {...field} checked={field.value} />}
-            {...other}
-          />
-
-          {(!!error || helperText) && (
-            <FormHelperText error={!!error}>
-              {error ? error?.message : helperText}
-            </FormHelperText>
-          )}
-        </div>
-      )}
-    />
-  );
+interface Option {
+  label: string;
+  value: string;
 }
 
-export function RhfMultiCheckbox({
+interface RhfMultiCheckboxProps {
+  name: string;
+  label: string;
+  options: Option[];
+  helperText?: string;
+  sx?: SxProps;
+  spacing?: number;
+  row?: boolean;
+  other?: any;
+}
+
+export default function RhfMultiCheckbox({
   row,
   name,
   label,
@@ -43,10 +34,10 @@ export function RhfMultiCheckbox({
   helperText,
   sx,
   ...other
-}) {
+}: RhfMultiCheckboxProps) {
   const { control } = useFormContext();
 
-  const getSelected = (selectedItems, item) =>
+  const getSelected = (selectedItems: string[], item: string) =>
     selectedItems.includes(item)
       ? selectedItems.filter((value) => value !== item)
       : [...selectedItems, item];

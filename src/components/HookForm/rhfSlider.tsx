@@ -1,9 +1,18 @@
 import { Controller, useFormContext } from "react-hook-form";
-
 import Slider from "@mui/material/Slider";
 import FormHelperText from "@mui/material/FormHelperText";
 
-export default function RhfSlider({ name, helperText, ...other }) {
+interface RhfSliderProps {
+  name: string;
+  helperText?: string;
+  [x: string]: any;
+}
+
+export default function RhfSlider({
+  name,
+  helperText,
+  ...other
+}: RhfSliderProps) {
   const { control } = useFormContext();
 
   return (

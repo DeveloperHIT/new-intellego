@@ -40,6 +40,7 @@ import { recentInsightsType } from "@/sanity/schemas/recentInsightsType";
 import { imageGalleryType } from "@/sanity/schemas/imageGallery";
 import settings from "@/sanity/schemas/singletons/settings";
 import image from "@/sanity/schemas/imageType";
+import engagement from "@/sanity/schemas/engagement";
 
 export const index: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -49,6 +50,7 @@ export const index: { types: SchemaTypeDefinition[] } = {
     clients,
     clientType,
     contact,
+    engagement,
     landing,
     service,
     serviceLine,

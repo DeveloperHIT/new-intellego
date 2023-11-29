@@ -24,5 +24,11 @@ export default defineType({
       title: "Description",
       type: "blockContent",
     }),
+    defineField({
+      name: "typicalEngagement",
+      title: "Typical Engagement",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "engagement" }] }],
+    }),
   ],
 });

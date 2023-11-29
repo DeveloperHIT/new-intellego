@@ -1,3 +1,4 @@
+import React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
@@ -9,7 +10,7 @@ import Iconify from "@/components/Iconify";
 import TextMaxLine from "@/components/TextMaxLine";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Link from "@mui/material/Link";
-import { ServiceLineType } from "@/types";
+import { ServiceLineType, ServiceType } from "@/types";
 
 interface ServicesSectionProps {
   buttonText: string;
@@ -79,12 +80,12 @@ export default function ServicesSection({
                 },
               }}
             >
-              {serviceLines.map((service, index) => (
+              {serviceLines.map((serviceLine, index) => (
                 <CategoryItem
                   key={index}
-                  category={service.title}
-                  slug={service.slug.current}
-                  description={service.description}
+                  category={serviceLine.title}
+                  slug={serviceLine.slug.current}
+                  services={serviceLine.services}
                 />
               ))}
             </Box>
@@ -97,11 +98,11 @@ export default function ServicesSection({
 
 interface CategoryItemProps {
   category: string;
-  description?: string;
+  services?: ServiceType[];
   slug: string;
 }
 
-function CategoryItem({ category, description, slug }: CategoryItemProps) {
+function CategoryItem({ category, services, slug }: CategoryItemProps) {
   return (
     <Link href={`/services/${slug}`} underline="none">
       <Paper
@@ -125,13 +126,28 @@ function CategoryItem({ category, description, slug }: CategoryItemProps) {
           },
         }}
       >
-        <TextMaxLine variant="body1" line={2}>
-          {category}
-        </TextMaxLine>
+        <Link href={`/services/${slug}`}>
+          <TextMaxLine variant="body1" line={2} sx={{ color: "common.black" }}>
+            {category}
+          </TextMaxLine>
+        </Link>
 
-        <Typography variant="body2" sx={{ mt: 1, color: "text.disabled" }}>
-          {description}
-        </Typography>
+        {services && services.length > 0 ? (
+          <Typography variant="body2" sx={{ mt: 1 }}>
+            {services.map((service, index) => (
+              <React.Fragment key={index}>
+                <Link
+                  href={`/services/${slug}/${service.slug.current}`}
+                  // underline="none"
+                  sx={{ color: "text.disabled" }}
+                >
+                  {service.title}
+                </Link>
+                {index < services.length - 1 && ", "}
+              </React.Fragment>
+            ))}
+          </Typography>
+        ) : null}
       </Paper>
     </Link>
   );

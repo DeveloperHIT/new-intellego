@@ -33,7 +33,7 @@ export default function ServiceLineSummary({
 
       <Stack spacing={1}>
         <Typography variant="overline" sx={{ color: "text.disabled" }}>
-          Typical Services
+          {serviceLineData.title} Services
         </Typography>
 
         {serviceLineData.services?.map((service) => (

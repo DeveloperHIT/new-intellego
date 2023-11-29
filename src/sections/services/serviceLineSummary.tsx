@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import { _socials } from "@/_mock";
 import Iconify from "@/components/Iconify";
 import { ServiceLineType } from "@/types";
-import NextLink from "next/link";
 
 interface ServiceLineSummaryProps {
   serviceLineData: ServiceLineType;
@@ -39,12 +38,10 @@ export default function ServiceLineSummary({
 
         {serviceLineData.services?.map((service) => (
           <Link
-            component={NextLink}
             key={service.title}
             variant="body2"
             color="inherit"
-            // TODO: Fix dynamic href...see other pages for reference
-            href={service.slug}
+            href={`/services/${serviceLineData.slug.current}/${service.slug.current}`}
           >
             <Typography variant="body2">{service.title}</Typography>{" "}
           </Link>

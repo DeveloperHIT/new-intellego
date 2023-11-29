@@ -11,7 +11,7 @@ type Props = {
 
 export default async function SingleServiceLinePage(props: Props) {
   const serviceData = await client.fetch(getServiceBySlugQuery, {
-    slug: props.params.serviceSlug[0],
+    slug: props.params.serviceSlug,
   });
 
   const serviceLineData = await client.fetch(getServicesBySlugQuery, {

@@ -1,5 +1,7 @@
+import { SlugType } from "@/types/Slug";
+
 export interface ServiceType {
   title: string;
-  slug: string;
+  slug: SlugType;
   description: string;
 }

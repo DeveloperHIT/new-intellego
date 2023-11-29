@@ -32,7 +32,7 @@ export default function ServiceView({
             // TODO: This should say valuation, litigation support, etc.
             {
               name: serviceLineData.title,
-              href: `/services/${serviceLineData.slug}`,
+              href: `/services/${serviceLineData.slug.current}`,
             },
             { name: serviceData.title },
           ]}

@@ -4,19 +4,16 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { _socials } from "@/_mock";
 import Iconify from "@/components/Iconify";
-import {BlockContentType} from "@/types";
-
-interface ServiceType {
-  title: string;
-  description: BlockContentType;
-}
+import { ServiceType } from "@/types";
+import React from "react";
+import { EngagementType } from "@/types/Engagement";
 
 interface ServiceSummaryProps {
   serviceData: ServiceType;
 }
 
 export default function ServiceSummary({ serviceData }: ServiceSummaryProps) {
-  const { title } = serviceData;
+  const { title, summary, typicalEngagements } = serviceData;
 
   return (
     <Stack
@@ -30,7 +27,7 @@ export default function ServiceSummary({ serviceData }: ServiceSummaryProps) {
 
         <Typography variant="h6">{title}</Typography>
 
-        <Typography variant="body2">Add another text section to sanity for this</Typography>
+        <Typography variant="body2">{summary}</Typography>
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />
@@ -40,18 +37,11 @@ export default function ServiceSummary({ serviceData }: ServiceSummaryProps) {
           Typical Engagements
         </Typography>
 
-        {/*{serviceLineData.services?.map((service) => (*/}
-        {/*  <Link*/}
-        {/*    component={NextLink}*/}
-        {/*    key={service.title}*/}
-        {/*    variant="body2"*/}
-        {/*    color="inherit"*/}
-        {/*    // TODO: Fix dynamic href...see other pages for reference*/}
-        {/*    href={service.slug}*/}
-        {/*  >*/}
-        {/*    <Typography variant="body2">{service.title}</Typography>{" "}*/}
-        {/*  </Link>*/}
-        {/*))}*/}
+        {typicalEngagements?.map((engagement: EngagementType, index) => (
+          <Typography key={index} variant="body2">
+            {engagement.title}
+          </Typography>
+        ))}
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />

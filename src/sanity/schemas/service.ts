@@ -25,8 +25,13 @@ export default defineType({
       type: "blockContent",
     }),
     defineField({
-      name: "typicalEngagement",
-      title: "Typical Engagement",
+      name: "summary",
+      title: "Summary",
+      type: "text",
+    }),
+    defineField({
+      name: "typicalEngagements",
+      title: "Typical Engagements",
       type: "array",
       of: [{ type: "reference", to: [{ type: "engagement" }] }],
     }),

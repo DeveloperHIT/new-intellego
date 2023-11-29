@@ -5,15 +5,10 @@ import Grid from "@mui/material/Unstable_Grid2";
 import ServiceSummary from "@/sections/services/serviceSummary";
 import Typography from "@mui/material/Typography";
 import { PortableText } from "@portabletext/react";
-import { BlockContentType, ServiceLineType } from "@/types";
-
-interface ServiceData {
-  title: string;
-  description: BlockContentType;
-}
+import { ServiceLineType, ServiceType } from "@/types";
 
 interface ServiceViewProps {
-  serviceData: ServiceData;
+  serviceData: ServiceType;
   serviceLineData: ServiceLineType;
 }
 

@@ -21,7 +21,6 @@ export default function ServiceLinesView({
 
   return (
     <>
-      {/* TODO: Maybe just map array of service types instead of using page description on services page */}
       <ServicesSection
         buttonText={buttonText}
         pageDescription={pageDescription}

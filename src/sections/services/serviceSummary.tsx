@@ -6,14 +6,13 @@ import { _socials } from "@/_mock";
 import Iconify from "@/components/Iconify";
 import { ServiceType } from "@/types";
 import React from "react";
-import { EngagementType } from "@/types/Engagement";
 
 interface ServiceSummaryProps {
   serviceData: ServiceType;
 }
 
 export default function ServiceSummary({ serviceData }: ServiceSummaryProps) {
-  const { title, summary, typicalEngagements } = serviceData;
+  const { title } = serviceData;
 
   return (
     <Stack
@@ -27,7 +26,7 @@ export default function ServiceSummary({ serviceData }: ServiceSummaryProps) {
 
         <Typography variant="h6">{title}</Typography>
 
-        <Typography variant="body2">{summary}</Typography>
+        {/*<Typography variant="body2">{summary}</Typography>*/}
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />
@@ -37,11 +36,11 @@ export default function ServiceSummary({ serviceData }: ServiceSummaryProps) {
           Typical Engagements
         </Typography>
 
-        {typicalEngagements?.map((engagement: EngagementType, index) => (
-          <Typography key={index} variant="body2">
-            {engagement.title}
-          </Typography>
-        ))}
+        {/*{typicalEngagements?.map((engagement: EngagementType, index) => (*/}
+        {/*  <Typography key={index} variant="body2">*/}
+        {/*    {engagement.title}*/}
+        {/*  </Typography>*/}
+        {/*))}*/}
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />

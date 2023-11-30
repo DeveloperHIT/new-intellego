@@ -24,7 +24,7 @@ export const getCategoryRelatedPostQuery = groq`*[_type == "post" && $slug in ca
     publishedAt,
 }`;
 
-// ======================== Contact Us Page =======================
+// ======================== Contact Us Sectors =======================
 export const getContactUsPageQuery = groq`*[_type == "contact"]{
   pageTitle,
   pageDescription,
@@ -43,7 +43,7 @@ export const getContactUsPageQuery = groq`*[_type == "contact"]{
   }
 }`;
 
-// ======================== Clients Page ================================
+// ======================== Clients Sectors ================================
 
 export const getClientsPageQuery = groq`*[_type == "clients"]{
   buttonText,

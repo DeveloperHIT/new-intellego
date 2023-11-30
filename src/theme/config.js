@@ -3,5 +3,5 @@ export const navConfig = [
   { title: "Careers", path: "/careers" },
   { title: "Clients", path: "/clients" },
   { title: "Insights", path: "/insights" },
-  { title: "Services", path: "/services" },
+  { title: "Services", path: "/sectors" },
 ];

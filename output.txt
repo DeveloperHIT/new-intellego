@@ -299,8 +299,8 @@
 |  |  |  ├── insightItemCarousel.tsx
 |  |  |  └── recentInsights.tsx
 |  |  ├── services
-|  |  |  ├── serviceLineSummary.tsx
-|  |  |  └── servicesSection.tsx
+|  |  |  ├── sectorSummary.tsx
+|  |  |  └── sectorsSection.tsx
 |  |  └── view
 |  |     ├── aboutView.js
 |  |     ├── careersView.tsx
@@ -312,9 +312,9 @@
 |  |     ├── insightsView.tsx
 |  |     ├── landingView.tsx
 |  |     ├── searchView.tsx
-|  |     ├── serviceLineView.tsx
-|  |     ├── serviceLinesView.tsx
-|  |     └── serviceView.tsx
+|  |     ├── sectorView.tsx
+|  |     ├── sectorsView.tsx
+|  |     └── serviceLineView.tsx
 |  ├── theme
 |  |  ├── components
 |  |  |  ├── accordion.ts

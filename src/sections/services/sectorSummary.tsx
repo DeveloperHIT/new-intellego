@@ -5,15 +5,15 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { _socials } from "@/_mock";
 import Iconify from "@/components/Iconify";
-import { ServiceLineType } from "@/types";
+import { SectorType } from "@/types/Sector";
+import { PortableText } from "@portabletext/react";
 
-interface ServiceLineSummaryProps {
-  serviceLineData: ServiceLineType;
+interface SectorSummaryProps {
+  sector: SectorType;
 }
 
-export default function ServiceLineSummary({
-  serviceLineData,
-}: ServiceLineSummaryProps) {
+// TODO: Turn this into a reusable component
+export default function SectorSummary({ sector }: SectorSummaryProps) {
   return (
     <Stack
       spacing={3}
@@ -24,26 +24,26 @@ export default function ServiceLineSummary({
           summary
         </Typography>
 
-        <Typography variant="h6">{serviceLineData.title}</Typography>
+        <Typography variant="h6">{sector.title}</Typography>
 
-        <Typography variant="body2">{serviceLineData.description}</Typography>
+        <PortableText value={sector.description} />
       </Stack>
 
       <Divider sx={{ borderStyle: "dashed" }} />
 
       <Stack spacing={1}>
         <Typography variant="overline" sx={{ color: "text.disabled" }}>
-          {serviceLineData.title} Services
+          {sector.title} Services
         </Typography>
 
-        {serviceLineData.services?.map((service) => (
+        {sector.serviceLines.map((serviceLine) => (
           <Link
-            key={service.title}
+            key={serviceLine.title}
             variant="body2"
             color="inherit"
-            href={`/services/${serviceLineData.slug.current}/${service.slug.current}`}
+            href={`/services/${sector.slug}/${serviceLine.slug.current}`}
           >
-            <Typography variant="body2">{service.title}</Typography>{" "}
+            <Typography variant="body2">{serviceLine.title}</Typography>{" "}
           </Link>
         ))}
       </Stack>

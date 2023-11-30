@@ -4,21 +4,21 @@ import image from "@/sanity/schemas/imageType";
 
 export default defineType({
   name: "landing",
-  title: "Landing Page",
+  title: "Landing Sectors",
   type: "document",
   icon: Newspaper,
   fields: [
     defineField({
       name: "pageTitle",
-      title: "Page Title",
+      title: "Sectors Title",
       type: "string",
-      description: "Page title for slug purposes",
+      description: "Sectors title for slug purposes",
     }),
     defineField({
       name: "pageDescription",
-      title: "Page Description",
+      title: "Sectors Description",
       type: "string",
-      description: "Page description for SEO purposes",
+      description: "Sectors description for SEO purposes",
     }),
     defineField({
       name: "heroImage",

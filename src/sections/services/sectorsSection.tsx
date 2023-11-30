@@ -5,26 +5,18 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
-
 import Iconify from "@/components/Iconify";
 import TextMaxLine from "@/components/TextMaxLine";
 import CustomBreadcrumbs from "@/components/CustomBreadcrumbs";
 import Link from "@mui/material/Link";
-import { ServiceLineType, ServiceType } from "@/types";
+import { SectorType } from "@/types/Sector";
+import { ServiceLineType } from "@/types";
 
-interface ServicesSectionProps {
-  buttonText: string;
-  pageDescription: string;
-  pageTitle: string;
-  serviceLines: ServiceLineType[];
+interface SectorsSectionProps {
+  sectors: SectorType[];
 }
 
-export default function ServicesSection({
-  buttonText,
-  pageDescription,
-  pageTitle,
-  serviceLines,
-}: ServicesSectionProps) {
+export default function SectorsSection({ sectors }: SectorsSectionProps) {
   return (
     <Box
       sx={{
@@ -38,7 +30,7 @@ export default function ServicesSection({
           sx={{ my: 3 }}
           links={[
             { name: "Home", href: "/" },
-            { name: "Services", href: "/services" },
+            { name: "Sectors", href: "/sectors" },
           ]}
         />
         <Grid
@@ -53,10 +45,10 @@ export default function ServicesSection({
               textAlign: { xs: "center", lg: "unset" },
             }}
           >
-            <Typography variant="h2">{pageTitle}</Typography>
+            <Typography variant="h2">Sectors</Typography>
 
             <Typography sx={{ color: "text.secondary", mt: 2, mb: 5 }}>
-              {pageDescription}
+              [Add description here]
             </Typography>
 
             <Button
@@ -65,7 +57,7 @@ export default function ServicesSection({
               color="inherit"
               endIcon={<Iconify icon="carbon:chevron-right" />}
             >
-              {buttonText}
+              Get Started
             </Button>
           </Grid>
 
@@ -80,12 +72,12 @@ export default function ServicesSection({
                 },
               }}
             >
-              {serviceLines.map((serviceLine, index) => (
+              {sectors.map((sector, index) => (
                 <CategoryItem
                   key={index}
-                  category={serviceLine.title}
-                  slug={serviceLine.slug.current}
-                  services={serviceLine.services}
+                  category={sector.title}
+                  slug={sector.slug.current}
+                  serviceLines={sector.serviceLines}
                 />
               ))}
             </Box>
@@ -98,13 +90,13 @@ export default function ServicesSection({
 
 interface CategoryItemProps {
   category: string;
-  services?: ServiceType[];
+  serviceLines?: ServiceLineType[];
   slug: string;
 }
 
-function CategoryItem({ category, services, slug }: CategoryItemProps) {
+function CategoryItem({ category, serviceLines, slug }: CategoryItemProps) {
   return (
-    <Link href={`/services/${slug}`} underline="none">
+    <Link href={`/sectors/${slug}`} underline="none">
       <Paper
         variant="outlined"
         sx={{
@@ -126,24 +118,24 @@ function CategoryItem({ category, services, slug }: CategoryItemProps) {
           },
         }}
       >
-        <Link href={`/services/${slug}`}>
+        <Link href={`/sectors/${slug}`}>
           <TextMaxLine variant="body1" line={2} sx={{ color: "common.black" }}>
             {category}
           </TextMaxLine>
         </Link>
 
-        {services && services.length > 0 ? (
+        {serviceLines && serviceLines.length > 0 ? (
           <Typography variant="body2" sx={{ mt: 1 }}>
-            {services.map((service, index) => (
+            {serviceLines.map((serviceLine, index) => (
               <React.Fragment key={index}>
                 <Link
-                  href={`/services/${slug}/${service.slug.current}`}
+                  href={`/sectors/${slug}/${serviceLine.slug}`}
                   // underline="none"
                   sx={{ color: "text.disabled" }}
                 >
-                  {service.title}
+                  {serviceLine.title}
                 </Link>
-                {index < services.length - 1 && ", "}
+                {/*{index < sector.length - 1 && ", "}*/}
               </React.Fragment>
             ))}
           </Typography>

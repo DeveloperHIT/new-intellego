@@ -5,7 +5,7 @@ import { pageDescriptionField } from "@/sanity/schemas/pageDescriptionField";
 
 export default defineType({
   name: "contact",
-  title: "Contact Page",
+  title: "Contact Sectors",
   type: "document",
   icon: Email,
   fields: [

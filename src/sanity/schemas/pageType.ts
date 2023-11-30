@@ -10,7 +10,7 @@ export const pageType = defineType({
     defineField({
       name: "pageBuilder",
       type: "array",
-      title: "Page builder",
+      title: "Sectors builder",
       of: [
         defineArrayMember({
           name: "hero",

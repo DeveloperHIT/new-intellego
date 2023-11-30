@@ -41,6 +41,7 @@ import { imageGalleryType } from "@/sanity/schemas/imageGallery";
 import settings from "@/sanity/schemas/singletons/settings";
 import image from "@/sanity/schemas/imageType";
 import engagement from "@/sanity/schemas/engagement";
+import sector from "@/sanity/schemas/sector";
 
 export const index: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -52,6 +53,7 @@ export const index: { types: SchemaTypeDefinition[] } = {
     contact,
     engagement,
     landing,
+    sector,
     service,
     serviceLine,
     services,

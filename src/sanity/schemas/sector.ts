@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-  name: "serviceLine",
-  title: "Service Line",
+  name: "sector",
+  title: "Sector",
   type: "document",
   fields: [
     defineField({
@@ -32,13 +32,13 @@ export default defineType({
     defineField({
       name: "representativeEngagements",
       title: "Representative Engagements",
-      type: "blockContent",
+      type: "text",
     }),
     defineField({
-      name: "services",
-      title: "Services Included",
+      name: "serviceLines",
+      title: "Service Lines",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "service" }] }],
+      of: [{ type: "reference", to: [{ type: "serviceLine" }] }],
     }),
   ],
 });

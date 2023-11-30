@@ -6,7 +6,7 @@ import { buttonTextField } from "@/sanity/schemas/buttonTextField";
 
 export default defineType({
   name: "services",
-  title: "Services Page",
+  title: "Services Sectors",
   type: "document",
   icon: Folder,
   fields: [pageTitleField, pageDescriptionField, buttonTextField],

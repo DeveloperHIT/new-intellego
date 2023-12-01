@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 
-export const getSectorsQuery = groq`*[_type == "sector"]{
+export const getSectorsQuery = groq`*[_type == "sector"] | order(title asc) {
     title,
     slug,
     description,
@@ -16,8 +16,8 @@ export const getSectorsQuery = groq`*[_type == "sector"]{
             title,
             slug,
             description
-        }
-    }
+        } 
+    } | order(title asc)
 }`;
 
 export const getSectorQuery = groq`*[_type == "sector" && slug.current == $slug][0]{
@@ -32,12 +32,12 @@ export const getSectorQuery = groq`*[_type == "sector" && slug.current == $slug]
         description,
         clients,
         representativeEngagements,
-        "services": services[]->{
+        "services": services[] ->{
             title,
             slug,
             description,
             clients,
             representativeEngagements,
-        }
-    }
+        } | order(title asc)
+    } 
 }`;

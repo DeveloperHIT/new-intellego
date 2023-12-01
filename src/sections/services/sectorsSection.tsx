@@ -126,18 +126,20 @@ function CategoryItem({ category, serviceLines, slug }: CategoryItemProps) {
 
         {serviceLines && serviceLines.length > 0 ? (
           <Typography variant="body2" sx={{ mt: 1 }}>
-            {serviceLines.map((serviceLine, index) => (
-              <React.Fragment key={index}>
-                <Link
-                  href={`/sectors/${slug}/${serviceLine.slug}`}
-                  // underline="none"
-                  sx={{ color: "text.disabled" }}
-                >
-                  {serviceLine.title}
-                </Link>
-                {/*{index < sector.length - 1 && ", "}*/}
-              </React.Fragment>
-            ))}
+            {serviceLines.map((serviceLine, index) => {
+              const serviceLineTitle = serviceLine.title.split(" - ")[0];
+              return (
+                <Box key={index}>
+                  <Link
+                    href={`/sectors/${slug}/${serviceLine.slug}`}
+                    // underline="none"
+                    sx={{ color: "text.disabled" }}
+                  >
+                    {serviceLineTitle}
+                  </Link>
+                </Box>
+              );
+            })}
           </Typography>
         ) : null}
       </Paper>

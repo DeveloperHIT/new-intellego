@@ -11,5 +11,7 @@ export default async function Sector(props: Props) {
     slug: props.params.sectorSlug,
   });
 
+  console.log(sector);
+
   return <SectorView sector={sector} />;
 }

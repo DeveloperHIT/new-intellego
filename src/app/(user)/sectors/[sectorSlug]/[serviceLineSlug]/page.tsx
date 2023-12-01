@@ -22,6 +22,7 @@ export default async function ServiceLine(props: Props) {
   });
 
   console.log(serviceLine);
+  console.log(sector);
 
   return <ServiceLineView sector={sector} serviceLine={serviceLine} />;
 }

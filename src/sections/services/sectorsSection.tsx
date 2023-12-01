@@ -76,7 +76,7 @@ export default function SectorsSection({ sectors }: SectorsSectionProps) {
                 <CategoryItem
                   key={index}
                   category={sector.title}
-                  slug={sector.slug.current}
+                  slug={sector.slug}
                   serviceLines={sector.serviceLines}
                 />
               ))}

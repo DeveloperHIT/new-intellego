@@ -1,30 +1,27 @@
-// import ServiceLineView from "@/sections/view/serviceLineView";
+import ServiceLineView from "@/sections/view/serviceLineView";
 // import {
 //   getServiceBySlugQuery,
 //   getServicesBySlugQuery,
 // } from "@/sanity/lib/queries";
 // import { client } from "@/sanity/lib/client";
 
-// type Props = {
-//   params: { serviceLineSlug: string; serviceSlug: string };
-// };
+import { client } from "@/sanity/lib/client";
+import { queries } from "@/sanity/queries";
 
-export default async function ServiceLine() {
-  // const serviceData = await client.fetch(getServiceBySlugQuery, {
-  //   slug: props.params.serviceSlug,
-  // });
-  //
-  // const serviceLineData = await client.fetch(getServicesBySlugQuery, {
-  //   slug: props.params.serviceLineSlug,
-  // });
+type Props = {
+  params: { serviceLineSlug: string; sectorSlug: string };
+};
 
-  // const serviceLines = await client.fetch(getServiceLinesBySectorQuery);
+export default async function ServiceLine(props: Props) {
+  const sector = await client.fetch(queries.getSectorQuery, {
+    slug: props.params.sectorSlug,
+  });
 
-  return (
-    <>Service Line</>
-    // <ServiceLineView
-    //   // serviceData={serviceData}
-    //   // serviceLines={serviceLines}
-    // />
-  );
+  const serviceLine = await client.fetch(queries.getServiceLineQuery, {
+    slug: props.params.serviceLineSlug,
+  });
+
+  console.log(serviceLine);
+
+  return <ServiceLineView sector={sector} serviceLine={serviceLine} />;
 }

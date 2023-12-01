@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 
 export const getSectorsQuery = groq`*[_type == "sector"] | order(title asc) {
     title,
-    slug,
+    "slug": slug.current,
     description,
     clients,
     representativeEngagements,
@@ -22,7 +22,7 @@ export const getSectorsQuery = groq`*[_type == "sector"] | order(title asc) {
 
 export const getSectorQuery = groq`*[_type == "sector" && slug.current == $slug][0]{
     title,
-    slug,
+    "slug": slug.current,
     description,
     clients,
     representativeEngagements,
@@ -34,10 +34,10 @@ export const getSectorQuery = groq`*[_type == "sector" && slug.current == $slug]
         representativeEngagements,
         "services": services[] ->{
             title,
-            slug,
+            "slug": slug.current,
             description,
             clients,
             representativeEngagements,
         } | order(title asc)
-    } 
+    } | order(title asc)
 }`;

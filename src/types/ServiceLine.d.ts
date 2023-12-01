@@ -1,8 +1,8 @@
-import { BlockContentType, ServiceType, SlugType } from "@/types";
+import { BlockContentType, ServiceType } from "@/types";
 
 export interface ServiceLineType {
   title: string;
-  slug: SlugType;
+  slug: string;
   description: BlockContentType;
   clients: BlockContentType;
   representativeEngagements: BlockContentType;

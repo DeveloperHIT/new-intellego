@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { _socials } from "@/_mock";
 import Iconify from "@/components/Iconify";
 import { SectorType } from "@/types/Sector";
-import { PortableText } from "@portabletext/react";
+// import { PortableText } from "@portabletext/react";
 
 interface SectorSummaryProps {
   sector: SectorType;
@@ -26,30 +26,31 @@ export default function SectorSummary({ sector }: SectorSummaryProps) {
 
         <Typography variant="h6">{sector.title}</Typography>
 
-        <PortableText value={sector.description} />
+        {/*<PortableText value={sector.description} />*/}
       </Stack>
-
       <Divider sx={{ borderStyle: "dashed" }} />
-
       <Stack spacing={1}>
         <Typography variant="overline" sx={{ color: "text.disabled" }}>
           {sector.title} Services
         </Typography>
 
-        {sector.serviceLines.map((serviceLine) => (
-          <Link
-            key={serviceLine.title}
-            variant="body2"
-            color="inherit"
-            href={`/services/${sector.slug}/${serviceLine.slug.current}`}
-          >
-            <Typography variant="body2">{serviceLine.title}</Typography>{" "}
-          </Link>
-        ))}
+        {sector.serviceLines.map((serviceLine) => {
+          // Remove sector name after hyphen
+          const serviceLineTitle = serviceLine.title.split(" - ")[0];
+          return (
+            <Link
+              key={serviceLine.title}
+              variant="body2"
+              color="inherit"
+              href={`/services/${sector.slug}/${serviceLine.slug.current}`}
+            >
+              <Typography variant="body2">{serviceLineTitle}</Typography>{" "}
+            </Link>
+          );
+        })}
       </Stack>
-
+      {/* TODO: Add reference to relevant insights */}
       <Divider sx={{ borderStyle: "dashed" }} />
-
       <Stack direction="row" alignItems="center" spacing={0.5}>
         <Typography variant="subtitle2">Share:</Typography>
 

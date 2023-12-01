@@ -39,5 +39,5 @@ export const getSectorQuery = groq`*[_type == "sector" && slug.current == $slug]
             clients,
             representativeEngagements,
         } | order(title asc)
-    } 
+    } | order(title asc)
 }`;
